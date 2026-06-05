@@ -37,6 +37,30 @@ export function initForms() {
       const hp = form.querySelector<HTMLInputElement>('[name="website"]');
       if (hp && hp.value) return;
 
+      const requiredFields = form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[required]');
+      let firstInvalid: HTMLElement | null = null;
+      const missingLabels: string[] = [];
+      requiredFields.forEach((field) => {
+        field.classList.remove('field-error');
+        if (!field.value.trim()) {
+          field.classList.add('field-error');
+          if (!firstInvalid) firstInvalid = field;
+          const label = field.id
+            ? form.querySelector<HTMLLabelElement>(`label[for="${field.id}"]`)?.textContent?.trim()
+            : null;
+          missingLabels.push(label || field.name);
+        }
+      });
+      if (firstInvalid) {
+        const validationMsg = form.querySelector<HTMLElement>('.form-error');
+        if (validationMsg) {
+          validationMsg.innerHTML = `Por favor, preencha os campos obrigatórios: <strong>${missingLabels.join(', ')}</strong>.`;
+          validationMsg.style.display = 'block';
+        }
+        (firstInvalid as HTMLElement).focus();
+        return;
+      }
+
       const submitBtn  = form.querySelector<HTMLButtonElement>('.form-submit, [type="submit"]');
       const btnText    = submitBtn?.querySelector<HTMLElement>('.btn-text');
       const btnLoading = submitBtn?.querySelector<HTMLElement>('.btn-loading');

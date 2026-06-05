@@ -59,7 +59,7 @@ import "../styles/index.css";
       <span class="proof-label">de espaço exclusivo</span>
     </div>
     <div class="proof-item reveal">
-      <span class="proof-num">300</span>
+      <span class="proof-num">250</span>
       <span class="proof-label">convidados</span>
     </div>
     <div class="proof-item reveal">
@@ -71,12 +71,11 @@ import "../styles/index.css";
   <!-- SOBRE -->
   <section class="sobre">
     <div class="sobre-visual reveal">
-      <Video
-        src="/sobre.mp4"
-        poster="/poster-sobre.avif"
-        title="Casa Maria Jardins — conheça o espaço"
-        description="Vídeo de apresentação do espaço Casa Maria Jardins no Jardim Paulista, São Paulo."
-        uploadDate="2025-01-01"
+      <Img
+        src="sobre-espaco.jpg"
+        alt="Espaço Casa Maria Jardins"
+        width={900}
+        priority
         class="sobre-video"
       />
       <div class="sobre-accent"></div>
@@ -114,7 +113,7 @@ import "../styles/index.css";
     />
     <p class="section-overline reveal">Celebrações</p>
     <h2 class="section-h2 reveal">
-      Diferentes formas de celebrar.<br />A mesma essência exclusiva.
+      Diferentes formas de celebrar.<br />A mesma <em style="font-style:italic">essência</em> exclusiva.
     </h2>
     <p class="section-p reveal">
       Cada casamento encontra sua própria forma de acontecer, sempre com a
@@ -257,7 +256,7 @@ import "../styles/index.css";
       <div>
         <p class="section-overline">Depoimentos</p>
         <h2 class="section-h2">
-          Histórias que mostram como cada celebração ganha vida de forma única
+          Histórias que mostram como cada celebração<br />ganha vida de forma única
         </h2>
       </div>
       <p>
@@ -323,7 +322,6 @@ import "../styles/index.css";
           Celebrações que valorizam exclusividade e significado
         </h2>
       </div>
-      <a href="#contato" class="galeria-link">Ver todas as fotos</a>
     </div>
     <div class="galeria-strip reveal">
       <div class="gal-item">
@@ -348,9 +346,6 @@ import "../styles/index.css";
         <Img src="galeria-08.jpg" alt="Espaço Casa Maria" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-09.jpg" alt="Espaço Casa Maria" width={700} />
-      </div>
-      <div class="gal-item">
         <Img src="galeria-10.jpg" alt="Espaço Casa Maria" width={700} />
       </div>
       <div class="gal-item">
@@ -364,7 +359,7 @@ import "../styles/index.css";
     <div class="contato-left">
       <p class="section-overline reveal">Contato</p>
       <h2 class="section-h2 reveal">
-        Planeje um casamento à altura da sua história
+        Planeje um casamento<br />à altura da sua história
       </h2>
       <p class="section-p reveal">
         Preencha seus dados e receba um orçamento personalizado para o dia mais
@@ -486,7 +481,7 @@ import "../styles/index.css";
     <div>
       <p class="section-overline reveal">Como nos Encontrar</p>
       <h2 class="section-h2 reveal">
-        A praticidade de São Paulo com atmosfera de refúgio
+        A praticidade de São Paulo<br />com atmosfera de refúgio
       </h2>
       <div class="loc-address reveal">
         Praça das Guianas, 82<br />
@@ -531,6 +526,12 @@ import "../styles/index.css";
         src="logo-branca.png"
         alt="Casa Maria Jardins"
         width={120}
+        class="footer-logo-img"
+      />
+      <Img
+        src="maria_logosrodape.avif"
+        alt=""
+        width={280}
         class="footer-logo-img"
       />
     </div>
