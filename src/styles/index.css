@@ -1149,9 +1149,9 @@ footer {
   }
 
   .sobre-accent {
-    right: 0;
+    right: -0.5rem;
     bottom: -0.75rem;
-    width: min(270px, 90%);
+    width: min(300px, 90%);
   }
 
   /* Formulário */
