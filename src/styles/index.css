@@ -1114,6 +1114,11 @@ footer {
 
   .loc-address {
     text-align: center;
+    margin-top: 1.25rem;
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(232, 220, 200, 0.2);
+    padding-top: 1.25rem;
   }
 
   /* Grids → coluna única */
