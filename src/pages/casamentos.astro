@@ -1,0 +1,659 @@
+---
+import Base from "../layouts/Base.astro";
+import config from "../../config.json";
+import Img from "../components/ui/Img.astro";
+import Video from "../components/ui/Video.astro";
+import StaticMap from "../components/ui/StaticMap.astro";
+import "../styles/casamentos.css";
+---
+
+<Base title="Casa Maria Jardins — Casamentos" ogImage="/images/og-index.jpg">
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Start VWO Async SmartCode -->
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com"/>
+    <script type='text/javascript' id="vwoCode">
+window._vwo_code ||
+(function () {
+var w=window,
+d=document;
+var account_id=1142378,
+version=2.2,
+settings_tolerance=2000,
+hide_element='body',
+hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important';
+/* DO NOT EDIT BELOW THIS LINE */
+var f=0, v;
+if(f=!1,v=d.querySelector('#vwoCode'),cc={},-1<d.URL.indexOf('__vwo_disable__')||w.vwo_code)return;try{var e=JSON.parse(localStorage.getItem('_vwo'+account_id+'config'));cc=e&&'object'==typeof e?e:{}}catch(e){}function r(t){try{return decodeURIComponent(t)}catch(e){return t}}var s=function(){var e={combination:[],combinationChoose:[],split:[],exclude:[],uuid:null,consent:null,optOut:null},t=d.cookie||'';if(!t)return e;for(var n,i,o=/(?:^|;\s*)(?:(_vis_opt_exp(\d+)combi=([^;]))|(_vis_opt_exp(\d+)combi_choose=([^;]))|(_vis_opt_exp(\d+)split=([^:;]))|(_vis_opt_exp(\d+)_exclude=[^;])|(_vis_opt_out=([^;]))|(_vwo_global_opt_out=[^;])|(_vwo_uuid=([^;]))|(_vwo_consent=([^;])))/g;null!==(n=o.exec(t));)try{n[1]?e.combination.push({id:n[2],value:r(n[3])}):n[4]?e.combinationChoose.push({id:n[5],value:r(n[6])}):n[7]?e.split.push({id:n[8],value:r(n[9])}):n[10]?e.exclude.push({id:n[11]}):n[12]?e.optOut=r(n[13]):n[14]?e.optOut=!0:n[15]?e.uuid=r(n[16]):n[17]&&(i=r(n[18]),e.consent=i&&3<=i.length?i.substring(0,3):null)}catch(e){}return e}();function i(){var e=function(){if(w.VWO&&Array.isArray(w.VWO))for(var e=0;e<w.VWO.length;e++){var t=w.VWO[e];if(Array.isArray(t)&&('setVisitorId'===t[0]||'setSessionId'===t[0]))return!0}return!1}(),t='a='+account_id+'&u='+encodeURIComponent(w._vis_opt_url||d.URL)+'&vn='+version+'&ph=1'+('undefined'!=typeof platform?'&p='+platform:'')+'&st='+w.performance.now();e||((n=function(){var e,t=[],n={},i=w.VWO&&w.VWO.appliedCampaigns||{};for(e in i){var o=i[e]&&i[e].v;o&&(t.push(e+'-'+o+'-1'),n[e]=!0)}if(s&&s.combination)for(var r=0;r<s.combination.length;r++){var a=s.combination[r];n[a.id]||t.push(a.id+'-'+a.value)}return t.join('|')}())&&(t+='&c='+n),(n=function(){var e=[],t={};if(s&&s.combinationChoose)for(var n=0;n<s.combinationChoose.length;n++){var i=s.combinationChoose[n];e.push(i.id+'-'+i.value),t[i.id]=!0}if(s&&s.split)for(var o=0;o<s.split.length;o++)t[(i=s.split[o]).id]||e.push(i.id+'-'+i.value);return e.join('|')}())&&(t+='&cc='+n),(n=function(){var e={},t=[];if(w.VWO&&Array.isArray(w.VWO))for(var n=0;n<w.VWO.length;n++){var i=w.VWO[n];if(Array.isArray(i)&&'setVariation'===i[0]&&i[1]&&Array.isArray(i[1]))for(var o=0;o<i[1].length;o++){var r,a=i[1][o];a&&'object'==typeof a&&(r=a.e,a=a.v,r&&a&&(e[r]=a))}}for(r in e)t.push(r+'-'+e[r]);return t.join('|')}())&&(t+='&sv='+n)),s&&s.optOut&&(t+='&o='+s.optOut);var n=function(){var e=[],t={};if(s&&s.exclude)for(var n=0;n<s.exclude.length;n++){var i=s.exclude[n];t[i.id]||(e.push(i.id),t[i.id]=!0)}return e.join('|')}();return n&&(t+='&e='+n),s&&s.uuid&&(t+='&id='+s.uuid),s&&s.consent&&(t+='&consent='+s.consent),w.name&&-1<w.name.indexOf('_vis_preview')&&(t+='&pM=true'),w.VWO&&w.VWO.ed&&(t+='&ed='+w.VWO.ed),t}code={script:v,nonce:v&&v.nonce,library_tolerance:function(){return'undefined'!=typeof library_tolerance?library_tolerance:void 0},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){return performance.getEntriesByName('first-contentful-paint')[0]?'':'string'==typeof cc.hE?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){var t;f||(f=!0,(t=d.getElementById('_vis_opt_path_hides'))&&t.parentNode.removeChild(t),e&&((new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e))},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript',e.src?t.src=e.src:t.text=e.text,v&&t.setAttribute('nonce',v.nonce),d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){t=t||{};var n=new XMLHttpRequest;n.open('GET',e,!0),n.withCredentials=!t.dSC,n.responseType=t.responseType||'text',n.onload=function(){if(t.onloadCb)return t.onloadCb(n,e);200===n.status?_vwo_code.addScript({text:n.responseText}):_vwo_code.finish('&e=loading_failure:'+e)},n.onerror=function(){if(t.onerrorCb)return t.onerrorCb(e);_vwo_code.finish('&e=loading_failure:'+e)},n.send()},init:function(){var e,t=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish()},t),'body'!==this.hide_element()?(n=d.createElement('style'),e=(t=this.hide_element())?t+this.hide_element_style():'',t=d.getElementsByTagName('head')[0],n.setAttribute('id','_vis_opt_path_hides'),v&&n.setAttribute('nonce',v.nonce),n.setAttribute('type','text/css'),n.styleSheet?n.styleSheet.cssText=e:n.appendChild(d.createTextNode(e)),t.appendChild(n)):(n=d.getElementsByTagName('head')[0],(e=d.createElement('div')).style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;',e.setAttribute('id','_vis_opt_path_hides'),e.classList.add('_vis_hide_layer'),n.parentNode.insertBefore(e,n.nextSibling));var n='https://dev.visualwebsiteoptimizer.com/j.php?'+i();-1!==w.location.search.indexOf('_vwo_xhr')?this.addScript({src:n}):this.load(n+'&x=true',{l:1})}};w._vwo_code=code;code.init();})();
+    </script>
+    <!-- End VWO Async SmartCode -->
+  </Fragment>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo">
+      <Img
+        src="logo-branca.png"
+        alt="Casa Maria Jardins"
+        width={140}
+        class="nav-logo-img"
+      />
+    </div>
+    <a href="#contato" class="nav-cta">Solicitar Orçamento</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <Img
+      src="hero.jpg"
+      alt="Casa Maria Jardins"
+      width={1920}
+      priority
+      class="hero-img"
+    />
+    <div class="hero-texture"></div>
+    <div class="hero-split">
+      <div class="hero-content">
+        <p class="hero-overline">Jardim Paulista · São Paulo</p>
+        <h1>
+          Uma casa em meio à cidade para celebrar de forma <em
+            >íntima, sofisticada</em
+          > e memorável
+        </h1>
+        <a href="#contato" class="btn-primary hero-cta-mobile">Solicite Orçamento</a>
+      </div>
+
+      <div class="hero-form-wrap">
+        <h3 class="form-title">Solicite seu orçamento</h3>
+        <form
+          data-form-id="hero-form"
+          data-submit-url={config.forms?.["lead-form"]?.webhooks?.[0]}
+          data-redirect={config.forms?.["lead-form"]?.redirect_on_success}
+          novalidate
+        >
+          <input
+            type="text"
+            name="website"
+            style="display:none"
+            tabindex="-1"
+            autocomplete="off"
+          />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="hf-nome">Nome</label>
+              <input
+                id="hf-nome"
+                type="text"
+                name="nome"
+                placeholder="Seu nome completo"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="hf-tel">WhatsApp</label>
+              <input
+                id="hf-tel"
+                type="tel"
+                name="telefone"
+                placeholder="(11) 90000-0000"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="hf-email">E-mail</label>
+            <input
+              id="hf-email"
+              type="email"
+              name="email"
+              placeholder="seu@email.com.br"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="hf-tipo">Tipo de evento</label>
+            <select id="hf-tipo" name="tipo_evento" required>
+              <option value="" disabled selected
+                >Selecione o tipo de evento</option
+              >
+              <option>Bodas</option>
+              <option>Casamento</option>
+              <option>Confraternização social</option>
+              <option>Outros</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="hf-data">Data do evento</label>
+              <input
+                id="hf-data"
+                type="text"
+                name="data_evento"
+                placeholder="dd/mm/aaaa"
+                readonly
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="hf-conv">Número de convidados</label>
+              <input
+                id="hf-conv"
+                type="number"
+                name="convidados"
+                placeholder="Quantidade estimada"
+                min="1"
+                required
+              />
+            </div>
+          </div>
+
+          <div
+            class="form-error"
+            style="display:none;color:#f5a9a9;font-size:0.8rem;margin-top:0.5rem"
+          >
+          </div>
+          <button type="submit" class="form-submit">Solicitar Orçamento</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <div class="proof-bar">
+    <div class="proof-item reveal">
+      <span class="proof-num">500m²</span>
+      <span class="proof-label">de espaço exclusivo</span>
+    </div>
+    <div class="proof-item reveal">
+      <span class="proof-num">250</span>
+      <span class="proof-label">convidados</span>
+    </div>
+    <div class="proof-item reveal">
+      <span class="proof-num">Jardins</span>
+      <span class="proof-label">localização nobre</span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="sobre">
+    <div class="sobre-visual reveal">
+      <Img
+        src="sobre-espaco.jpg"
+        alt="Espaço Casa Maria Jardins"
+        width={900}
+        priority
+        class="sobre-video"
+      />
+      <div class="sobre-accent"></div>
+    </div>
+    <div class="sobre-text">
+      <p class="section-overline reveal">O Espaço</p>
+      <h2 class="section-h2 reveal">
+        Alguns lugares recebem convidados.<br />Outros fazem todos se sentirem <em
+          style="font-style:italic">parte</em>
+      </h2>
+      <p class="section-p reveal">
+        A Casa Maria foi pensada para casais que valorizam presença, atmosfera e
+        conexão. Aqui, cada detalhe convida as pessoas a viverem o casamento com
+        calma, proximidade e autenticidade.
+      </p>
+      <p class="section-p reveal" style="margin-top: 1.2rem;">
+        Não existem fórmulas prontas. Cada celebração ganha ritmo, estética e
+        personalidade própria.
+      </p>
+    </div>
+  </section>
+
+  <!-- EVENTOS -->
+  <section class="eventos">
+    <Img
+      src="/images/placeholder.jpg"
+      alt=""
+      style="position:absolute;left:-20px;top:-20px;width:280px;opacity:0.2;pointer-events:none;mix-blend-mode:screen;object-fit:contain;"
+      priority
+    />
+    <Img
+      src="/images/placeholder.jpg"
+      alt=""
+      style="position:absolute;right:-20px;bottom:-20px;width:260px;opacity:0.16;pointer-events:none;mix-blend-mode:screen;object-fit:contain;transform:rotate(175deg) scaleX(-1);"
+    />
+    <p class="section-overline reveal">Celebrações</p>
+    <h2 class="section-h2 reveal">
+      Diferentes formas de celebrar.<br />A mesma <em style="font-style:italic">essência</em> exclusiva.
+    </h2>
+    <p class="section-p reveal">
+      Cada casamento encontra sua própria forma de acontecer, sempre com a
+      leveza e a elegância que definem a Casa Maria.
+    </p>
+
+    <div class="eventos-grid reveal">
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"
+            ><path
+              d="M12 21.7C12 21.7 3 15.5 3 9a9 9 0 0 1 18 0c0 6.5-9 12.7-9 12.7z"
+            ></path><circle cx="12" cy="9" r="3"></circle></svg
+          >
+        </div>
+        <span class="evento-name">Casamentos Intimistas</span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"
+            ><path
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+            ></path></svg
+          >
+        </div>
+        <span class="evento-name">Mini Weddings Sofisticados</span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"
+            ><path
+              d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+            ></path><path d="M8 12l3 3 5-5"></path></svg
+          >
+        </div>
+        <span class="evento-name">Celebração Civil</span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"
+            ><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+            ></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg
+          >
+        </div>
+        <span class="evento-name">Recepção Pós-cartório</span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"
+            ><path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+            ></path></svg
+          >
+        </div>
+        <span class="evento-name">Renovação de Votos</span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"
+            ><circle cx="12" cy="8" r="4"></circle><path
+              d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path></svg
+          >
+        </div>
+        <span class="evento-name">Ensaio Pré-wedding</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="diferenciais">
+    <div class="diferenciais-header reveal">
+      <div>
+        <p class="section-overline">Experiência</p>
+        <h2 class="section-h2">Excelência em<br />todos os detalhes</h2>
+      </div>
+    </div>
+
+    <div class="dif-grid">
+      <div class="dif-card reveal">
+        <span class="dif-num">01</span>
+        <div class="dif-img">
+          <Img
+            src="experiencia-gastronomica.jpg"
+            alt="Experiência Gastronômica"
+            width={600}
+          />
+        </div>
+        <h3 class="dif-title">Experiência Gastronômica</h3>
+        <p class="dif-p">
+          Menus personalizados e experiências gastronômicas alinhadas ao estilo
+          da celebração.
+        </p>
+      </div>
+      <div class="dif-card reveal">
+        <span class="dif-num">02</span>
+        <div class="dif-img">
+          <Img
+            src="curadoria-decoracao.jpg"
+            alt="Curadoria de Decoração"
+            width={600}
+          />
+        </div>
+        <h3 class="dif-title">Curadoria de Decoração</h3>
+        <p class="dif-p">
+          Uma ambientação delicadamente construída para refletir a essência da
+          cerimônia em cada detalhe.
+        </p>
+      </div>
+      <div class="dif-card reveal">
+        <span class="dif-num">03</span>
+        <div class="dif-img">
+          <Img
+            src="apoio-especializado.jpg"
+            alt="Apoio Especializado"
+            width={600}
+          />
+        </div>
+        <h3 class="dif-title">Apoio Especializado</h3>
+        <p class="dif-p">
+          Uma equipe preparada para acompanhar cada etapa da vivência com
+          atenção e cuidado.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos">
+    <Img
+      src="/images/placeholder.jpg"
+      alt=""
+      style="position:absolute;right:-20px;top:-20px;width:260px;opacity:0.18;pointer-events:none;mix-blend-mode:screen;object-fit:contain;transform:scaleX(-1);"
+    />
+    <div class="depo-header reveal">
+      <div>
+        <p class="section-overline">Depoimentos</p>
+        <h2 class="section-h2">
+          Histórias que mostram como cada celebração<br />ganha vida de forma única
+        </h2>
+      </div>
+      <p>
+        Vivências reais que traduzem a essência acolhedora, sofisticada e
+        exclusiva de cada celebração na Casa Maria.
+      </p>
+    </div>
+
+    <div class="depo-grid reveal">
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-quote">
+          Lugar incrível, luxo e exclusividade e localização perfeita no
+          Jardins.
+        </p>
+        <span class="depo-author">Bernardo Vettorazzi</span>
+      </div>
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-quote">
+          Lugar intimista e aconchegante. Ideal para festas pessoais.
+          Atendimento ótimo e serviço muito bem executado.
+        </p>
+        <span class="depo-author">Marcelo Vicentini</span>
+      </div>
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-quote">
+          Chique, espaçoso e bem organizado. Excelente atendimento.
+        </p>
+        <span class="depo-author">Rafael Augusto</span>
+      </div>
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-quote">
+          Espaço delicioso, sofisticado e com uma atmosfera única.
+        </p>
+        <span class="depo-author">Lupe Lima</span>
+      </div>
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-quote">
+          Excelente local. Recomendo para quem busca qualidade e exclusividade.
+        </p>
+        <span class="depo-author">Alexandre Souza</span>
+      </div>
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-quote">
+          Excelente atendimento. Um espaço que encanta em cada detalhe.
+        </p>
+        <span class="depo-author">Francisco Souza</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="galeria">
+    <div class="galeria-header reveal">
+      <div>
+        <p class="section-overline">Galeria</p>
+        <h2 class="section-h2">
+          Celebrações que valorizam exclusividade e significado
+        </h2>
+      </div>
+    </div>
+    <div class="galeria-strip reveal">
+      <div class="gal-item">
+        <Img src="galeria-04.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-02.avif" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-03.avif" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-05.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-06.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-07.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-08.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-10.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-11.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contato" id="contato">
+    <div class="contato-left">
+      <p class="section-overline reveal">Contato</p>
+      <h2 class="section-h2 reveal">
+        Planeje um casamento<br />à altura da sua história
+      </h2>
+      <p class="section-p reveal">
+        Preencha seus dados e receba um orçamento personalizado para o dia mais
+        especial da sua vida.
+      </p>
+      <div class="contato-detail reveal">
+        <div class="contato-detail-item">
+          <strong>Endereço</strong>
+          Praça das Guianas, 82 — Jardim Paulista, São Paulo — SP
+        </div>
+      </div>
+    </div>
+
+    <div class="form-wrap reveal">
+      <h3 class="form-title">Solicite seu orçamento</h3>
+      <form
+        data-form-id="lead-form"
+        data-submit-url={config.forms?.["lead-form"]?.webhooks?.[0]}
+        data-redirect={config.forms?.["lead-form"]?.redirect_on_success}
+        novalidate
+      >
+        <input
+          type="text"
+          name="website"
+          style="display:none"
+          tabindex="-1"
+          autocomplete="off"
+        />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-nome">Nome</label>
+            <input
+              id="f-nome"
+              type="text"
+              name="nome"
+              placeholder="Seu nome completo"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="f-tel">WhatsApp</label>
+            <input
+              id="f-tel"
+              type="tel"
+              name="telefone"
+              placeholder="(11) 90000-0000"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="f-email">E-mail</label>
+          <input
+            id="f-email"
+            type="email"
+            name="email"
+            placeholder="seu@email.com.br"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="f-tipo">Tipo de evento</label>
+          <select id="f-tipo" name="tipo_evento" required>
+            <option value="" disabled selected
+              >Selecione o tipo de evento</option
+            >
+            <option>Bodas</option>
+            <option>Casamento</option>
+            <option>Confraternização social</option>
+            <option>Outros</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-data">Data do evento</label>
+            <input
+              id="f-data"
+              type="text"
+              name="data_evento"
+              placeholder="dd/mm/aaaa"
+              readonly
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="f-conv">Número de convidados</label>
+            <input
+              id="f-conv"
+              type="number"
+              name="convidados"
+              placeholder="Quantidade estimada"
+              min="1"
+              required
+            />
+          </div>
+        </div>
+
+        <div
+          class="form-error"
+          style="display:none;color:#c0392b;font-size:0.8rem;margin-top:0.5rem"
+        >
+        </div>
+        <button type="submit" class="form-submit">Solicitar Orçamento</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section class="localizacao">
+    <Img
+      src="/images/placeholder.jpg"
+      alt=""
+      style="position:absolute;left:-20px;bottom:-20px;width:240px;opacity:0.18;pointer-events:none;mix-blend-mode:screen;object-fit:contain;transform:rotate(180deg);"
+    />
+    <div>
+      <p class="section-overline reveal">Como nos Encontrar</p>
+      <h2 class="section-h2 reveal">
+        A praticidade de São Paulo<br />com atmosfera de refúgio
+      </h2>
+      <div class="loc-address reveal">
+        Praça das Guianas, 82 — Jardim Paulista<br />
+        São Paulo · SP · 01428-030
+      </div>
+    </div>
+    <div class="map-wrap reveal">
+      <StaticMap
+        src="https://maps.google.com/maps?q=Pra%C3%A7a+das+Guianas%2C+82%2C+Jardim+Paulista%2C+S%C3%A3o+Paulo%2C+SP&output=embed&z=17"
+        height={420}
+      />
+      <a
+        class="map-link"
+        href="https://maps.google.com/?q=Praça+das+Guianas,82,Jardim+Paulista,São+Paulo"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+          ></path><polyline points="15 3 21 3 21 9"></polyline><line
+            x1="10"
+            y1="14"
+            x2="21"
+            y2="3"></line></svg
+        >
+        Abrir no Google Maps
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <Img
+        src="logo-branca.png"
+        alt="Casa Maria Jardins"
+        width={120}
+        class="footer-logo-img"
+      />
+      <Img
+        src="maria_logosrodape.avif"
+        alt=""
+        width={280}
+        class="footer-logo-img"
+      />
+    </div>
+    <p class="footer-copy">
+      © 2025 Casa Maria Jardins. Todos os direitos reservados.
+    </p>
+  </footer>
+</Base>
+<script>
+  import "../scripts/index.js";
+</script>
