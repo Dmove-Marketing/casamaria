@@ -68,12 +68,12 @@ nav.scrolled {
 }
 
 .nav-logo-img {
-  height: 40px;
+  height: 56px;
   width: auto;
 }
 
 .nav-logo-img img {
-  height: 40px;
+  height: 56px;
   width: auto;
   object-fit: contain;
 }
@@ -1011,6 +1011,12 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+
+  .nav-logo-img,
+  .nav-logo-img img {
+    height: 48px;
+  }
+
 
   /* Nav */
   nav {

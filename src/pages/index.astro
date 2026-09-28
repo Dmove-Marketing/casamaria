@@ -23,7 +23,7 @@ import "../styles/index.css";
       <Img
         src="logo-branca.png"
         alt="Casa Maria Jardins"
-        width={140}
+        width={280}
         class="nav-logo-img"
       />
     </div>
@@ -42,11 +42,11 @@ import "../styles/index.css";
     />
     <div class="hero-texture"></div>
     <div class="hero-content">
-      <p class="hero-overline">Jardim Paulista · São Paulo</p>
+      <p class="hero-overline">Casamentos • Eventos sociais</p>
       <h1>
-        Uma casa em meio à cidade para celebrar de forma <em
-          >íntima, sofisticada</em
-        > e memorável
+        Uma casa em meio à cidade<br class="br-desk" /> para celebrar de forma<br
+          class="br-desk"
+        /> <span class="h1-last"><em>íntima, sofisticada e memorável</em></span>
       </h1>
       <a href="#contato" class="btn-primary">Solicite Orçamento</a>
     </div>
@@ -83,16 +83,22 @@ import "../styles/index.css";
     <div class="sobre-text">
       <p class="section-overline reveal">O Espaço</p>
       <h2 class="section-h2 reveal">
-        Alguns lugares recebem convidados.<br />Outros fazem todos se sentirem <em
-          style="font-style:italic">parte</em>
+        Alguns lugares<br />recebem convidados.<br />Outros fazem todos<br />se
+        sentirem <em style="font-style:italic">parte</em>.
       </h2>
       <p class="section-p reveal">
-        A Casa Maria foi pensada para casais que valorizam presença, atmosfera e
-        conexão. Aqui, cada detalhe convida as pessoas a viverem o casamento com
-        calma, proximidade e autenticidade.
+        A Casa Maria foi pensada para quem valoriza presença,<br
+          class="br-desk"
+        /> atmosfera e conexão. Um espaço para receber celebrações<br
+          class="br-desk"
+        /> de diferentes formatos, com ambientes que aproximam<br
+          class="br-desk"
+        /> convidados e dão personalidade a cada ocasião.
       </p>
       <p class="section-p reveal" style="margin-top: 1.2rem;">
-        Não existem fórmulas prontas. Cada celebração ganha ritmo, estética e
+        Não existem fórmulas prontas. Cada celebração ganha ritmo,<br
+          class="br-desk"
+        /> estética e
         personalidade própria.
       </p>
     </div>
@@ -116,8 +122,9 @@ import "../styles/index.css";
       Diferentes formas de celebrar.<br />A mesma <em style="font-style:italic">essência</em> exclusiva.
     </h2>
     <p class="section-p reveal">
-      Cada casamento encontra sua própria forma de acontecer, sempre com a
-      leveza e a elegância que definem a Casa Maria.
+      Cada comemoração encontra sua própria forma de acontecer,<br
+        class="br-desk"
+      /> sempre com a leveza e a elegância que definem a Casa Maria.
     </p>
 
     <div class="eventos-grid reveal">
@@ -161,7 +168,7 @@ import "../styles/index.css";
             ></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg
           >
         </div>
-        <span class="evento-name">Recepção Pós-cartório</span>
+        <span class="evento-name">Recepção <span class="nowrap">Pós-cartório</span></span>
       </div>
 
       <div class="evento-item">
@@ -182,7 +189,47 @@ import "../styles/index.css";
               d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path></svg
           >
         </div>
-        <span class="evento-name">Ensaio Pré-wedding</span>
+        <span class="evento-name">Ensaio <span class="nowrap">Pré-wedding</span></span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"
+            ><path d="M4 21h16v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2z"></path><path
+              d="M4 16c1.33 0 1.33-1 2.67-1s1.33 1 2.66 1 1.34-1 2.67-1 1.33 1 2.67 1 1.33-1 2.66-1 1.34 1 2.67 1"
+            ></path><line x1="12" y1="11" x2="12" y2="7"></line><path
+              d="M12 7c-.8 0-1.5-.6-1.5-1.5S12 3 12 3s1.5 1.6 1.5 2.5S12.8 7 12 7z"
+            ></path></svg
+          >
+        </div>
+        <span class="evento-name">Aniversários</span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"
+            ><path d="M3 2v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V2"></path><line
+              x1="7"
+              y1="2"
+              x2="7"
+              y2="22"></line><path d="M21 15V2a5 5 0 0 0-5 5v6a2 2 0 0 0 2 2h3zm0 0v7"
+            ></path></svg
+          >
+        </div>
+        <span class="evento-name">Jantares Comemorativos</span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"
+            ><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle
+              cx="9"
+              cy="7"
+              r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path
+              d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg
+          >
+        </div>
+        <span class="evento-name">Outros Formatos Sociais</span>
       </div>
     </div>
   </section>
@@ -192,7 +239,9 @@ import "../styles/index.css";
     <div class="diferenciais-header reveal">
       <div>
         <p class="section-overline">Experiência</p>
-        <h2 class="section-h2">Excelência em<br />todos os detalhes</h2>
+        <h2 class="section-h2">
+          Excelência em<br class="br-mob" /> todos os <em style="font-style:italic">detalhes</em>
+        </h2>
       </div>
     </div>
 
@@ -208,8 +257,8 @@ import "../styles/index.css";
         </div>
         <h3 class="dif-title">Experiência Gastronômica</h3>
         <p class="dif-p">
-          Menus personalizados e experiências gastronômicas alinhadas ao estilo
-          da celebração.
+          Menus personalizados e experiências gastronômicas<br class="br-mob br-mob-wide" /> alinhadas ao
+          estilo da celebração.
         </p>
       </div>
       <div class="dif-card reveal">
@@ -223,8 +272,8 @@ import "../styles/index.css";
         </div>
         <h3 class="dif-title">Curadoria de Decoração</h3>
         <p class="dif-p">
-          Uma ambientação delicadamente construída para refletir a essência da
-          cerimônia em cada detalhe.
+          Uma ambientação construída para traduzir<br class="br-desk" /><br class="br-mob" /> o estilo
+          e a proposta de cada celebração.
         </p>
       </div>
       <div class="dif-card reveal">
@@ -238,7 +287,7 @@ import "../styles/index.css";
         </div>
         <h3 class="dif-title">Apoio Especializado</h3>
         <p class="dif-p">
-          Uma equipe preparada para acompanhar cada etapa da vivência com
+          Uma equipe preparada para acompanhar<br class="br-mob" /> cada etapa da vivência com
           atenção e cuidado.
         </p>
       </div>
@@ -256,58 +305,44 @@ import "../styles/index.css";
       <div>
         <p class="section-overline">Depoimentos</p>
         <h2 class="section-h2">
-          Histórias que mostram como cada celebração<br />ganha vida de forma única
+          Histórias que mostram<br class="br-mob" /> como cada celebração<br />ganha vida de forma <em style="font-style:italic">única</em>
         </h2>
       </div>
       <p>
-        Vivências reais que traduzem a essência acolhedora, sofisticada e
-        exclusiva de cada celebração na Casa Maria.
+        Vivências reais que traduzem a essência acolhedora,<br class="br-mob br-mob-390" />
+        sofisticada e exclusiva de cada celebração na Casa&nbsp;Maria.
       </p>
     </div>
 
     <div class="depo-grid reveal">
       <div class="depo-card">
         <div class="depo-stars">★★★★★</div>
-        <p class="depo-quote">
-          Lugar incrível, luxo e exclusividade e localização perfeita no
-          Jardins.
-        </p>
+        <p class="depo-quote">Lugar incrível, luxo e exclusividade<br class="br-desk" /><br class="br-mob" /> e localização perfeita no Jardins.</p>
         <span class="depo-author">Bernardo Vettorazzi</span>
       </div>
       <div class="depo-card">
         <div class="depo-stars">★★★★★</div>
-        <p class="depo-quote">
-          Lugar intimista e aconchegante. Ideal para festas pessoais.
-          Atendimento ótimo e serviço muito bem executado.
-        </p>
+        <p class="depo-quote">Lugar intimista e aconchegante. Ideal para festas pessoais. Atendimento ótimo e serviço muito bem executado.</p>
         <span class="depo-author">Marcelo Vicentini</span>
       </div>
       <div class="depo-card">
         <div class="depo-stars">★★★★★</div>
-        <p class="depo-quote">
-          Chique, espaçoso e bem organizado. Excelente atendimento.
-        </p>
+        <p class="depo-quote">Chique, espaçoso e bem organizado.<br class="br-mob" /> Excelente atendimento.</p>
         <span class="depo-author">Rafael Augusto</span>
       </div>
       <div class="depo-card">
         <div class="depo-stars">★★★★★</div>
-        <p class="depo-quote">
-          Espaço delicioso, sofisticado e com uma atmosfera única.
-        </p>
+        <p class="depo-quote">Espaço delicioso, sofisticado<br class="br-desk" /><br class="br-mob" /> e com uma atmosfera única.</p>
         <span class="depo-author">Lupe Lima</span>
       </div>
       <div class="depo-card">
         <div class="depo-stars">★★★★★</div>
-        <p class="depo-quote">
-          Excelente local. Recomendo para quem busca qualidade e exclusividade.
-        </p>
+        <p class="depo-quote">Excelente local. Recomendo para<br class="br-desk" /> quem<br class="br-mob br-mob-390" /> busca qualidade e exclusividade.</p>
         <span class="depo-author">Alexandre Souza</span>
       </div>
       <div class="depo-card">
         <div class="depo-stars">★★★★★</div>
-        <p class="depo-quote">
-          Excelente atendimento. Um espaço que encanta em cada detalhe.
-        </p>
+        <p class="depo-quote">Excelente atendimento.<br class="br-mob" /> Um espaço<br class="br-desk" /> que encanta em cada&nbsp;detalhe.</p>
         <span class="depo-author">Francisco Souza</span>
       </div>
     </div>
@@ -319,11 +354,14 @@ import "../styles/index.css";
       <div>
         <p class="section-overline">Galeria</p>
         <h2 class="section-h2">
-          Celebrações que valorizam exclusividade e significado
+          Celebrações que valorizam <em style="font-style:italic"
+            >exclusividade e significado</em
+          >
         </h2>
       </div>
     </div>
-    <div class="galeria-strip reveal">
+    <div class="gal-carousel reveal">
+    <div class="galeria-strip">
       <div class="gal-item">
         <Img src="galeria-04.jpg" alt="Espaço Casa Maria" width={700} />
       </div>
@@ -351,7 +389,27 @@ import "../styles/index.css";
       <div class="gal-item">
         <Img src="galeria-11.jpg" alt="Espaço Casa Maria" width={700} />
       </div>
+      <div class="gal-item">
+        <Img src="galeria-13.jpg" alt="Convidadas em evento noturno na Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-14.jpg" alt="Fachada da Casa Maria iluminada durante evento" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-15.jpg" alt="DJ tocando em meio aos jardins da Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-16.jpg" alt="Convidados no corredor iluminado da Casa Maria" width={700} />
+      </div>
     </div>
+    <button type="button" class="gal-arrow gal-prev" aria-label="Foto anterior">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button type="button" class="gal-arrow gal-next" aria-label="Próxima foto">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+    </div>
+    <div class="gal-dots" aria-label="Navegação da galeria"></div>
   </section>
 
   <!-- CONTATO -->
@@ -359,11 +417,12 @@ import "../styles/index.css";
     <div class="contato-left">
       <p class="section-overline reveal">Contato</p>
       <h2 class="section-h2 reveal">
-        Planeje um casamento<br />à altura da sua história
+        Planeje uma celebração<br />à altura do momento
       </h2>
       <p class="section-p reveal">
-        Preencha seus dados e receba um orçamento personalizado para o dia mais
-        especial da sua vida.
+        Preencha seus dados e receba um orçamento personalizado<br
+          class="br-desk"
+        /> para o dia mais especial da sua vida.
       </p>
       <div class="contato-detail reveal">
         <div class="contato-detail-item">
