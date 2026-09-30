@@ -680,6 +680,68 @@ section {
   display: none;
 }
 
+/* ── AMBIENTES ── */
+.ambientes {
+  background: var(--branco);
+  padding: 8rem 0;
+  overflow: hidden;
+}
+
+.ambientes-header {
+  text-align: center;
+  padding: 0 8rem;
+  margin-bottom: 3rem;
+}
+
+.ambientes-header .section-h2 {
+  margin-bottom: 0;
+}
+
+/* Faixa que rola sozinha; pausa ao passar o mouse ou tocar */
+.amb-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: amb-scroll 70s linear infinite;
+}
+
+.amb-marquee:hover .amb-track,
+.amb-marquee:active .amb-track {
+  animation-play-state: paused;
+}
+
+/* Anda exatamente uma lista (metade da faixa + meio espaçamento) e recomeça sem emenda */
+@keyframes amb-scroll {
+  to {
+    transform: translateX(calc(-50% - 6px));
+  }
+}
+
+.amb-item {
+  flex: none;
+  height: clamp(280px, 30vw, 460px);
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--creme-light);
+}
+
+.amb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .amb-track {
+    animation: none;
+  }
+
+  .amb-marquee {
+    overflow-x: auto;
+  }
+}
+
 /* ── CONTATO ── */
 .contato {
   background: var(--creme-light);
@@ -1327,6 +1389,31 @@ footer {
     right: -0.5rem;
     bottom: -0.75rem;
     width: min(300px, 90%);
+  }
+
+  /* Ambientes — mesmo ritmo da Galeria no mobile */
+  .ambientes {
+    padding: 4rem 0;
+  }
+
+  .ambientes-header {
+    padding: 0 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .amb-track {
+    gap: 8px;
+    animation-duration: 50s;
+  }
+
+  @keyframes amb-scroll {
+    to {
+      transform: translateX(calc(-50% - 4px));
+    }
+  }
+
+  .amb-item {
+    height: 230px;
   }
 
   /* Formulário */

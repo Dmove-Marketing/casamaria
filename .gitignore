@@ -16,3 +16,6 @@ npm-debug.log*
 .vscode/
 .claude/
 .idea/
+
+# Fotos originais em alta resolução (as versões usadas no site ficam em src/assets/images)
+AMBIENTES/
