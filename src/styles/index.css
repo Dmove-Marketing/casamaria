@@ -717,18 +717,17 @@ section {
   }
 }
 
+/* Altura fixa e largura pela proporção da foto: horizontais e verticais aparecem inteiras */
 .amb-item {
   flex: none;
   height: clamp(280px, 30vw, 460px);
-  aspect-ratio: 3 / 2;
   overflow: hidden;
   background: var(--creme-light);
 }
 
 .amb-item img {
-  width: 100%;
   height: 100%;
-  object-fit: cover;
+  width: auto;
   display: block;
 }
 
