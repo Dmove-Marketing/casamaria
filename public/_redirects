@@ -1,0 +1,18 @@
+# Cloudflare: redirects 301 do site antigo (WordPress) para a estrutura nova.
+# O subdomínio eventos.espacocasamaria.com.br é redirecionado por regra na zona do Cloudflare (não por este arquivo).
+/hello-world            /                    301
+/hello-world/           /                    301
+/category/*             /                    301
+/author/*               /                    301
+/feed                   /                    301
+/feed/                  /                    301
+/comments/feed/         /                    301
+/wp-admin               /                    301
+/wp-admin/*             /                    301
+/wp-login.php           /                    301
+/wp-content/*           /                    301
+/wp-sitemap.xml         /sitemap-index.xml   301
+/sitemap.xml            /sitemap-index.xml   301
+/casamentos-v1          /casamentos-v1/      301
+/casamentos-v2          /casamentos-v2/      301
+/eventos-corporativos   /eventos-corporativos/ 301

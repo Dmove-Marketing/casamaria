@@ -1,6 +1,7 @@
 ---
 // Conteúdo das LPs de casamento vindas do WordPress (/casamentos-v1/ e /casamentos-v2/).
 // A v2 só acrescenta o campo de budget no formulário (teste de qualificação).
+// São LPs de anúncio com conteúdo quase igual ao de /casamentos/: noindex e fora do sitemap.
 import Base from '../../layouts/Base.astro';
 import LeadForm from '../LeadForm.astro';
 import LpHero from './LpHero.astro';
@@ -50,6 +51,7 @@ const galeria = [
   description="Casamentos, mini weddings e celebrações civis no Jardim Paulista, São Paulo: 500 m², jardim, deck e salão para até 300 convidados, a 8 minutos da Igreja Nossa Senhora do Brasil."
   ogImage="/images/og-casa-maria.jpg"
   canonical={`https://espacocasamaria.com.br/${slug}/`}
+  noIndex
   theme="light"
 >
   <div class="lp-page">
