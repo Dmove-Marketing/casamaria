@@ -1,0 +1,20 @@
+---
+// Hero das páginas vindas do WordPress. Com slot "form", vira hero dividido (texto | formulário).
+import Img from '../ui/Img.astro';
+interface Props { bg: string; bgAlt?: string; title: string; subtitle?: string; cta?: string; }
+const { bg, bgAlt = '', title, subtitle, cta = 'Entre em contato' } = Astro.props;
+const split = Astro.slots.has('form');
+---
+<section class:list={['lp-hero', { 'lp-hero--split': split }]}>
+  <Img src={bg} alt={bgAlt} width={1920} priority class="lp-hero__bg" sizes="100vw" />
+  <div class="lp-hero__veil"></div>
+  <div class="lp-hero__inner">
+    <div class="lp-hero__text">
+      <Img src="marca/logo-branca.png" alt="Casa Maria Jardins" width={260} class="lp-hero__logo" />
+      <h1 class="lp-hero__title">{title}</h1>
+      {subtitle && <p class="lp-hero__sub">{subtitle}</p>}
+      <a href="#contato" class="lp-btn lp-btn--light">{cta}</a>
+    </div>
+    {split && <div class="lp-hero__form"><slot name="form" /></div>}
+  </div>
+</section>

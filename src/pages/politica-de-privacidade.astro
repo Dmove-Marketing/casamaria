@@ -1,0 +1,91 @@
+---
+// Política de privacidade (LGPD). Itens marcados com [A CONFIRMAR] dependem de dado do cliente.
+import Base from '../layouts/Base.astro';
+import Img from '../components/ui/Img.astro';
+import LpFooter from '../components/lp/LpFooter.astro';
+import '../styles/lp.css';
+
+const atualizada = '19 de novembro de 2026';
+const controlador = {
+  nome: 'Casa Maria Jardins',
+  razao: '[A CONFIRMAR: razão social]',
+  cnpj: '[A CONFIRMAR: CNPJ]',
+  endereco: 'Praça das Guianas, 82, Jardim Paulista, São Paulo/SP, CEP 01428-030',
+  email: '[A CONFIRMAR: e-mail para assuntos de privacidade]',
+};
+---
+<Base
+  title="Política de privacidade | Casa Maria Jardins"
+  description="Como a Casa Maria Jardins coleta, usa e protege os dados pessoais de quem visita o site e solicita orçamento."
+  canonical="https://espacocasamaria.com.br/politica-de-privacidade/"
+  theme="light"
+>
+  <div class="lp-page">
+    <header class="pp-top">
+      <a href="/"><Img src="marca/logo-branca.png" alt="Casa Maria Jardins" width={240} class="pp-logo" sizes="140px" /></a>
+    </header>
+    <main class="pp">
+      <h1>Política de privacidade</h1>
+      <p class="pp-data">Última atualização: {atualizada}</p>
+
+      <p>Esta política explica como a {controlador.nome} trata os dados pessoais de quem visita este site e entra em contato conosco, de acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018, LGPD).</p>
+
+      <h2>1. Quem é o responsável pelos seus dados</h2>
+      <p>{controlador.razao}, CNPJ {controlador.cnpj}, com sede na {controlador.endereco} ("Casa Maria", "nós").</p>
+
+      <h2>2. Quais dados coletamos</h2>
+      <ul>
+        <li><strong>Dados que você informa</strong> nos formulários do site e no atendimento pelo WhatsApp: nome, telefone, e-mail, nome da empresa (eventos corporativos), tipo e data do evento, número de convidados, faixa de investimento (quando perguntada) e outras informações que você escrever.</li>
+        <li><strong>Dados de navegação</strong>: páginas visitadas, origem da visita (por exemplo, um anúncio ou uma busca), parâmetros de campanha (UTM), identificadores de clique de anúncios, endereço IP, tipo de dispositivo e navegador, coletados por cookies e tecnologias semelhantes.</li>
+      </ul>
+
+      <h2>3. Para que usamos os dados</h2>
+      <ul>
+        <li>Responder ao seu pedido de contato, enviar orçamento e agendar visitas.</li>
+        <li>Acompanhar o atendimento comercial do seu evento.</li>
+        <li>Medir o desempenho do site e das campanhas de divulgação e melhorar a experiência.</li>
+        <li>Exibir anúncios da Casa Maria para pessoas que já visitaram o site.</li>
+        <li>Cumprir obrigações legais.</li>
+      </ul>
+      <p>As bases legais são: procedimentos preliminares a um contrato a seu pedido (art. 7º, V), legítimo interesse (art. 7º, IX), consentimento quando exigido (art. 7º, I) e cumprimento de obrigação legal (art. 7º, II).</p>
+
+      <h2>4. Com quem compartilhamos</h2>
+      <p>Não vendemos seus dados. Compartilhamos apenas o necessário com:</p>
+      <ul>
+        <li>a equipe comercial da Casa Maria e do grupo T.Venues, para o atendimento;</li>
+        <li>fornecedores de tecnologia que operam em nosso nome (hospedagem do site, sistema de atendimento e gestão de contatos, automação de formulários);</li>
+        <li>agência de marketing contratada, para gestão das campanhas e do site;</li>
+        <li>plataformas de anúncios e medição, como Google (Google Ads, Google Analytics, Google Tag Manager) e Meta (Facebook e Instagram), que podem tratar dados em servidores fora do Brasil, com as garantias previstas na LGPD;</li>
+        <li>autoridades, quando houver obrigação legal.</li>
+      </ul>
+
+      <h2>5. Cookies</h2>
+      <p>Usamos cookies próprios e de terceiros para lembrar a origem da sua visita, medir o uso do site e personalizar anúncios. Você pode bloquear ou apagar cookies nas configurações do seu navegador. Algumas funções de medição podem deixar de funcionar.</p>
+
+      <h2>6. Por quanto tempo guardamos</h2>
+      <p>Pelo tempo necessário para o atendimento e a relação comercial, e depois pelo prazo exigido por lei ou para a defesa de direitos. Dados de navegação são guardados pelo prazo de cada ferramenta (em geral, até 2 anos).</p>
+
+      <h2>7. Seus direitos</h2>
+      <p>Você pode pedir, a qualquer momento: confirmação de que tratamos seus dados, acesso, correção, anonimização ou exclusão, portabilidade, informação sobre compartilhamento e revogação do consentimento. Também pode se opor a tratamentos baseados em legítimo interesse.</p>
+      <p>Para exercer seus direitos, escreva para <strong>{controlador.email}</strong>. Você também pode reclamar à Autoridade Nacional de Proteção de Dados (ANPD).</p>
+
+      <h2>8. Segurança</h2>
+      <p>Adotamos medidas técnicas e administrativas para proteger os dados contra acesso não autorizado, perda ou uso indevido, como conexão criptografada (HTTPS) e acesso restrito às pessoas que precisam dos dados para o atendimento.</p>
+
+      <h2>9. Alterações</h2>
+      <p>Esta política pode ser atualizada. A data da última versão fica no topo da página.</p>
+    </main>
+    <LpFooter />
+  </div>
+</Base>
+
+<style>
+  .pp-top { background: var(--lp-verde-noite); padding: 1.4rem; display: flex; justify-content: center; }
+  .pp-top :global(.pp-logo) { width: 140px; height: auto; }
+  .pp { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem 5rem; line-height: 1.7; color: #222; }
+  .pp h1 { font-size: clamp(2rem, 5vw, 2.8rem); color: var(--lp-verde); margin: 0; }
+  .pp-data { color: #666; font-size: .9rem; margin: .4rem 0 2rem; }
+  .pp h2 { font-size: 1.35rem; color: var(--lp-verde); margin: 2.4rem 0 .6rem; }
+  .pp ul { padding-left: 1.2rem; display: grid; gap: .5rem; }
+  .pp p { margin: .6rem 0; }
+</style>

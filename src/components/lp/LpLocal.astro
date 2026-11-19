@@ -1,0 +1,23 @@
+---
+import Img from '../ui/Img.astro';
+import { icones } from './icones';
+interface Props { text: string; }
+const { text } = Astro.props;
+const vias = [
+  ['Avenida Paulista:', '12 minutos (2,2 km)'],
+  ['Avenida Rebouças:', '15 minutos (2,8 km)'],
+  ['Avenida Brig. Faria Lima:', '16 minutos (3,3 km)'],
+];
+---
+<section class="lp-local">
+  <Img src="marca/folha-3.avif" alt="" width={300} class="lp-deco lp-deco--ml" />
+  <h2 class="lp-h2">Localização Privilegiada</h2>
+  <span class="lp-rule"></span>
+  <p class="lp-p">{text}</p>
+  <ul class="lp-local__vias">
+    {vias.map(([via, tempo]) => (
+      <li><span class="lp-local__pin" set:html={icones.pin} /><strong>{via}</strong><span>{tempo}</span></li>
+    ))}
+  </ul>
+  <a class="lp-local__mapa" href="https://maps.app.goo.gl/kGntB2mFiFncTfbs5" target="_blank" rel="noopener">Praça das Guianas, 82 · Jardim Paulista · São Paulo/SP</a>
+</section>

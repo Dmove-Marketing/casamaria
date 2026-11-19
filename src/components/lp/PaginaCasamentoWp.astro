@@ -1,0 +1,94 @@
+---
+// Conteúdo das LPs de casamento vindas do WordPress (/casamentos-v1/ e /casamentos-v2/).
+// A v2 só acrescenta o campo de budget no formulário (teste de qualificação).
+import Base from '../../layouts/Base.astro';
+import LeadForm from '../LeadForm.astro';
+import LpHero from './LpHero.astro';
+import LpIntro from './LpIntro.astro';
+import LpTipos from './LpTipos.astro';
+import LpAmbientes from './LpAmbientes.astro';
+import LpServicos from './LpServicos.astro';
+import LpGaleria from './LpGaleria.astro';
+import LpLocal from './LpLocal.astro';
+import LpContato from './LpContato.astro';
+import LpFooter from './LpFooter.astro';
+import type { PresetField } from '../../scripts/form-presets';
+import '../../styles/lp.css';
+
+interface Props { slug: string; comBudget?: boolean; }
+const { slug, comBudget = false } = Astro.props;
+
+const budget: PresetField[] = comBudget ? [{
+  name: 'budget', type: 'select', label: 'Budget para o casamento', required: true, full: true,
+  options: [
+    { value: '', label: 'Budget para o casamento', disabled: true, selected: true },
+    { value: 'Abaixo de R$ 70 mil', label: 'Abaixo de R$ 70 mil' },
+    { value: 'Entre R$ 70 mil e R$ 100 mil', label: 'Entre R$ 70 mil e R$ 100 mil' },
+    { value: 'Entre R$ 101 mil e R$ 130 mil', label: 'Entre R$ 101 mil e R$ 130 mil' },
+    { value: 'Acima de R$ 130 mil', label: 'Acima de R$ 130 mil' },
+  ],
+}] : [];
+
+const galeria = [
+  { src: 'casamentos/mesas-jantar-3.avif', alt: 'Mesas redondas montadas para o jantar de casamento', wide: true },
+  { src: 'casamentos/cerimonia-noivos-1.avif', alt: 'Noivos durante a cerimônia', tall: true },
+  { src: 'casamentos/mesas-jantar-1.jpg', alt: 'Salão com mesas e lustre de cristais' },
+  { src: 'casamentos/cerimonia-noivos-2.avif', alt: 'Noiva e noivo no altar sob flores', tall: true },
+  { src: 'casamentos/cerimonia-corredor-2.avif', alt: 'Corredor da cerimônia com cadeiras brancas' },
+  { src: 'casamentos/cerimonia-jardim.jpg', alt: 'Cerimônia no jardim com cortinas brancas', wide: true },
+  { src: 'casamentos/festa-pista-vertical.avif', alt: 'Convidados na festa', tall: true },
+  { src: 'casamentos/banquete-vertical.avif', alt: 'Mesa de banquete sob o teto de vidro', tall: true },
+  { src: 'espaco/bar-dia.jpg', alt: 'Bar com lustre de cristais', wide: true },
+  { src: 'casamentos/cerimonia-cadeiras.jpg', alt: 'Cadeiras da cerimônia no jardim coberto', wide: true },
+  { src: 'casamentos/recepcao-painel.avif', alt: 'Painel da Casa Maria na recepção', wide: true },
+  { src: 'casamentos/cerimonia-corredor-1.jpg', alt: 'Altar com arranjos de flores', wide: true },
+  { src: 'casamentos/mesas-jantar-2.jpg', alt: 'Mesas do jantar no jardim coberto', wide: true },
+];
+---
+<Base
+  title="Casamentos na Casa Maria Jardins | Um espaço com alma para celebrar o amor"
+  description="Casamentos, mini weddings e celebrações civis no Jardim Paulista, São Paulo: 500 m², jardim, deck e salão para até 300 convidados, a 8 minutos da Igreja Nossa Senhora do Brasil."
+  ogImage="/images/og-casa-maria.jpg"
+  canonical={`https://espacocasamaria.com.br/${slug}/`}
+  theme="light"
+>
+  <div class="lp-page">
+    <LpHero
+      bg="casamentos/corredor-flores-vertical.avif"
+      title="Um espaço com alma para celebrar o amor"
+      subtitle="Casamentos exclusivos no coração do Jardim Paulista - São Paulo"
+    />
+    <LpIntro title="Casa Maria: O cenário perfeito para viver grandes emoções.">
+      Em um dos endereços mais charmosos de São Paulo, nossa casa oferece 500m² de beleza e versatilidade e está localizada a <strong>8 minutos da Igreja Nossa Senhora do Brasil</strong>. O espaço ideal para transformar celebrações em memórias inesquecíveis, com estrutura para receber até 300 convidados.
+    </LpIntro>
+    <LpTipos
+      title="Um lugar especial para<br>celebrar cada momento da vida."
+      items={[
+        { icon: 'alianca', label: 'Casamentos' },
+        { icon: 'miniWedding', label: 'Mini wedding' },
+        { icon: 'civil', label: 'Celebração civil' },
+        { icon: 'brinde', label: 'Recepção pós-cartório' },
+        { icon: 'casal', label: 'Renovação de votos' },
+        { icon: 'camera', label: 'Ensaio pré-wedding' },
+      ]}
+    />
+    <LpAmbientes
+      title="Ambientes que se moldam à sua história"
+      text="Cenários versáteis e românticos, pensados para acolher cada momento do seu casamento com estilo e conforto."
+    />
+    <LpServicos />
+    <LpGaleria
+      title="Momentos que marcaram<br>nossa história."
+      text="Inspire-se com celebrações que ganharam vida aqui na Casa Maria."
+      fotos={galeria}
+    />
+    <LpLocal text="Estamos próximos das principais vias de São Paulo." />
+    <LpContato
+      title="Vamos conversar sobre o seu casamento?"
+      text="Agende uma visita e venha sentir de perto tudo o que a Casa Maria pode oferecer para o dia dos seus sonhos."
+    >
+      <LeadForm compact preset="social" extraFields={budget} submitLabel="Enviar solicitação" />
+    </LpContato>
+    <LpFooter />
+  </div>
+</Base>

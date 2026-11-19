@@ -1,0 +1,78 @@
+---
+// Eventos corporativos (origem: espacocasamaria.com.br/eventos-corporativos/ e a home do WordPress)
+import Base from '../layouts/Base.astro';
+import LeadForm from '../components/LeadForm.astro';
+import LpHero from '../components/lp/LpHero.astro';
+import LpIntro from '../components/lp/LpIntro.astro';
+import LpTipos from '../components/lp/LpTipos.astro';
+import LpAmbientes from '../components/lp/LpAmbientes.astro';
+import LpServicos from '../components/lp/LpServicos.astro';
+import LpGaleria from '../components/lp/LpGaleria.astro';
+import LpLocal from '../components/lp/LpLocal.astro';
+import LpClientes from '../components/lp/LpClientes.astro';
+import LpContato from '../components/lp/LpContato.astro';
+import LpFooter from '../components/lp/LpFooter.astro';
+import '../styles/lp.css';
+
+const galeria = [
+  { src: 'corporativo/ativacao-2.avif', alt: 'Atividade em evento corporativo no jardim' },
+  { src: 'corporativo/show-cantora.avif', alt: 'Apresentação musical em evento corporativo' },
+  { src: 'corporativo/bar-networking.avif', alt: 'Convidados no bar durante evento corporativo' },
+  { src: 'corporativo/ativacao-1.avif', alt: 'Ativação de marca em evento corporativo' },
+  { src: 'corporativo/networking.avif', alt: 'Convidados conversando em evento corporativo' },
+  { src: 'corporativo/jardim-publico.avif', alt: 'Evento corporativo lotado no jardim à noite' },
+];
+---
+<Base
+  title="Eventos corporativos na Casa Maria Jardins | Espaço para eventos de empresa em SP"
+  description="Confraternizações, offsites, treinamentos, workshops e lançamentos em uma casa de 500 m² no Jardim Paulista, perto da Paulista e da Faria Lima, para até 300 convidados."
+  ogImage="/images/og-casa-maria.jpg"
+  canonical="https://espacocasamaria.com.br/eventos-corporativos/"
+  theme="light"
+>
+  <div class="lp-page">
+    <LpHero
+      bg="corporativo/jardim-evento-hero.avif"
+      title="Exclusividade e versatilidade para seu evento corporativo, com o conforto de estar em casa."
+      subtitle="Jardim Paulista, São Paulo"
+    >
+      <LeadForm slot="form" compact preset="corporativo" idPrefix="hero" formId="hero-form" submitLabel="Enviar solicitação" />
+    </LpHero>
+    <LpIntro title="Bem-vindo à<br>Casa Maria: O cenário perfeito para o sucesso do seu evento corporativo." videoMode="ambiente">
+      Localizada em um dos endereços mais nobres de São Paulo, nossa casa une elegância e aconchego em 500m², oferecendo versatilidade para diferentes configurações e capacidade para eventos de até 300 convidados.
+    </LpIntro>
+    <LpTipos
+      title="Possibilidades e experiências<br>únicas para cada evento"
+      items={[
+        { icon: 'taca', label: 'Confraternizações' },
+        { icon: 'aviao', label: 'Offsite' },
+        { icon: 'quadro', label: 'Treinamentos' },
+        { icon: 'ideia', label: 'Workshops' },
+        { icon: 'microfone', label: 'Palestras' },
+        { icon: 'foguete', label: 'Lançamentos' },
+        { icon: 'filmadora', label: 'Filmagens<br>e Gravações' },
+      ]}
+    />
+    <LpAmbientes
+      title="Conforto e infraestrutura profissional<br>para você e seus convidados."
+      text="Ambientes versáteis e flexíveis, projetados para se ajustar a cada necessidade."
+    />
+    <LpServicos />
+    <LpGaleria
+      title="Inspire-se em nossos eventos corporativos."
+      text="Confira registros marcantes de experiências que já criamos."
+      fotos={galeria}
+      variant="duas"
+    />
+    <LpLocal text="Próximo dos principais centros de escritórios." />
+    <LpClientes />
+    <LpContato
+      tone="marrom"
+      title="Estamos prontos para receber seu evento com todo o cuidado que ele merece."
+      text="Preencha o formulário para receber nosso contato."
+    >
+      <LeadForm compact preset="corporativo" submitLabel="Enviar solicitação" />
+    </LpContato>
+    <LpFooter />
+  </div>
+</Base>

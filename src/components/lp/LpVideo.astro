@@ -1,0 +1,34 @@
+---
+// Vídeo vertical self-hosted. Só baixa quando entra na tela.
+// modo "ambiente" = mudo, em loop e sem controles; "player" = com controles.
+import config from '../../../config.json';
+interface Props { file: string; poster: string; title: string; mode?: 'player' | 'ambiente'; }
+const { file, poster, title, mode = 'player' } = Astro.props;
+const base = config.media.videos_base;
+---
+<div class="lp-video">
+  <video
+    data-src={`${base}/${file}`}
+    poster={`${base}/${poster}`}
+    preload="none"
+    playsinline
+    controls={mode === 'player'}
+    muted={mode === 'ambiente'}
+    loop={mode === 'ambiente'}
+    data-autoplay={mode === 'ambiente' ? '' : undefined}
+    aria-label={title}
+    width="720" height="1280"
+  ></video>
+</div>
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const v = e.target as HTMLVideoElement;
+      if (!v.src) { v.src = v.dataset.src!; }
+      if (v.hasAttribute('data-autoplay')) v.play().catch(() => {});
+      io.unobserve(v);
+    });
+  }, { rootMargin: '200px' });
+  document.querySelectorAll<HTMLVideoElement>('.lp-video video[data-src]').forEach((v) => io.observe(v));
+</script>

@@ -1,0 +1,12 @@
+---
+interface Props { title: string; text: string; tone?: 'cinza' | 'marrom'; }
+const { title, text, tone = 'cinza' } = Astro.props;
+---
+<section class:list={['lp-contato', `lp-contato--${tone}`]} id="contato">
+  <div class="lp-contato__text">
+    <h2 set:html={title} />
+    <span class="lp-rule lp-rule--short"></span>
+    <p>{text}</p>
+  </div>
+  <div class="lp-contato__form"><slot /></div>
+</section>

@@ -1,0 +1,178 @@
+/* Páginas vindas do WordPress (casamentos-v1, casamentos-v2, eventos-corporativos, bio).
+   Reconstrução semântica do visual Elementor: Prata (títulos) + Karla (texto). */
+@import '@fontsource/prata/400.css';
+@import '@fontsource-variable/karla';
+
+:root {
+  --lp-verde: #14644b;
+  --lp-verde-escuro: #0e3427;
+  --lp-verde-noite: #0a2a20;
+  --lp-creme: #f0e9d7;
+  --lp-creme-claro: #f6f2e6;
+  --lp-botao: #2b8336;
+  --lp-botao-hover: #326d1f;
+  --lp-cinza: #5d5755;
+  --lp-marrom: #523b31;
+  --lp-serif: 'Prata', Georgia, serif;
+  --lp-sans: 'Karla Variable', 'Karla', system-ui, sans-serif;
+  --font-display: var(--lp-serif);
+  --font-body: var(--lp-sans);
+}
+
+.lp-page { font-family: var(--lp-sans); color: #1d1d1d; background: #fff; overflow-x: hidden; }
+.lp-page h1, .lp-page h2, .lp-page h3 { font-family: var(--lp-serif); font-weight: 400; letter-spacing: 0; }
+.lp-page section { position: relative; overflow: hidden; }
+
+.lp-h2 { font-size: clamp(2rem, 4.2vw, 3.3rem); line-height: 1.05; color: var(--lp-verde); text-align: center; margin: 0 auto; max-width: 24ch; }
+.lp-dark .lp-h2 { color: var(--lp-creme); }
+.lp-rule { display: block; width: min(480px, 70%); height: 2px; background: var(--lp-verde); margin: 1.4rem auto 1.6rem; }
+.lp-dark .lp-rule { background: var(--lp-creme); }
+.lp-rule--short { width: 70px; margin-left: 0; }
+.lp-p { font-size: 1.02rem; line-height: 1.7; text-align: center; max-width: 62ch; margin: 0 auto; }
+.lp-p strong { font-weight: 700; }
+.lp-dark { background: var(--lp-verde-escuro) url('../assets/images/marca/textura-verde.avif') center / 600px repeat; color: var(--lp-creme); }
+.lp-dark .lp-p { color: var(--lp-creme-claro); }
+
+.lp-btn { display: inline-block; padding: 1rem 2.2rem; border-radius: 999px; font: 600 .72rem/1 var(--lp-sans); letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: background .25s, color .25s; }
+.lp-btn--light { background: #fff; color: #111; }
+.lp-btn--light:hover { background: var(--lp-creme); }
+
+.lp-deco { position: absolute; pointer-events: none; opacity: .5; height: auto; z-index: 0; }
+.lp-deco--tl { left: -60px; top: -40px; width: 340px; }
+.lp-deco--tr { right: -40px; top: -30px; width: 260px; opacity: .9; transform: scaleX(-1); }
+.lp-deco--ml { left: 20px; top: 45%; width: 220px; }
+.lp-page section > *:not(.lp-deco, .lp-hero__bg, .lp-hero__veil) { position: relative; z-index: 1; }
+
+/* HERO */
+.lp-hero { min-height: min(92vh, 820px); display: grid; place-items: center; color: #fff; text-align: center; padding: 6rem 1.5rem 5rem; }
+.lp-hero__bg { position: absolute !important; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0 !important; }
+.lp-hero__veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 42, 33, .78), rgba(5, 42, 33, .62)); z-index: 0 !important; }
+.lp-hero__inner { width: 100%; max-width: 1180px; }
+.lp-hero__logo { width: 190px; height: auto; margin: 0 auto 2rem; }
+.lp-hero__title { font-size: clamp(2.6rem, 6.2vw, 5.2rem); line-height: .98; color: var(--lp-creme-claro); max-width: 19ch; margin: 0 auto; }
+.lp-hero__sub { font: 600 .82rem/1.8 var(--lp-sans); letter-spacing: .16em; text-transform: uppercase; max-width: 34ch; margin: 2rem auto 1.8rem; }
+.lp-hero--split .lp-hero__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; text-align: left; }
+.lp-hero--split .lp-hero__logo { margin: 0 0 1.6rem; width: 160px; }
+.lp-hero--split .lp-hero__title { font-size: clamp(2rem, 3.2vw, 2.6rem); line-height: 1.1; max-width: 26ch; margin: 0; }
+.lp-hero--split .lp-hero__sub { margin: 1.4rem 0 2.6rem; max-width: none; font-weight: 500; }
+
+/* INTRO */
+.lp-intro { display: grid; grid-template-columns: 380px 1fr; gap: 5rem; align-items: center; max-width: 1180px; margin: 0 auto; padding: 6rem 1.5rem; }
+.lp-video video { width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 22px; background: #000; display: block; }
+.lp-intro__text .lp-h2 { max-width: 16ch; }
+
+/* TIPOS DE EVENTO */
+.lp-tipos { background: var(--lp-creme); padding: 5rem 1.5rem 6rem; }
+.lp-tipos__grid { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem 2rem; max-width: 760px; margin: 3rem auto 0; padding: 0; }
+.lp-tipos__grid li { flex: 0 0 160px; display: flex; flex-direction: column; align-items: center; gap: 1rem; font: 700 .95rem/1.3 var(--lp-sans); text-align: center; }
+.lp-tipos__icon { width: 100px; height: 100px; border-radius: 50%; background: var(--lp-verde); color: #fff; display: grid; place-items: center; }
+.lp-tipos__icon svg { width: 44px; height: 44px; }
+
+/* AMBIENTES */
+.lp-amb { padding: 5rem 0 6rem; text-align: center; }
+.lp-amb > .lp-h2 { max-width: none; }
+.lp-amb__strip { margin-top: 3rem; overflow: hidden; }
+.lp-amb__track { display: flex; width: max-content; animation: lp-marquee 50s linear infinite; }
+.lp-amb__track img { width: clamp(220px, 20vw, 290px); height: 380px; object-fit: cover; display: block; }
+.lp-amb__strip:hover .lp-amb__track { animation-play-state: paused; }
+@keyframes lp-marquee { to { transform: translateX(-50%); } }
+.lp-amb__cards { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.4rem; max-width: 1080px; margin: -120px auto 0; padding: 0 1.5rem; }
+.lp-amb__cards li { background: var(--lp-creme) url('../assets/images/marca/textura-papel.avif') center / cover; color: var(--lp-verde-escuro); min-height: 250px; padding: 2rem 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .9rem; position: relative; outline: none; }
+.lp-amb__icon { width: 64px; height: auto; }
+.lp-amb__cards strong { font: 400 1.25rem/1.05 var(--lp-serif); }
+.lp-amb__cards p { position: absolute; inset: 0; margin: 0; padding: 1.4rem; display: grid; place-items: center; background: var(--lp-verde); color: var(--lp-creme-claro); font-size: .9rem; line-height: 1.5; opacity: 0; transition: opacity .3s; }
+.lp-amb__cards li:hover p, .lp-amb__cards li:focus p { opacity: 1; }
+
+/* SERVIÇOS */
+.lp-serv { background: var(--lp-creme); padding: 5rem 1.5rem 6rem; }
+.lp-serv__grid { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; max-width: 1080px; margin: 2.6rem auto 0; padding: 0; }
+.lp-serv__grid li { display: flex; flex-direction: column; gap: .7rem; text-align: center; font: 400 1.02rem var(--lp-serif); }
+.lp-serv__grid img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+
+/* GALERIA */
+.lp-gal { padding: 5rem 1.5rem 6rem; text-align: center; }
+.lp-gal__grid { display: grid; gap: 8px; max-width: 1180px; margin: 2.4rem auto 0; }
+.lp-gal__grid figure { margin: 0; overflow: hidden; }
+.lp-gal__grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s; }
+.lp-gal__grid figure:hover img { transform: scale(1.04); }
+.lp-gal__grid--mosaico { display: block; columns: 3; column-gap: 8px; }
+.lp-gal__grid--mosaico figure { break-inside: avoid; margin-bottom: 8px; }
+.lp-gal__grid--mosaico img { height: auto; }
+.lp-gal__grid--duas { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 400px; gap: 26px; max-width: 1100px; }
+
+/* LOCALIZAÇÃO */
+.lp-local { background: var(--lp-creme); padding: 5rem 1.5rem; text-align: center; }
+.lp-local__vias { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1000px; margin: 2.4rem auto 0; padding: 0; }
+.lp-local__vias li { display: flex; flex-direction: column; align-items: center; gap: .2rem; font-size: 1.05rem; }
+.lp-local__pin { color: var(--lp-verde); width: 64px; height: 64px; margin-bottom: .6rem; }
+.lp-local__pin svg { width: 100%; height: 100%; }
+.lp-local__mapa { display: inline-block; margin-top: 2.4rem; color: var(--lp-verde); font-weight: 600; }
+
+/* CLIENTES */
+.lp-clientes { background: #fff; padding: 5rem 1.5rem 6rem; text-align: center; }
+.lp-clientes__grid { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem 1.5rem; max-width: 1000px; margin: 3.4rem auto 0; padding: 0; }
+.lp-clientes__grid li { flex: 0 0 calc(20% - 1.2rem); display: grid; place-items: center; }
+.lp-clientes__grid img { max-width: 150px; max-height: 80px; width: auto; height: auto; object-fit: contain; }
+
+/* CONTATO */
+.lp-contato { display: grid; grid-template-columns: 1fr 1.15fr; gap: 4rem; padding: 6rem max(1.5rem, calc((100% - 1000px) / 2)); color: #fff; }
+.lp-contato--cinza { background: var(--lp-cinza); }
+.lp-contato--marrom { background: var(--lp-marrom); }
+.lp-contato h2 { font-size: clamp(2.4rem, 4.6vw, 4rem); line-height: 1.05; color: var(--lp-creme-claro); margin: 0; }
+.lp-contato .lp-rule { background: #fff; margin: 1.6rem 0; }
+.lp-contato__text p { font-size: 1.1rem; line-height: 1.6; max-width: 30ch; }
+
+/* FORMULÁRIO (modo compacto: pílulas translúcidas) */
+.lead-form--compact .form-grid { display: grid; grid-template-columns: 1fr; gap: .9rem; }
+.lead-form--compact .form-group { margin: 0; }
+.lead-form--compact input, .lead-form--compact select, .lead-form--compact textarea {
+  width: 100%; border: 0; border-radius: 22px; background: rgba(255, 255, 255, .16); color: #fff;
+  padding: .75rem 1rem; font: 400 .9rem var(--lp-sans); appearance: none; -webkit-appearance: none; outline: none;
+}
+.lead-form--compact textarea { border-radius: 14px; min-height: 90px; resize: vertical; }
+.lead-form--compact select { background-image: linear-gradient(45deg, transparent 50%, #fff 50%), linear-gradient(135deg, #fff 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
+.lead-form--compact select option { color: #111; }
+.lead-form--compact ::placeholder { color: rgba(255, 255, 255, .78); }
+.lead-form--compact input:focus, .lead-form--compact select:focus, .lead-form--compact textarea:focus { background-color: rgba(255, 255, 255, .26); }
+.lead-form--compact .field-error { box-shadow: 0 0 0 1px #ff8a7a; }
+.lead-form--compact .form-submit { width: 100%; margin-top: 1rem; padding: .85rem; border: 1px solid #fff; border-radius: 999px; background: var(--lp-botao); color: #fff; font: 600 .82rem var(--lp-sans); letter-spacing: .08em; cursor: pointer; }
+.lead-form--compact .form-submit:hover { background: var(--lp-botao-hover); }
+.lp-hero__form .form-grid { grid-template-columns: 1fr 1fr; }
+.lp-hero__form .form-group:has([name='empresa']), .lp-hero__form .form-group:has(select), .lp-hero__form .form-group:has(textarea), .lp-hero__form .form-group.full { grid-column: 1 / -1; }
+
+/* RODAPÉ */
+.lp-footer { background: var(--lp-verde-noite); color: #fff; display: grid; grid-template-columns: 1fr auto auto; gap: 3rem; align-items: center; padding: 1.4rem max(1.5rem, calc((100% - 1300px) / 2)); }
+.lp-footer p { font-size: .72rem; line-height: 1.5; margin: 0; opacity: .9; }
+.lp-footer a { color: inherit; }
+.lp-footer__grupo { width: 180px; height: auto; }
+.lp-footer__logo { width: 76px; height: auto; }
+
+.br-desk { display: inline; }
+
+@media (max-width: 900px) {
+  .lp-hero--split .lp-hero__inner, .lp-intro, .lp-contato { grid-template-columns: 1fr; gap: 2.6rem; }
+  .lp-hero--split { text-align: center; }
+  .lp-hero--split .lp-hero__logo { margin: 0 auto 1.4rem; }
+  .lp-hero--split .lp-hero__title, .lp-hero--split .lp-hero__sub { margin-left: auto; margin-right: auto; }
+  .lp-intro { padding: 4rem 1.5rem; }
+  .lp-video { max-width: 320px; margin: 0 auto; }
+  .lp-tipos__grid li { flex-basis: 140px; }
+  .lp-amb__cards { grid-template-columns: repeat(2, 1fr); margin-top: -60px; }
+  .lp-amb__cards li:last-child { grid-column: 1 / -1; }
+  .lp-amb__track img { height: 300px; }
+  .lp-serv__grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-serv__grid li:last-child { grid-column: 1 / -1; max-width: 50%; margin: 0 auto; }
+  .lp-gal__grid--mosaico { columns: 2; }
+  .lp-gal__grid--duas { grid-template-columns: 1fr; grid-auto-rows: 280px; }
+  .lp-local__vias { grid-template-columns: 1fr; gap: 2rem; }
+  .lp-clientes__grid li { flex-basis: calc(33% - 1rem); }
+  .lp-contato { padding: 4rem 1.5rem; }
+  .lp-footer { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 1.2rem; }
+  .br-desk { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .lp-amb__track { animation: none; } }
+
+/* o global.css do template pinta <p> de cinza: nas páginas LP o texto herda a cor da seção */
+.lp-page p { color: inherit; }
+.lp-page .pp p, .lp-page .pp li { color: #2a2a2a; }
+@media (max-width: 900px) { .lp-hero__form .form-grid { grid-template-columns: 1fr; } }

@@ -586,6 +586,15 @@ const introMessages = [
   });
   closeBtn.addEventListener('click', closePopup);
 
+  // Qualquer elemento com data-wa-open="<local>" abre o popup (ex.: botão "Atendimento" da /bio/).
+  // Sem o widget na página, o link segue o href normal (fallback).
+  document.addEventListener('click', (e) => {
+    const el = e.target instanceof Element ? e.target.closest('[data-wa-open]') : null;
+    if (!el) return;
+    e.preventDefault();
+    if (popup.hidden) openPopup(el.getAttribute('data-wa-open') || 'link');
+  });
+
   /* ── Teaser ─────────────────────────────────── */
   function hideTeaser(persist) {
     if (!teaser || teaser.hidden) return;

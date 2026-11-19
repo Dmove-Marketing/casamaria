@@ -1,0 +1,21 @@
+---
+import Img from '../ui/Img.astro';
+const itens = [
+  { src: 'servicos/dj-detalhe.avif', nome: 'Som e Luz' },
+  { src: 'servicos/assessoria.avif', nome: 'Equipe (Facilities)' },
+  { src: 'servicos/buffet-canapes.avif', nome: 'Buffet' },
+  { src: 'servicos/decoracao-flores.avif', nome: 'Decoração' },
+  { src: 'servicos/drinks.avif', nome: 'Bar de Drinks' },
+];
+---
+<section class="lp-serv">
+  <Img src="marca/folha-1.avif" alt="" width={420} class="lp-deco lp-deco--tr" />
+  <h2 class="lp-h2">Mais do que um espaço,<br />uma experiência completa.</h2>
+  <span class="lp-rule"></span>
+  <p class="lp-p">Além da locação, oferecemos uma gama de serviços adicionais personalizados<br class="br-desk" /> para elevar a experiência do seu evento.</p>
+  <ul class="lp-serv__grid">
+    {itens.map((i) => (
+      <li><Img src={i.src} alt={i.nome} width={400} sizes="(max-width: 768px) 45vw, 220px" /><span>{i.nome}</span></li>
+    ))}
+  </ul>
+</section>

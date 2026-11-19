@@ -1,0 +1,17 @@
+---
+import Img from '../ui/Img.astro';
+interface Props { title: string; text: string; fotos: { src: string; alt: string; wide?: boolean; tall?: boolean }[]; variant?: 'mosaico' | 'duas'; }
+const { title, text, fotos, variant = 'mosaico' } = Astro.props;
+---
+<section class="lp-gal lp-dark">
+  <h2 class="lp-h2" set:html={title} />
+  <span class="lp-rule"></span>
+  <p class="lp-p">{text}</p>
+  <div class:list={['lp-gal__grid', `lp-gal__grid--${variant}`]}>
+    {fotos.map((f) => (
+      <figure class:list={{ wide: f.wide, tall: f.tall }}>
+        <Img src={f.src} alt={f.alt} width={900} sizes="(max-width: 768px) 100vw, 50vw" />
+      </figure>
+    ))}
+  </div>
+</section>

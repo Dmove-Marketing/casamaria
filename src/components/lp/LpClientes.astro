@@ -1,0 +1,17 @@
+---
+import Img from '../ui/Img.astro';
+const logos = [
+  ['google', 'Google'], ['track-and-field', 'Track&Field'], ['vitacon', 'Vitacon'], ['esquadrao-da-moda', 'Esquadrão da Moda'], ['99', '99'],
+  ['asus', 'Asus'], ['familhao', 'Familhão'], ['votorantim-cimentos', 'Votorantim Cimentos'], ['cielo', 'Cielo'], ['itau', 'Itaú'],
+  ['porsche', 'Porsche'], ['cetaphil', 'Cetaphil'],
+];
+---
+<section class="lp-clientes">
+  <h2 class="lp-h2">Algumas das empresas<br />que já escolheram nossa casa.</h2>
+  <span class="lp-rule"></span>
+  <ul class="lp-clientes__grid">
+    {logos.map(([f, nome]) => (
+      <li><Img src={`clientes/${f}.avif`} alt={nome} width={240} sizes="160px" /></li>
+    ))}
+  </ul>
+</section>

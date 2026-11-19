@@ -3,7 +3,7 @@
 // Campos vêm do preset (src/scripts/form-presets.ts): nunca redefinir campo a campo.
 // O visual é dado pelas classes .form-grid / .form-group / .form-submit do CSS de cada página.
 import config from '../../config.json';
-import { formPresets } from '../scripts/form-presets';
+import { formPresets, type PresetField } from '../scripts/form-presets';
 
 interface Props {
   /** prefixo único dos ids quando há mais de um formulário na página (ex.: "hero") */
@@ -13,6 +13,10 @@ interface Props {
   /** funil da página; padrão = config.forms.lead-form.preset */
   preset?: 'social' | 'corporativo';
   submitLabel?: string;
+  /** campos extras (ex.: budget na casamentos-v2), entram antes de "Detalhes do evento" */
+  extraFields?: PresetField[];
+  /** só placeholder, sem label visível (visual das páginas vindas do WordPress) */
+  compact?: boolean;
   class?: string;
 }
 
@@ -23,14 +27,20 @@ const {
   preset = (formCfg.preset as 'social' | 'corporativo'),
   submitLabel = 'Solicitar orçamento',
   class: className,
+  extraFields = [],
+  compact = false,
 } = Astro.props;
 
-const fields = formPresets[preset];
+const base = formPresets[preset];
+const iDet = base.findIndex((f) => f.name === 'detalhes_adicionais');
+const fields = extraFields.length && iDet >= 0
+  ? [...base.slice(0, iDet), ...extraFields, ...base.slice(iDet)]
+  : [...base, ...extraFields];
 const fid = (name: string) => (idPrefix === 'f' ? `form-field-${name}` : `${idPrefix}-form-field-${name}`);
 ---
 
 <form
-  class:list={['lead-form', className]}
+  class:list={['lead-form', { 'lead-form--compact': compact }, className]}
   data-form-id={formId}
   data-submit-url={formCfg.webhooks?.[0] || undefined}
   data-redirect={formCfg.redirect_on_success || undefined}
@@ -42,7 +52,7 @@ const fid = (name: string) => (idPrefix === 'f' ? `form-field-${name}` : `${idPr
   <div class="form-grid">
     {fields.map((f) => (
       <div class:list={['form-group', { full: f.full }]}>
-        <label for={fid(f.name)}>
+        <label for={fid(f.name)} class:list={{ 'sr-only': compact }}>
           {f.label}{f.hint && <span class="form-hint"> ({f.hint})</span>}
         </label>
         {f.type === 'select' ? (
@@ -52,13 +62,13 @@ const fid = (name: string) => (idPrefix === 'f' ? `form-field-${name}` : `${idPr
             ))}
           </select>
         ) : f.type === 'textarea' ? (
-          <textarea id={fid(f.name)} name={f.name} rows={3} placeholder={f.placeholder} required={f.required}></textarea>
+          <textarea id={fid(f.name)} name={f.name} rows={3} placeholder={compact ? `${f.label}${f.hint ? ` (${f.hint})` : ''}` : f.placeholder} required={f.required}></textarea>
         ) : (
           <input
             id={fid(f.name)}
             type={f.type}
             name={f.name}
-            placeholder={f.placeholder}
+            placeholder={compact ? f.label : f.placeholder}
             required={f.required}
             min={f.type === 'number' ? 1 : undefined}
             readonly={f.datepicker || undefined}

@@ -1,0 +1,16 @@
+---
+import Img from '../ui/Img.astro';
+import { icones } from './icones';
+interface Props { title: string; items: { icon: string; label: string }[]; }
+const { title, items } = Astro.props;
+---
+<section class="lp-tipos">
+  <Img src="marca/folha-3.avif" alt="" width={420} class="lp-deco lp-deco--tl" />
+  <h2 class="lp-h2" set:html={title} />
+  <span class="lp-rule"></span>
+  <ul class="lp-tipos__grid">
+    {items.map((i) => (
+      <li><span class="lp-tipos__icon" set:html={icones[i.icon]} /><span set:html={i.label} /></li>
+    ))}
+  </ul>
+</section>

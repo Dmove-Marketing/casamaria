@@ -1,0 +1,48 @@
+---
+// Bio do Instagram (origem: espacocasamaria.com.br/bio/ no WordPress)
+import Base from '../layouts/Base.astro';
+import Img from '../components/ui/Img.astro';
+import LeadForm from '../components/LeadForm.astro';
+import LpFooter from '../components/lp/LpFooter.astro';
+import '../styles/lp.css';
+---
+<Base
+  title="Casa Maria Jardins | Links"
+  description="Casa Maria Jardins: endereço, atendimento pelo WhatsApp e pedido de orçamento para o seu evento no Jardim Paulista, São Paulo."
+  ogImage="/images/og-casa-maria.jpg"
+  canonical="https://espacocasamaria.com.br/bio/"
+  theme="light"
+>
+  <div class="lp-page bio">
+    <main class="bio__main">
+      <Img src="casamentos/corredor-flores-vertical.avif" alt="" width={1200} priority class="bio__bg" sizes="100vw" />
+      <div class="bio__veil"></div>
+      <div class="bio__inner">
+        <Img src="marca/logo-branca.png" alt="Casa Maria Jardins" width={240} class="bio__logo" sizes="150px" />
+        <nav class="bio__links" aria-label="Links">
+          <a href="/">Conheça a Casa Maria</a>
+          <a href="https://maps.app.goo.gl/kGntB2mFiFncTfbs5" target="_blank" rel="noopener">Nosso endereço</a>
+          <a href="#solicite" data-wa-open="bio">Atendimento | Orçamento</a>
+        </nav>
+        <section class="bio__card" id="solicite">
+          <h1>Solicite um contato</h1>
+          <LeadForm compact preset="social" submitLabel="Solicitar contato" />
+        </section>
+      </div>
+    </main>
+    <LpFooter />
+  </div>
+</Base>
+
+<style>
+  .bio__main { position: relative; min-height: 100vh; padding: 2.5rem 1.25rem 4rem; display: flex; justify-content: center; overflow: hidden; }
+  .bio__main :global(.bio__bg) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .bio__veil { position: absolute; inset: 0; background: rgba(10, 20, 15, .55); }
+  .bio__inner { position: relative; width: 100%; max-width: 440px; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+  .bio__inner :global(.bio__logo) { width: 150px; height: auto; margin-bottom: 1.4rem; }
+  .bio__links { width: 100%; display: flex; flex-direction: column; gap: .7rem; }
+  .bio__links a { display: block; text-align: center; padding: .95rem 1rem; border: 1px solid rgba(255, 255, 255, .45); border-radius: 12px; background: rgba(0, 0, 0, .35); backdrop-filter: blur(6px); color: #fff; font: 600 1rem var(--lp-sans); text-decoration: none; transition: background .25s; }
+  .bio__links a:hover { background: rgba(0, 0, 0, .55); }
+  .bio__card { width: 100%; margin-top: .6rem; padding: 1.6rem 1.4rem; border-radius: 14px; background: rgba(0, 0, 0, .4); backdrop-filter: blur(10px); color: #fff; }
+  .bio__card h1 { font: 600 1.3rem var(--lp-sans); text-align: center; margin: 0 0 1.2rem; }
+</style>
