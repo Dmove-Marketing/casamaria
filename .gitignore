@@ -17,5 +17,8 @@ npm-debug.log*
 .claude/
 .idea/
 
-# Fotos originais em alta resolução (as versões usadas no site ficam em src/assets/images)
-AMBIENTES/
+# artefatos de conversão (scaffold greenfield)
+_work/
+
+# vídeos só para desenvolvimento local (em produção ficam no Cloudflare R2)
+public/_dev-media/

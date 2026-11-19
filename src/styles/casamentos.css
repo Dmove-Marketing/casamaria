@@ -1,12 +1,5 @@
 /* Estilos de casamentos.astro — baseado em index.css */
 
-@font-face {
-  font-family: 'Distrampler';
-  src: url('/fonts/Distrampler.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
 *,
 *::before,
@@ -16,18 +9,6 @@
   padding: 0;
 }
 
-:root {
-  --verde: #0d3b2e;
-  --verde-mid: #1a5240;
-  --verde-light: #234d3a;
-  --creme: #e8dcc8;
-  --creme-light: #f3ede1;
-  --creme-dark: #c9b99a;
-  --branco: #faf8f3;
-  --display: 'Distrampler', Georgia, serif;
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'Inter', 'Jost', sans-serif;
-}
 
 html {
   scroll-behavior: smooth;
@@ -217,7 +198,8 @@ nav.scrolled {
 }
 
 .hero-form-wrap .form-group input,
-.hero-form-wrap .form-group select {
+.hero-form-wrap .form-group select,
+.hero-form-wrap .form-group textarea {
   color: var(--creme);
   border-bottom-color: rgba(232, 220, 200, 0.25);
   background: transparent;
@@ -237,7 +219,8 @@ nav.scrolled {
 }
 
 .hero-form-wrap .form-group input:focus,
-.hero-form-wrap .form-group select:focus {
+.hero-form-wrap .form-group select:focus,
+.hero-form-wrap .form-group textarea:focus {
   border-bottom-color: var(--creme);
 }
 
@@ -750,7 +733,7 @@ section {
   margin-bottom: 2rem;
 }
 
-.form-row {
+.form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -777,7 +760,8 @@ section {
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
   border: none;
   border-bottom: 1px solid var(--creme-dark);
   background: transparent;
@@ -1204,7 +1188,7 @@ footer {
   }
 
   /* Formulário */
-  .form-row {
+  .form-grid {
     grid-template-columns: 1fr;
   }
 

@@ -1,0 +1,90 @@
+---
+// Formulário de lead padrão Dmove para todas as páginas da Casa Maria.
+// Campos vêm do preset (src/scripts/form-presets.ts): nunca redefinir campo a campo.
+// O visual é dado pelas classes .form-grid / .form-group / .form-submit do CSS de cada página.
+import config from '../../config.json';
+import { formPresets } from '../scripts/form-presets';
+
+interface Props {
+  /** prefixo único dos ids quando há mais de um formulário na página (ex.: "hero") */
+  idPrefix?: string;
+  /** data-form-id (o GTM lê a PII por ele); padrão = config.forms.lead-form.id */
+  formId?: string;
+  /** funil da página; padrão = config.forms.lead-form.preset */
+  preset?: 'social' | 'corporativo';
+  submitLabel?: string;
+  class?: string;
+}
+
+const formCfg = config.forms['lead-form'];
+const {
+  idPrefix = 'f',
+  formId = formCfg.id,
+  preset = (formCfg.preset as 'social' | 'corporativo'),
+  submitLabel = 'Solicitar orçamento',
+  class: className,
+} = Astro.props;
+
+const fields = formPresets[preset];
+const fid = (name: string) => (idPrefix === 'f' ? `form-field-${name}` : `${idPrefix}-form-field-${name}`);
+---
+
+<form
+  class:list={['lead-form', className]}
+  data-form-id={formId}
+  data-submit-url={formCfg.webhooks?.[0] || undefined}
+  data-redirect={formCfg.redirect_on_success || undefined}
+  data-preset={preset}
+  novalidate
+>
+  <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <div class="form-grid">
+    {fields.map((f) => (
+      <div class:list={['form-group', { full: f.full }]}>
+        <label for={fid(f.name)}>
+          {f.label}{f.hint && <span class="form-hint"> ({f.hint})</span>}
+        </label>
+        {f.type === 'select' ? (
+          <select id={fid(f.name)} name={f.name} required={f.required}>
+            {f.options?.map((o) => (
+              <option value={o.value} disabled={o.disabled} selected={o.selected}>{o.label}</option>
+            ))}
+          </select>
+        ) : f.type === 'textarea' ? (
+          <textarea id={fid(f.name)} name={f.name} rows={3} placeholder={f.placeholder} required={f.required}></textarea>
+        ) : (
+          <input
+            id={fid(f.name)}
+            type={f.type}
+            name={f.name}
+            placeholder={f.placeholder}
+            required={f.required}
+            min={f.type === 'number' ? 1 : undefined}
+            readonly={f.datepicker || undefined}
+            data-datepicker={f.datepicker || undefined}
+            inputmode={f.type === 'tel' ? 'tel' : f.type === 'number' ? 'numeric' : undefined}
+          />
+        )}
+      </div>
+    ))}
+  </div>
+
+  <div class="form-error" role="alert" style="display:none"></div>
+  <button type="submit" class="form-submit">
+    <span class="btn-text">{submitLabel}</span>
+    <span class="btn-loading" style="display:none">Enviando…</span>
+  </button>
+</form>
+
+<script>
+  import flatpickr from 'flatpickr';
+  import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
+  import 'flatpickr/dist/flatpickr.min.css';
+  import { initForms } from '../scripts/forms';
+
+  document.querySelectorAll<HTMLInputElement>('input[data-datepicker]').forEach((el) => {
+    flatpickr(el, { locale: Portuguese, dateFormat: 'd/m/Y', minDate: 'today', disableMobile: true });
+  });
+  initForms();
+</script>

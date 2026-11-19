@@ -1,0 +1,35 @@
+/* Casa Maria Jardins: fontes e cores da marca (compartilhado por todas as páginas) */
+@import '@fontsource/cormorant-garamond/300.css';
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/300-italic.css';
+@import '@fontsource/cormorant-garamond/400-italic.css';
+@import '@fontsource-variable/inter';
+
+@font-face {
+  font-family: 'Distrampler';
+  src: url('/fonts/Distrampler.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --verde: #0d3b2e;
+  --verde-mid: #1a5240;
+  --verde-light: #234d3a;
+  --creme: #e8dcc8;
+  --creme-light: #f3ede1;
+  --creme-dark: #c9b99a;
+  --branco: #faf8f3;
+  --display: 'Distrampler', Georgia, serif;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Inter Variable', 'Inter', sans-serif;
+  --font-display: var(--serif);
+  --font-body: var(--sans);
+}
+
+/* formulário padrão (LeadForm) */
+.form-hint { text-transform: none; letter-spacing: 0; opacity: .7; }
+.form-group textarea { resize: vertical; min-height: 4.5rem; }
+.form-error { color: #c0392b; font-size: .8rem; margin-top: .5rem; }

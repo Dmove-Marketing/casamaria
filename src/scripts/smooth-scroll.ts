@@ -1,5 +1,3 @@
-// src/scripts/smooth-scroll.ts
-// Smooth scroll com Lenis — scroll suave profissional
 import Lenis from 'lenis';
 
 export function initSmoothScroll() {
@@ -17,7 +15,6 @@ export function initSmoothScroll() {
 
   requestAnimationFrame(raf);
 
-  // Expor para uso global (scroll-to em âncoras)
   (window as any).__lenis = lenis;
 
   return lenis;

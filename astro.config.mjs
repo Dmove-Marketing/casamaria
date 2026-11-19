@@ -1,18 +1,13 @@
 import { defineConfig } from 'astro/config';
 
+// Ajuste `site` para o domínio do projeto (usado em canonical/OG).
 export default defineConfig({
-  // Output estático (padrão) — gera HTML puro
+  site: 'https://espacocasamaria.com.br',
   output: 'static',
-
-  // View Transitions habilitadas
   prefetch: true,
-
-  // Build otimizado
   build: {
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
   },
-
-  // Dev server
   server: {
     port: 4321,
   },

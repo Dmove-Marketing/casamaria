@@ -1,0 +1,598 @@
+---
+// Gerado a partir de: index.html
+import Base from "../layouts/Base.astro";
+import config from "../../config.json";
+import Img from "../components/ui/Img.astro";
+import Video from "../components/ui/Video.astro";
+import StaticMap from "../components/ui/StaticMap.astro";
+import "../styles/index.css";
+
+// Seção Ambientes — fotos do carrossel automático (src/assets/images/), na ordem de exibição
+const ambientes = [
+  { src: "ambiente-01.jpg", alt: "Lounge com poltronas sob árvore iluminada" },
+  { src: "ambiente-02.jpg", alt: "Convidados brindando no bar com lustre de cristais" },
+  { src: "ambiente-03.jpg", alt: "Hall com teto de vidro e convidados durante evento" },
+  { src: "ambiente-04.jpg", alt: "Banda tocando ao vivo sob o teto de vidro" },
+  { src: "ambiente-05.jpg", alt: "Convidados no jardim em frente à casa à noite" },
+  { src: "ambiente-06.jpg", alt: "Bar com lustre de cristais e arranjos de flores" },
+  { src: "ambiente-07.jpg", alt: "Palco com instrumentos montado para show" },
+  { src: "ambiente-08.jpg", alt: "Entrada com tela da Casa Maria e piso em madeira" },
+  { src: "ambiente-09.jpg", alt: "Caminho iluminado ao lado da casa" },
+  { src: "ambiente-10.jpg", alt: "Convidados reunidos no bar durante evento" },
+  { src: "ambiente-11.jpg", alt: "Convidados no jardim sob as árvores iluminadas" },
+];
+---
+
+<Base title="Casa Maria Jardins — Casamentos" ogImage="/images/og-index.jpg">
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </Fragment>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo">
+      <Img
+        src="logo-branca.png"
+        alt="Casa Maria Jardins"
+        width={280}
+        class="nav-logo-img"
+      />
+    </div>
+    <a href="#contato" class="nav-cta">Solicitar Orçamento</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <Img
+      src="hero.jpg"
+      alt="Casa Maria Jardins"
+      width={1920}
+      priority
+      class="hero-img"
+    />
+    <div class="hero-texture"></div>
+    <div class="hero-content">
+      <p class="hero-overline">Casamentos • Eventos sociais</p>
+      <h1>
+        Uma casa em meio à cidade<br class="br-desk" /> para celebrar de forma<br
+          class="br-desk"
+        /> <span class="h1-last"><em>íntima, sofisticada e memorável</em></span>
+      </h1>
+      <a href="#contato" class="btn-primary">Solicite Orçamento</a>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <div class="proof-bar">
+    <div class="proof-item reveal">
+      <span class="proof-num">500m²</span>
+      <span class="proof-label">de espaço exclusivo</span>
+    </div>
+    <div class="proof-item reveal">
+      <span class="proof-num">250</span>
+      <span class="proof-label">convidados</span>
+    </div>
+    <div class="proof-item reveal">
+      <span class="proof-num">Jardins</span>
+      <span class="proof-label">localização nobre</span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="sobre">
+    <div class="sobre-visual reveal">
+      <Img
+        src="sobre-espaco.jpg"
+        alt="Espaço Casa Maria Jardins"
+        width={900}
+        priority
+        class="sobre-video"
+      />
+      <div class="sobre-accent"></div>
+    </div>
+    <div class="sobre-text">
+      <p class="section-overline reveal">O Espaço</p>
+      <h2 class="section-h2 reveal">
+        Alguns lugares<br />recebem convidados.<br />Outros fazem todos<br />se
+        sentirem <em style="font-style:italic">parte</em>.
+      </h2>
+      <p class="section-p reveal">
+        A Casa Maria foi pensada para quem valoriza presença,<br
+          class="br-desk"
+        /> atmosfera e conexão. Um espaço para receber celebrações<br
+          class="br-desk"
+        /> de diferentes formatos, com ambientes que aproximam<br
+          class="br-desk"
+        /> convidados e dão personalidade a cada ocasião.
+      </p>
+      <p class="section-p reveal" style="margin-top: 1.2rem;">
+        Não existem fórmulas prontas. Cada celebração ganha ritmo,<br
+          class="br-desk"
+        /> estética e
+        personalidade própria.
+      </p>
+    </div>
+  </section>
+
+  <!-- EVENTOS -->
+  <section class="eventos">
+    <Img
+      src="/images/placeholder.jpg"
+      alt=""
+      style="position:absolute;left:-20px;top:-20px;width:280px;opacity:0.2;pointer-events:none;mix-blend-mode:screen;object-fit:contain;"
+      priority
+    />
+    <Img
+      src="/images/placeholder.jpg"
+      alt=""
+      style="position:absolute;right:-20px;bottom:-20px;width:260px;opacity:0.16;pointer-events:none;mix-blend-mode:screen;object-fit:contain;transform:rotate(175deg) scaleX(-1);"
+    />
+    <p class="section-overline reveal">Celebrações</p>
+    <h2 class="section-h2 reveal">
+      Diferentes formas de celebrar.<br />A mesma <em style="font-style:italic">essência</em> exclusiva.
+    </h2>
+    <p class="section-p reveal">
+      Cada comemoração encontra sua própria forma de acontecer,<br
+        class="br-desk"
+      /> sempre com a leveza e a elegância que definem a Casa Maria.
+    </p>
+
+    <div class="eventos-grid reveal">
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        </div>
+        <span class="evento-name">Casamentos e <span class="nowrap">mini weddings</span></span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 4 3.5 7 6 8 2.5-1 6-4 6-8a6 6 0 0 0-6-6z"></path><path d="M11 16l-1 2h4l-1-2"></path><path d="M12 18c0 2-2 2-2 4"></path></svg>
+        </div>
+        <span class="evento-name">Aniversários infantis</span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="14" r="6"></circle><circle cx="15" cy="14" r="6"></circle><path d="M10 4l2-2 2 2"></path></svg>
+        </div>
+        <span class="evento-name">Bodas e renovação <span class="nowrap">de votos</span></span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+        </div>
+        <span class="evento-name">Chás de bebês <span class="nowrap">e revelação</span></span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 21h16v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2z"></path><path d="M4 16c1.33 0 1.33-1 2.67-1s1.33 1 2.66 1 1.34-1 2.67-1 1.33 1 2.67 1 1.33-1 2.66-1 1.34 1 2.67 1"></path><line x1="12" y1="11" x2="12" y2="7"></line><path d="M12 7c-.8 0-1.5-.6-1.5-1.5S12 3 12 3s1.5 1.6 1.5 2.5S12.8 7 12 7z"></path></svg>
+        </div>
+        <span class="evento-name">Aniversários <span class="nowrap">de 50 e 60 anos</span></span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        </div>
+        <span class="evento-name">Recepção <span class="nowrap">pós-cartório</span></span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+        </div>
+        <span class="evento-name">Festas de 15 anos</span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 2v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V2"></path><line x1="7" y1="2" x2="7" y2="22"></line><path d="M21 15V2a5 5 0 0 0-5 5v6a2 2 0 0 0 2 2h3zm0 0v7"></path></svg>
+        </div>
+        <span class="evento-name">Jantares comemorativos</span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <span class="evento-name">Outras celebrações</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="diferenciais">
+    <div class="diferenciais-header reveal">
+      <div>
+        <p class="section-overline">Experiência</p>
+        <h2 class="section-h2">
+          Excelência em<br class="br-mob" /> todos os <em style="font-style:italic">detalhes</em>
+        </h2>
+      </div>
+    </div>
+
+    <div class="dif-grid">
+      <div class="dif-card reveal">
+        <span class="dif-num">01</span>
+        <div class="dif-img">
+          <Img
+            src="experiencia-gastronomica.jpg"
+            alt="Experiência Gastronômica"
+            width={600}
+          />
+        </div>
+        <h3 class="dif-title">Experiência Gastronômica</h3>
+        <p class="dif-p">
+          Menus personalizados e experiências gastronômicas<br class="br-mob br-mob-wide" /> alinhadas ao
+          estilo da celebração.
+        </p>
+      </div>
+      <div class="dif-card reveal">
+        <span class="dif-num">02</span>
+        <div class="dif-img">
+          <Img
+            src="curadoria-decoracao.jpg"
+            alt="Curadoria de Decoração"
+            width={600}
+          />
+        </div>
+        <h3 class="dif-title">Curadoria de Decoração</h3>
+        <p class="dif-p">
+          Uma ambientação construída para traduzir<br class="br-desk" /><br class="br-mob" /> o estilo
+          e a proposta de cada celebração.
+        </p>
+      </div>
+      <div class="dif-card reveal">
+        <span class="dif-num">03</span>
+        <div class="dif-img">
+          <Img
+            src="apoio-especializado.jpg"
+            alt="Apoio Especializado"
+            width={600}
+          />
+        </div>
+        <h3 class="dif-title">Apoio Especializado</h3>
+        <p class="dif-p">
+          Uma equipe preparada para acompanhar<br class="br-mob" /> cada etapa da vivência com
+          atenção e cuidado.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMBIENTES -->
+  <section class="ambientes">
+    <div class="ambientes-header reveal">
+      <p class="section-overline">Ambientes</p>
+      <h2 class="section-h2">
+        Uma <em style="font-style:italic">casa completa</em> para<br class="br-mob" /> receber
+        grandes momentos
+      </h2>
+    </div>
+    <!-- Carrossel automático: a lista aparece duas vezes para o loop não ter emenda -->
+    <div class="amb-marquee reveal">
+      <div class="amb-track">
+        {[...ambientes, ...ambientes].map((foto, i) => (
+          <div class="amb-item" aria-hidden={i >= ambientes.length ? "true" : undefined}>
+            <Img src={foto.src} alt={i >= ambientes.length ? "" : foto.alt} width={900} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos">
+    <Img
+      src="/images/placeholder.jpg"
+      alt=""
+      style="position:absolute;right:-20px;top:-20px;width:260px;opacity:0.18;pointer-events:none;mix-blend-mode:screen;object-fit:contain;transform:scaleX(-1);"
+    />
+    <div class="depo-header reveal">
+      <div>
+        <p class="section-overline">Depoimentos</p>
+        <h2 class="section-h2">
+          Histórias que mostram<br class="br-mob" /> como cada celebração<br />ganha vida de forma <em style="font-style:italic">única</em>
+        </h2>
+      </div>
+      <p>
+        Vivências reais que traduzem a essência acolhedora,<br class="br-mob br-mob-390" />
+        sofisticada e exclusiva de cada celebração na Casa&nbsp;Maria.
+      </p>
+    </div>
+
+    <div class="depo-grid reveal">
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-quote">Lugar incrível, luxo e exclusividade<br class="br-desk" /><br class="br-mob" /> e localização perfeita no Jardins.</p>
+        <span class="depo-author">Bernardo Vettorazzi</span>
+      </div>
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-quote">Lugar intimista e aconchegante. Ideal para festas pessoais. Atendimento ótimo e serviço muito bem executado.</p>
+        <span class="depo-author">Marcelo Vicentini</span>
+      </div>
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-quote">Chique, espaçoso e bem organizado.<br class="br-mob" /> Excelente atendimento.</p>
+        <span class="depo-author">Rafael Augusto</span>
+      </div>
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-quote">Espaço delicioso, sofisticado<br class="br-desk" /><br class="br-mob" /> e com uma atmosfera única.</p>
+        <span class="depo-author">Lupe Lima</span>
+      </div>
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-quote">Excelente local. Recomendo para<br class="br-desk" /> quem<br class="br-mob br-mob-390" /> busca qualidade e exclusividade.</p>
+        <span class="depo-author">Alexandre Souza</span>
+      </div>
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-quote">Excelente atendimento.<br class="br-mob" /> Um espaço<br class="br-desk" /> que encanta em cada&nbsp;detalhe.</p>
+        <span class="depo-author">Francisco Souza</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="galeria">
+    <div class="galeria-header reveal">
+      <div>
+        <p class="section-overline">Galeria</p>
+        <h2 class="section-h2">
+          Celebrações que valorizam <em style="font-style:italic"
+            >exclusividade e significado</em
+          >
+        </h2>
+      </div>
+    </div>
+    <div class="gal-carousel reveal">
+    <div class="galeria-strip">
+      <div class="gal-item">
+        <Img src="galeria-04.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-02.avif" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-03.avif" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-05.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-06.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-07.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-08.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-10.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-11.jpg" alt="Espaço Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-13.jpg" alt="Convidadas em evento noturno na Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-14.jpg" alt="Fachada da Casa Maria iluminada durante evento" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-15.jpg" alt="DJ tocando em meio aos jardins da Casa Maria" width={700} />
+      </div>
+      <div class="gal-item">
+        <Img src="galeria-16.jpg" alt="Convidados no corredor iluminado da Casa Maria" width={700} />
+      </div>
+    </div>
+    <button type="button" class="gal-arrow gal-prev" aria-label="Foto anterior">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button type="button" class="gal-arrow gal-next" aria-label="Próxima foto">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+    </div>
+    <div class="gal-dots" aria-label="Navegação da galeria"></div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contato" id="contato">
+    <div class="contato-left">
+      <p class="section-overline reveal">Contato</p>
+      <h2 class="section-h2 reveal">
+        Planeje uma celebração<br />à altura do momento
+      </h2>
+      <p class="section-p reveal">
+        Preencha seus dados e receba um orçamento personalizado<br
+          class="br-desk"
+        /> para o dia mais especial da sua vida.
+      </p>
+      <div class="contato-detail reveal">
+        <div class="contato-detail-item">
+          <strong>Endereço</strong>
+          Praça das Guianas, 82 — Jardim Paulista, São Paulo — SP
+        </div>
+      </div>
+    </div>
+
+    <div class="form-wrap reveal">
+      <h3 class="form-title">Solicite seu orçamento</h3>
+      <form
+        data-form-id="lead-form"
+        data-submit-url={config.forms?.["lead-form"]?.webhooks?.[0]}
+        data-redirect={config.forms?.["lead-form"]?.redirect_on_success}
+        novalidate
+      >
+        <input
+          type="text"
+          name="website"
+          style="display:none"
+          tabindex="-1"
+          autocomplete="off"
+        />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-nome">Nome</label>
+            <input
+              id="f-nome"
+              type="text"
+              name="nome"
+              placeholder="Seu nome completo"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="f-tel">WhatsApp</label>
+            <input
+              id="f-tel"
+              type="tel"
+              name="telefone"
+              placeholder="(11) 90000-0000"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="f-email">E-mail</label>
+          <input
+            id="f-email"
+            type="email"
+            name="email"
+            placeholder="seu@email.com.br"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="f-tipo">Tipo de evento</label>
+          <select id="f-tipo" name="tipo_evento" required>
+            <option value="" disabled selected
+              >Selecione o tipo de evento</option
+            >
+            <option>Bodas</option>
+            <option>Casamento</option>
+            <option>Confraternização social</option>
+            <option>Outros</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-data">Data do evento</label>
+            <input
+              id="f-data"
+              type="text"
+              name="data_evento"
+              placeholder="dd/mm/aaaa"
+              readonly
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="f-conv">Número de convidados</label>
+            <input
+              id="f-conv"
+              type="number"
+              name="convidados"
+              placeholder="Quantidade estimada"
+              min="1"
+              required
+            />
+          </div>
+        </div>
+
+        <div
+          class="form-error"
+          style="display:none;color:#c0392b;font-size:0.8rem;margin-top:0.5rem"
+        >
+        </div>
+        <button type="submit" class="form-submit">Solicitar Orçamento</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section class="localizacao">
+    <Img
+      src="/images/placeholder.jpg"
+      alt=""
+      style="position:absolute;left:-20px;bottom:-20px;width:240px;opacity:0.18;pointer-events:none;mix-blend-mode:screen;object-fit:contain;transform:rotate(180deg);"
+    />
+    <div>
+      <p class="section-overline reveal">Como nos Encontrar</p>
+      <h2 class="section-h2 reveal">
+        A praticidade de São Paulo<br />com atmosfera de refúgio
+      </h2>
+      <div class="loc-address reveal">
+        Praça das Guianas, 82 — Jardim Paulista<br />
+        São Paulo · SP · 01428-030
+      </div>
+    </div>
+    <div class="map-wrap reveal">
+      <StaticMap
+        src="https://maps.google.com/maps?q=Pra%C3%A7a+das+Guianas%2C+82%2C+Jardim+Paulista%2C+S%C3%A3o+Paulo%2C+SP&output=embed&z=17"
+        height={420}
+      />
+      <a
+        class="map-link"
+        href="https://maps.google.com/?q=Praça+das+Guianas,82,Jardim+Paulista,São+Paulo"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+          ></path><polyline points="15 3 21 3 21 9"></polyline><line
+            x1="10"
+            y1="14"
+            x2="21"
+            y2="3"></line></svg
+        >
+        Abrir no Google Maps
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <Img
+        src="logo-branca.png"
+        alt="Casa Maria Jardins"
+        width={120}
+        class="footer-logo-img"
+      />
+      <Img
+        src="maria_logosrodape.avif"
+        alt=""
+        width={280}
+        class="footer-logo-img"
+      />
+    </div>
+    <p class="footer-copy">
+      © 2025 Casa Maria Jardins. Todos os direitos reservados.
+    </p>
+  </footer>
+</Base>
+<script>
+  import "../scripts/index.js";
+</script>

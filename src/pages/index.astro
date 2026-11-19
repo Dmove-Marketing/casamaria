@@ -1,42 +1,42 @@
 ---
-// Gerado a partir de: index.html
+// Home (origem: eventos.espacocasamaria.com.br/). Base da futura home institucional.
 import Base from "../layouts/Base.astro";
 import config from "../../config.json";
 import Img from "../components/ui/Img.astro";
 import Video from "../components/ui/Video.astro";
 import StaticMap from "../components/ui/StaticMap.astro";
-import "../styles/index.css";
+import LeadForm from "../components/LeadForm.astro";
+import "../styles/marca.css";
+import "../styles/home.css";
 
 // Seção Ambientes — fotos do carrossel automático (src/assets/images/), na ordem de exibição
 const ambientes = [
-  { src: "ambiente-01.jpg", alt: "Lounge com poltronas sob árvore iluminada" },
-  { src: "ambiente-02.jpg", alt: "Convidados brindando no bar com lustre de cristais" },
-  { src: "ambiente-03.jpg", alt: "Hall com teto de vidro e convidados durante evento" },
-  { src: "ambiente-04.jpg", alt: "Banda tocando ao vivo sob o teto de vidro" },
-  { src: "ambiente-05.jpg", alt: "Convidados no jardim em frente à casa à noite" },
-  { src: "ambiente-06.jpg", alt: "Bar com lustre de cristais e arranjos de flores" },
-  { src: "ambiente-07.jpg", alt: "Palco com instrumentos montado para show" },
-  { src: "ambiente-08.jpg", alt: "Entrada com tela da Casa Maria e piso em madeira" },
-  { src: "ambiente-09.jpg", alt: "Caminho iluminado ao lado da casa" },
-  { src: "ambiente-10.jpg", alt: "Convidados reunidos no bar durante evento" },
-  { src: "ambiente-11.jpg", alt: "Convidados no jardim sob as árvores iluminadas" },
+  { src: "espaco/lounge-poltronas-noite.jpg", alt: "Lounge com poltronas sob árvore iluminada" },
+  { src: "espaco/bar-evento-noite.jpg", alt: "Convidados brindando no bar com lustre de cristais" },
+  { src: "espaco/salao-luz-azul.jpg", alt: "Hall com teto de vidro e convidados durante evento" },
+  { src: "espaco/jardim-musica-ao-vivo.jpg", alt: "Banda tocando ao vivo sob o teto de vidro" },
+  { src: "espaco/jardim-evento-noite.jpg", alt: "Convidados no jardim em frente à casa à noite" },
+  { src: "espaco/bar-dia.jpg", alt: "Bar com lustre de cristais e arranjos de flores" },
+  { src: "espaco/lounge-tapete.jpg", alt: "Palco com instrumentos montado para show" },
+  { src: "espaco/hall-telao.jpg", alt: "Entrada com tela da Casa Maria e piso em madeira" },
+  { src: "espaco/fachada-jardim-noite.jpg", alt: "Caminho iluminado ao lado da casa" },
+  { src: "espaco/salao-lustre-jantar.jpg", alt: "Convidados reunidos no bar durante evento" },
+  { src: "espaco/jardim-publico-noite.jpg", alt: "Convidados no jardim sob as árvores iluminadas" },
 ];
 ---
 
-<Base title="Casa Maria Jardins — Casamentos" ogImage="/images/og-index.jpg">
-  <Fragment slot="head">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-  </Fragment>
+<Base
+  title="Casa Maria Jardins | Espaço para casamentos e eventos nos Jardins, SP"
+  description="Casa de eventos nos Jardins, em São Paulo: casamentos, mini weddings, aniversários e celebrações para até 250 convidados em 500 m² de jardins e salões."
+  ogImage="/images/og-casa-maria.jpg"
+  canonical="https://espacocasamaria.com.br/"
+  theme="light"
+>
   <!-- NAV -->
   <nav id="nav">
     <div class="nav-logo">
       <Img
-        src="logo-branca.png"
+        src="marca/logo-branca.png"
         alt="Casa Maria Jardins"
         width={280}
         class="nav-logo-img"
@@ -49,7 +49,7 @@ const ambientes = [
   <section class="hero">
     <div class="hero-bg"></div>
     <Img
-      src="hero.jpg"
+      src="casamentos/cerimonia-jardim.jpg"
       alt="Casa Maria Jardins"
       width={1920}
       priority
@@ -87,7 +87,7 @@ const ambientes = [
   <section class="sobre">
     <div class="sobre-visual reveal">
       <Img
-        src="sobre-espaco.jpg"
+        src="espaco/jardim-detalhe-noite.jpg"
         alt="Espaço Casa Maria Jardins"
         width={900}
         priority
@@ -122,13 +122,13 @@ const ambientes = [
   <!-- EVENTOS -->
   <section class="eventos">
     <Img
-      src="/images/placeholder.jpg"
+      src="marca/folha-3.avif"
       alt=""
       style="position:absolute;left:-20px;top:-20px;width:280px;opacity:0.2;pointer-events:none;mix-blend-mode:screen;object-fit:contain;"
       priority
     />
     <Img
-      src="/images/placeholder.jpg"
+      src="marca/folha-3.avif"
       alt=""
       style="position:absolute;right:-20px;bottom:-20px;width:260px;opacity:0.16;pointer-events:none;mix-blend-mode:screen;object-fit:contain;transform:rotate(175deg) scaleX(-1);"
     />
@@ -224,7 +224,7 @@ const ambientes = [
         <span class="dif-num">01</span>
         <div class="dif-img">
           <Img
-            src="experiencia-gastronomica.jpg"
+            src="servicos/gastronomia-buffet.jpg"
             alt="Experiência Gastronômica"
             width={600}
           />
@@ -239,7 +239,7 @@ const ambientes = [
         <span class="dif-num">02</span>
         <div class="dif-img">
           <Img
-            src="curadoria-decoracao.jpg"
+            src="casamentos/mesa-bolo-decoracao.jpg"
             alt="Curadoria de Decoração"
             width={600}
           />
@@ -254,7 +254,7 @@ const ambientes = [
         <span class="dif-num">03</span>
         <div class="dif-img">
           <Img
-            src="apoio-especializado.jpg"
+            src="servicos/equipe.jpg"
             alt="Apoio Especializado"
             width={600}
           />
@@ -292,7 +292,7 @@ const ambientes = [
   <!-- DEPOIMENTOS -->
   <section class="depoimentos">
     <Img
-      src="/images/placeholder.jpg"
+      src="marca/folha-3.avif"
       alt=""
       style="position:absolute;right:-20px;top:-20px;width:260px;opacity:0.18;pointer-events:none;mix-blend-mode:screen;object-fit:contain;transform:scaleX(-1);"
     />
@@ -358,43 +358,43 @@ const ambientes = [
     <div class="gal-carousel reveal">
     <div class="galeria-strip">
       <div class="gal-item">
-        <Img src="galeria-04.jpg" alt="Espaço Casa Maria" width={700} />
+        <Img src="casamentos/mesa-bolo.jpg" alt="Espaço Casa Maria" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-02.avif" alt="Espaço Casa Maria" width={700} />
+        <Img src="casamentos/cerimonia-noivos-1.avif" alt="Espaço Casa Maria" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-03.avif" alt="Espaço Casa Maria" width={700} />
+        <Img src="casamentos/cerimonia-noivos-2.avif" alt="Espaço Casa Maria" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-05.jpg" alt="Espaço Casa Maria" width={700} />
+        <Img src="casamentos/mesa-bolo-decoracao.jpg" alt="Espaço Casa Maria" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-06.jpg" alt="Espaço Casa Maria" width={700} />
+        <Img src="casamentos/mesas-jantar-1.jpg" alt="Espaço Casa Maria" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-07.jpg" alt="Espaço Casa Maria" width={700} />
+        <Img src="casamentos/mesas-jantar-2.jpg" alt="Espaço Casa Maria" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-08.jpg" alt="Espaço Casa Maria" width={700} />
+        <Img src="casamentos/cerimonia-corredor-1.jpg" alt="Espaço Casa Maria" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-10.jpg" alt="Espaço Casa Maria" width={700} />
+        <Img src="casamentos/cerimonia-cadeiras.jpg" alt="Espaço Casa Maria" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-11.jpg" alt="Espaço Casa Maria" width={700} />
+        <Img src="espaco/bar-dia.jpg" alt="Espaço Casa Maria" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-13.jpg" alt="Convidadas em evento noturno na Casa Maria" width={700} />
+        <Img src="social/convidadas-lounge.jpg" alt="Convidadas em evento noturno na Casa Maria" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-14.jpg" alt="Fachada da Casa Maria iluminada durante evento" width={700} />
+        <Img src="espaco/fachada-evento-noite.jpg" alt="Fachada da Casa Maria iluminada durante evento" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-15.jpg" alt="DJ tocando em meio aos jardins da Casa Maria" width={700} />
+        <Img src="servicos/dj.jpg" alt="DJ tocando em meio aos jardins da Casa Maria" width={700} />
       </div>
       <div class="gal-item">
-        <Img src="galeria-16.jpg" alt="Convidados no corredor iluminado da Casa Maria" width={700} />
+        <Img src="espaco/jardim-caminho-noite.jpg" alt="Convidados no corredor iluminado da Casa Maria" width={700} />
       </div>
     </div>
     <button type="button" class="gal-arrow gal-prev" aria-label="Foto anterior">
@@ -429,106 +429,14 @@ const ambientes = [
 
     <div class="form-wrap reveal">
       <h3 class="form-title">Solicite seu orçamento</h3>
-      <form
-        data-form-id="lead-form"
-        data-submit-url={config.forms?.["lead-form"]?.webhooks?.[0]}
-        data-redirect={config.forms?.["lead-form"]?.redirect_on_success}
-        novalidate
-      >
-        <input
-          type="text"
-          name="website"
-          style="display:none"
-          tabindex="-1"
-          autocomplete="off"
-        />
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="f-nome">Nome</label>
-            <input
-              id="f-nome"
-              type="text"
-              name="nome"
-              placeholder="Seu nome completo"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="f-tel">WhatsApp</label>
-            <input
-              id="f-tel"
-              type="tel"
-              name="telefone"
-              placeholder="(11) 90000-0000"
-              required
-            />
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="f-email">E-mail</label>
-          <input
-            id="f-email"
-            type="email"
-            name="email"
-            placeholder="seu@email.com.br"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="f-tipo">Tipo de evento</label>
-          <select id="f-tipo" name="tipo_evento" required>
-            <option value="" disabled selected
-              >Selecione o tipo de evento</option
-            >
-            <option>Bodas</option>
-            <option>Casamento</option>
-            <option>Confraternização social</option>
-            <option>Outros</option>
-          </select>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="f-data">Data do evento</label>
-            <input
-              id="f-data"
-              type="text"
-              name="data_evento"
-              placeholder="dd/mm/aaaa"
-              readonly
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="f-conv">Número de convidados</label>
-            <input
-              id="f-conv"
-              type="number"
-              name="convidados"
-              placeholder="Quantidade estimada"
-              min="1"
-              required
-            />
-          </div>
-        </div>
-
-        <div
-          class="form-error"
-          style="display:none;color:#c0392b;font-size:0.8rem;margin-top:0.5rem"
-        >
-        </div>
-        <button type="submit" class="form-submit">Solicitar Orçamento</button>
-      </form>
+      <LeadForm />
     </div>
   </section>
 
   <!-- LOCALIZAÇÃO -->
   <section class="localizacao">
     <Img
-      src="/images/placeholder.jpg"
+      src="marca/folha-3.avif"
       alt=""
       style="position:absolute;left:-20px;bottom:-20px;width:240px;opacity:0.18;pointer-events:none;mix-blend-mode:screen;object-fit:contain;transform:rotate(180deg);"
     />
@@ -576,23 +484,23 @@ const ambientes = [
   <footer>
     <div class="footer-logo">
       <Img
-        src="logo-branca.png"
+        src="marca/logo-branca.png"
         alt="Casa Maria Jardins"
         width={120}
         class="footer-logo-img"
       />
       <Img
-        src="maria_logosrodape.avif"
+        src="marca/logos-rodape-think-tvenues.avif"
         alt=""
         width={280}
         class="footer-logo-img"
       />
     </div>
     <p class="footer-copy">
-      © 2025 Casa Maria Jardins. Todos os direitos reservados.
+      © {new Date().getFullYear()} Casa Maria Jardins. Todos os direitos reservados. · <a href="/politica-de-privacidade/">Política de privacidade</a>
     </p>
   </footer>
 </Base>
 <script>
-  import "../scripts/index.js";
+  import "../scripts/casa.js";
 </script>
