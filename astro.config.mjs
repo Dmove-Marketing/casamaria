@@ -6,7 +6,7 @@ export default defineConfig({
   site: 'https://espacocasamaria.com.br',
   output: 'static',
   trailingSlash: 'always',
-  integrations: [sitemap({ filter: (page) => !/\/(404|casamentos-v1|casamentos-v2)\//.test(page) })],
+  integrations: [sitemap({ filter: (page) => !/\/(404|casamentos-v1|casamentos-v2|lab)\//.test(page) })],
   prefetch: true,
   build: {
     inlineStylesheets: 'always',
