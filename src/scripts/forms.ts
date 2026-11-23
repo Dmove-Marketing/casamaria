@@ -71,6 +71,11 @@ export function initForms() {
 
     if (!submitUrl) {
       console.warn(`[Forms] Formulário ${formId} sem URL de webhook (data-submit-url).`);
+      // Sem webhook, nunca deixa o envio nativo acontecer (GET com nome, e-mail e telefone na URL).
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        console.warn(`[Forms] Envio bloqueado: formulário ${formId} sem URL de webhook.`);
+      });
       return;
     }
 
