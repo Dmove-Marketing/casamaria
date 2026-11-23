@@ -14,6 +14,7 @@
     "avatar": "/images/whatsapp-avatar.jpg",
     "enabled": false
   },
+  "social": { "instagram": "" },
   "forms": {
     "lead-form": {
       "id": "lead-form",

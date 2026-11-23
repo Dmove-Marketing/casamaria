@@ -1,0 +1,59 @@
+/* Casa Maria: base do sistema de design (importado só pelo SiteLayout) */
+@import './tokens.css';
+@import '@fontsource/cormorant-garamond/300.css';
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/400-italic.css';
+@import '@fontsource-variable/inter';
+
+@font-face { font-family: 'Distrampler'; src: url('/fonts/Distrampler.woff2') format('woff2'); font-display: swap; }
+
+body[data-site='casa-maria'] { margin: 0; background: var(--branco); color: var(--tinta); font: 400 var(--fs-body)/1.7 var(--sans); -webkit-font-smoothing: antialiased; }
+body[data-site='casa-maria'] *, body[data-site='casa-maria'] *::before, body[data-site='casa-maria'] *::after { box-sizing: border-box; }
+body[data-site='casa-maria'] h1, body[data-site='casa-maria'] h2, body[data-site='casa-maria'] h3 { font-family: var(--serif); font-weight: 400; line-height: 1.1; margin: 0; color: inherit; letter-spacing: 0; }
+body[data-site='casa-maria'] p { margin: 0; color: inherit; }
+body[data-site='casa-maria'] img { max-width: 100%; display: block; }
+body[data-site='casa-maria'] a { color: inherit; }
+body[data-site='casa-maria'] em { font-style: italic; }
+
+.container { width: 100%; max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
+.section { padding: var(--sec-y) 0; position: relative; }
+.section--verde { background: var(--verde); color: var(--creme-light); }
+.section--creme { background: var(--creme-light); }
+.section--branco { background: var(--branco); }
+.overline { display: block; font: 500 var(--fs-overline)/1.4 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--verde-mid); }
+.section--verde .overline { color: var(--creme-dark); }
+.h2 { font-size: var(--fs-h2); }
+.lead { font-size: var(--fs-lead); line-height: 1.7; color: var(--tinta-suave); max-width: 62ch; }
+.section--verde .lead { color: var(--creme); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 48px; padding: .95rem 2rem; font: 500 .8rem/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; border-radius: var(--radius); cursor: pointer; transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease); }
+.btn--claro { background: var(--creme-light); color: var(--verde); }
+.btn--claro:hover { background: #fff; }
+.btn--verde { background: var(--verde); color: var(--creme-light); }
+.btn--verde:hover { background: var(--verde-mid); }
+.btn--linha { border-color: currentColor; color: inherit; background: transparent; }
+.btn--linha:hover { background: rgba(255, 255, 255, .08); }
+:focus-visible { outline: 2px solid var(--creme-dark); outline-offset: 3px; }
+
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.visivel { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+html:not(.js) .reveal { opacity: 1; transform: none; }
+
+/* formulário padrão (LeadForm) no visual do site */
+body[data-site='casa-maria'] .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.2rem; }
+body[data-site='casa-maria'] .form-group { display: flex; flex-direction: column; gap: .35rem; }
+body[data-site='casa-maria'] .form-group.full,
+body[data-site='casa-maria'] .form-group:has(textarea),
+body[data-site='casa-maria'] .form-group:has([name='empresa']) { grid-column: 1 / -1; }
+body[data-site='casa-maria'] .form-group label { font: 500 var(--fs-overline)/1.4 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--verde-mid); }
+body[data-site='casa-maria'] .form-hint { text-transform: none; letter-spacing: 0; opacity: .75; }
+body[data-site='casa-maria'] .form-group :is(input, select, textarea) { width: 100%; border: 0; border-bottom: 1px solid var(--creme-dark); background: transparent; padding: .7rem 0; font: 400 .95rem var(--sans); color: var(--tinta); border-radius: 0; appearance: none; -webkit-appearance: none; }
+body[data-site='casa-maria'] .form-group :is(input, select, textarea):focus { outline: none; border-color: var(--verde); }
+body[data-site='casa-maria'] .form-group .field-error { border-color: var(--erro); }
+body[data-site='casa-maria'] .form-group textarea { resize: vertical; min-height: 4.5rem; }
+body[data-site='casa-maria'] .form-error { color: var(--erro); font-size: var(--fs-small); margin-top: .6rem; }
+body[data-site='casa-maria'] .form-submit { margin-top: 1.4rem; width: 100%; min-height: 52px; background: var(--verde); color: var(--creme-light); border: 0; font: 500 .8rem var(--sans); letter-spacing: .2em; text-transform: uppercase; cursor: pointer; }
+body[data-site='casa-maria'] .form-submit:hover { background: var(--verde-mid); }
+@media (max-width: 640px) { body[data-site='casa-maria'] .form-grid { grid-template-columns: 1fr; } }

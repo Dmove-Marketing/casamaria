@@ -1,0 +1,71 @@
+// Fatos da Casa Maria Jardins: fonte única para todas as páginas do site.
+// Só fatos já aprovados (textos atuais do site). Nada de preço ou número inventado.
+export const casa = {
+  nome: 'Casa Maria Jardins',
+  url: 'https://espacocasamaria.com.br',
+  endereco: {
+    rua: 'Praça das Guianas, 82',
+    bairro: 'Jardim Paulista',
+    cidade: 'São Paulo',
+    uf: 'SP',
+    cep: '01428-030',
+    linha: 'Praça das Guianas, 82, Jardim Paulista, São Paulo, SP',
+  },
+  mapa: {
+    embed: 'https://maps.google.com/maps?q=Pra%C3%A7a+das+Guianas%2C+82%2C+Jardim+Paulista%2C+S%C3%A3o+Paulo%2C+SP&output=embed&z=17',
+    link: 'https://maps.app.goo.gl/kGntB2mFiFncTfbs5',
+  },
+  numeros: [
+    { valor: '500 m²', rotulo: 'de espaço exclusivo' },
+    { valor: '250', rotulo: 'convidados' },
+    { valor: 'Jardins', rotulo: 'localização nobre' },
+    { valor: '12 min', rotulo: 'da Avenida Paulista' },
+  ],
+  distancias: [
+    { via: 'Avenida Paulista', tempo: '12 minutos', km: '2,2 km' },
+    { via: 'Avenida Rebouças', tempo: '15 minutos', km: '2,8 km' },
+    { via: 'Avenida Brigadeiro Faria Lima', tempo: '16 minutos', km: '3,3 km' },
+  ],
+  igreja: 'A 8 minutos da Igreja Nossa Senhora do Brasil',
+  ambientes: [
+    { nome: 'Deck para recepção', texto: 'Área externa ampla, com estrutura de madeira e visual acolhedor, perfeita para criar uma primeira impressão marcante e receber com elegância.' },
+    { nome: 'Sala interna', texto: 'Espaço climatizado, com acabamentos modernos e iluminação aconchegante, que oferece conforto e sofisticação em qualquer ocasião.' },
+    { nome: 'Cozinha gourmet', texto: 'Ambiente funcional, equipado para operações profissionais, que proporciona praticidade e agilidade nos bastidores do evento.' },
+    { nome: 'Jardim', texto: 'Área verde integrada à arquitetura do espaço, com paisagismo planejado e atmosfera tranquila, trazendo leveza e frescor ao ambiente.' },
+    { nome: 'Bar', texto: 'Estrutura pronta para operação, com bancada, prateleiras e pontos de apoio, combinando praticidade com um toque de descontração.' },
+  ],
+  fotosAmbientes: [
+    { src: 'espaco/lounge-poltronas-noite.jpg', alt: 'Lounge com poltronas sob árvore iluminada' },
+    { src: 'espaco/bar-evento-noite.jpg', alt: 'Convidados brindando no bar com lustre de cristais' },
+    { src: 'espaco/salao-luz-azul.jpg', alt: 'Hall com teto de vidro e convidados durante evento' },
+    { src: 'espaco/jardim-musica-ao-vivo.jpg', alt: 'Banda tocando ao vivo sob o teto de vidro' },
+    { src: 'espaco/jardim-evento-noite.jpg', alt: 'Convidados no jardim em frente à casa à noite' },
+    { src: 'espaco/bar-dia.jpg', alt: 'Bar com lustre de cristais e arranjos de flores' },
+    { src: 'espaco/lounge-tapete.jpg', alt: 'Lounge com tapete e instrumentos montados para show' },
+    { src: 'espaco/hall-telao.jpg', alt: 'Entrada com telão da Casa Maria e piso de madeira' },
+    { src: 'espaco/fachada-jardim-noite.jpg', alt: 'Caminho iluminado ao lado da casa' },
+    { src: 'espaco/salao-lustre-jantar.jpg', alt: 'Convidados reunidos sob o lustre de cristais' },
+    { src: 'espaco/jardim-publico-noite.jpg', alt: 'Convidados no jardim sob as árvores iluminadas' },
+  ],
+  servicos: [
+    { nome: 'Buffet', texto: 'Menus personalizados e experiências gastronômicas alinhadas ao estilo do evento.', image: 'servicos/buffet-canapes.avif' },
+    { nome: 'Bar de drinks', texto: 'Carta de drinks e bar montado para receber os convidados.', image: 'servicos/drinks.avif' },
+    { nome: 'Som e luz', texto: 'Estrutura de som e iluminação para cada formato de evento.', image: 'servicos/dj-detalhe.avif' },
+    { nome: 'Decoração', texto: 'Uma ambientação construída para traduzir o estilo e a proposta de cada evento.', image: 'servicos/decoracao-flores.avif' },
+    { nome: 'Equipe', texto: 'Uma equipe preparada para acompanhar cada etapa com atenção e cuidado.', image: 'servicos/equipe.jpg' },
+  ],
+  depoimentos: [
+    { texto: 'Lugar incrível, luxo e exclusividade e localização perfeita no Jardins.', autor: 'Bernardo Vettorazzi' },
+    { texto: 'Lugar intimista e aconchegante. Ideal para festas pessoais. Atendimento ótimo e serviço muito bem executado.', autor: 'Marcelo Vicentini' },
+    { texto: 'Chique, espaçoso e bem organizado. Excelente atendimento.', autor: 'Rafael Augusto' },
+    { texto: 'Espaço delicioso, sofisticado e com uma atmosfera única.', autor: 'Lupe Lima' },
+    { texto: 'Excelente local. Recomendo para quem busca qualidade e exclusividade.', autor: 'Alexandre Souza' },
+    { texto: 'Excelente atendimento. Um espaço que encanta em cada detalhe.', autor: 'Francisco Souza' },
+  ],
+  clientes: [
+    ['google', 'Google'], ['track-and-field', 'Track&Field'], ['vitacon', 'Vitacon'], ['esquadrao-da-moda', 'Esquadrão da Moda'],
+    ['99', '99'], ['asus', 'Asus'], ['familhao', 'Familhão'], ['votorantim-cimentos', 'Votorantim Cimentos'],
+    ['cielo', 'Cielo'], ['itau', 'Itaú'], ['porsche', 'Porsche'], ['cetaphil', 'Cetaphil'],
+  ] as [string, string][],
+  grupo: 'T.Venues',
+} as const;
