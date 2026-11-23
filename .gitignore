@@ -22,3 +22,6 @@ _work/
 
 # vídeos só para desenvolvimento local (em produção ficam no Cloudflare R2)
 public/_dev-media/
+
+# capturas de tela locais
+capturas/
