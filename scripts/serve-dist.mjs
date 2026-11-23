@@ -2,6 +2,7 @@
 import http from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { join, extname, normalize } from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const PORT = Number(process.argv[2] || 4410);
 const ROOT = join(process.cwd(), 'dist');
@@ -31,7 +32,7 @@ export function startServer(port = PORT) {
   return new Promise((ok) => server.listen(port, '127.0.0.1', () => ok(server)));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await startServer();
   console.log(`dist/ em http://127.0.0.1:${PORT}`);
 }

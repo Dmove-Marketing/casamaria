@@ -1,4 +1,4 @@
-// Teste do container no site real (build + astro preview), sem GTM e sem lead real.
+// Teste do container no site real (build + scripts/serve-dist.mjs), sem GTM e sem lead real.
 // Uso: npm run build && node docs/gtm/testar.mjs [porta] [container.json]
 //   porta padrão 4406; container padrão docs/gtm/GTM-modelo-dmove-astro-v2.json (ou o JSON do cliente)
 //   Testa todo form[data-form-id] de todas as páginas do dist/ e, se houver, o popup do WhatsApp.
@@ -7,7 +7,6 @@
 // - Um mini-avaliador reproduz o GTM: a cada evento do site calcula as variáveis (cJS/dlv/cookie/awec),
 //   avalia os gatilhos CUSTOM_EVENT do container e lista as tags que disparariam.
 import { createRequire } from 'node:module';
-import { spawn, execSync } from 'node:child_process';
 import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -26,8 +25,9 @@ const gatilhos = cv.trigger.filter((t) => t.type === 'CUSTOM_EVENT').map((t) => 
   conds: [...(t.customEventFilter || []), ...(t.filter || [])].map((f) => ({ type: f.type, a: p(f, 'arg0'), b: p(f, 'arg1') })) }));
 const tagsAtivas = cv.tag.filter((t) => !t.paused).map((t) => ({ name: t.name, fire: t.firingTriggerId }));
 
-const preview = spawn(process.execPath, [join(SITE, 'node_modules', 'astro', 'bin', 'astro.mjs'), 'preview', '--port', String(PORT), '--host', '127.0.0.1'], { cwd: SITE, stdio: 'ignore' });
-const encerrar = () => { preview.kill(); try { execSync(`lsof -ti tcp:${PORT} | xargs kill 2>/dev/null`); } catch {} };
+const { startServer } = await import(join(SITE, 'scripts', 'serve-dist.mjs'));
+const preview = await startServer(PORT);
+const encerrar = () => preview.close();
 for (let i = 0; i < 50; i++) { try { await fetch(BASE); break; } catch { await new Promise((r) => setTimeout(r, 200)); } }
 
 let falhas = 0;

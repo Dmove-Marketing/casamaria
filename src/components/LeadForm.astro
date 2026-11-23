@@ -42,7 +42,7 @@ const fid = (name: string) => (idPrefix === 'f' ? `form-field-${name}` : `${idPr
 <form
   class:list={['lead-form', { 'lead-form--compact': compact }, className]}
   data-form-id={formId}
-  data-submit-url={formCfg.webhooks?.[0] || undefined}
+  data-submit-url={formCfg.webhooks?.[0] || import.meta.env.PUBLIC_TEST_WEBHOOK || undefined}
   data-redirect={formCfg.redirect_on_success || undefined}
   data-preset={preset}
   novalidate
