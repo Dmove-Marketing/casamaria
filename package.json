@@ -11,8 +11,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "compare": "node scripts/compare.mjs",
-    "audit": "node scripts/run-lighthouse.mjs",
-    "test:gtm": "npm run build && node docs/gtm/testar.mjs",
+    "test:gtm": "PUBLIC_TEST_WEBHOOK=https://exemplo.invalid/webhook-test/casa-maria npm run build && node docs/gtm/testar.mjs 4406 && npm run build",
     "check": "astro check",
     "smoke": "node scripts/smoke.mjs"
   },

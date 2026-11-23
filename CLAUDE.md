@@ -4,7 +4,7 @@ Astro 7 estático. Site institucional da Casa Maria (grupo T.Venues). Repositór
 
 ## Comandos
 - `npm run build` · `npm run check` (tipos) · `npm run smoke` (Playwright sobre o dist) · `node scripts/validar-conteudo.mjs` · `node scripts/lighthouse.mjs` · `node scripts/capturar.mjs`
-- Testes de tracking: `PUBLIC_TEST_WEBHOOK=https://exemplo.invalid/webhook-test/x npm run build && node docs/gtm/testar.mjs 4406`. O webhook é fictício e o teste intercepta o envio (nenhum lead sai da máquina). Depois, rebuild sem a variável e conferir que `exemplo.invalid` não está no `dist/`.
+- Testes de tracking: `npm run test:gtm` (build com webhook fictício `exemplo.invalid`, roda `docs/gtm/testar.mjs 4406` e refaz o build limpo no fim). O teste intercepta o envio (nenhum lead sai da máquina). Depois, conferir que `grep -rl exemplo.invalid dist` não acha nada.
 - Servidor local do build: `node scripts/serve-dist.mjs 4410` (não usar `astro preview`). Os scripts de teste sobem o próprio servidor.
 
 ## Estrutura
