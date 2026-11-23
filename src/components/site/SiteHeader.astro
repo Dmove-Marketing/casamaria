@@ -24,7 +24,7 @@ const ativo = (href: string) => current === href || current === href.slice(0, -1
       <ul>
         {MENU.map((g, i) => (
           <li class="hdr__grupo">
-            <button type="button" class="hdr__gatilho" data-menu-gatilho aria-expanded="false" aria-controls={`sub-${i}`}>
+            <button type="button" class:list={['hdr__gatilho', { 'hdr__gatilho--atual': g.itens.some((it) => ativo(it.href)) }]} data-menu-gatilho aria-expanded="false" aria-controls={`sub-${i}`}>
               {g.rotulo}<svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
             </button>
             <ul class="hdr__sub" id={`sub-${i}`} hidden>
@@ -114,6 +114,7 @@ const ativo = (href: string) => current === href || current === href.slice(0, -1
   .hdr__grupo { position: relative; }
   .hdr__gatilho, .hdr__link { background: none; border: 0; color: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; font: 500 .8rem var(--sans); letter-spacing: .16em; text-transform: uppercase; text-decoration: none; padding: 0; }
   .hdr__gatilho svg { width: 10px; transition: transform .25s; }
+  .hdr__gatilho--atual { text-decoration: underline; text-decoration-color: var(--creme-dark); text-decoration-thickness: 1px; text-underline-offset: .55em; }
   .hdr__gatilho[aria-expanded='true'] svg { transform: rotate(180deg); }
   .hdr__sub { position: absolute; top: 100%; left: -1.2rem; min-width: 270px; list-style: none; margin: 0; padding: .8rem 0; background: var(--branco); color: var(--verde); box-shadow: 0 18px 40px rgba(13,59,46,.18); }
   .hdr__sub a { display: block; padding: .7rem 1.4rem; font: 400 1.15rem var(--serif); text-decoration: none; }
@@ -130,6 +131,8 @@ const ativo = (href: string) => current === href || current === href.slice(0, -1
   .gaveta__grupo a, .gaveta__link { display: block; padding: .5rem 0; font: 400 1.7rem var(--serif); text-decoration: none; }
   .gaveta__cta { margin-top: auto; }
   .gaveta .overline { color: var(--creme-dark); }
+  .gaveta__grupo a[aria-current='page'] { color: var(--creme-dark); font-style: italic; }
+  .gaveta__grupo a[aria-current='page']::before { content: ''; display: inline-block; width: 1.1rem; height: 1px; background: currentColor; vertical-align: middle; margin-right: .6rem; }
   @media (max-width: 1023px) {
     .hdr__nav, .hdr__cta { display: none; }
     .hdr__burger { display: flex; }

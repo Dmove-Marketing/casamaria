@@ -34,7 +34,12 @@ body[data-site='casa-maria'] *, body[data-site='casa-maria'] *::before, body[dat
 .btn--verde:hover { background: var(--verde-mid); }
 .btn--linha { border-color: currentColor; color: inherit; background: transparent; }
 .btn--linha:hover { background: rgba(255, 255, 255, .08); }
-:focus-visible { outline: 2px solid var(--creme-dark); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+/* fundos escuros: anel creme; cartões claros dentro deles voltam ao verde */
+:is(.section--verde, .hdr, .gaveta, .ftr, .hero, .etg__card, .lm) :focus-visible { outline-color: var(--creme-dark); }
+:is(.hero__form, .hdr__sub) :focus-visible { outline-color: var(--verde); }
+/* âncoras não ficam sob o cabeçalho fixo */
+[id] { scroll-margin-top: var(--header-h); }
 
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
 .reveal.visivel { opacity: 1; transform: none; }
@@ -50,7 +55,8 @@ body[data-site='casa-maria'] .form-group:has([name='empresa']) { grid-column: 1 
 body[data-site='casa-maria'] .form-group label { font: 500 var(--fs-overline)/1.4 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--verde-mid); }
 body[data-site='casa-maria'] .form-hint { text-transform: none; letter-spacing: 0; opacity: .85; }
 body[data-site='casa-maria'] .form-group :is(input, select, textarea) { width: 100%; border: 0; border-bottom: 1px solid var(--creme-dark); background: transparent; padding: .7rem 0; font: 400 .95rem var(--sans); color: var(--tinta); border-radius: 0; appearance: none; -webkit-appearance: none; }
-body[data-site='casa-maria'] .form-group :is(input, select, textarea):focus { outline: none; border-color: var(--verde); }
+body[data-site='casa-maria'] .form-group :is(input, select, textarea):focus { border-color: var(--verde); }
+body[data-site='casa-maria'] .form-group :is(input, select, textarea):focus-visible { outline-offset: 2px; }
 body[data-site='casa-maria'] .form-group .field-error { border-color: var(--erro); }
 body[data-site='casa-maria'] .form-group textarea { resize: vertical; min-height: 4.5rem; }
 body[data-site='casa-maria'] .form-error { color: var(--erro); font-size: var(--fs-small); margin-top: .6rem; }

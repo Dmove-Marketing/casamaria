@@ -1,9 +1,9 @@
 ---
 import Img from '../ui/Img.astro';
-interface Props { image: string; imageAlt: string; title: string; text: string; overline?: string; reverse?: boolean; tone?: 'branco' | 'creme' | 'verde' }
-const { image, imageAlt, title, text, overline, reverse = false, tone = 'branco' } = Astro.props;
+interface Props { image: string; imageAlt: string; title: string; text: string; overline?: string; reverse?: boolean; tone?: 'branco' | 'creme' | 'verde'; id?: string }
+const { image, imageAlt, title, text, overline, reverse = false, tone = 'branco', id } = Astro.props;
 ---
-<section class:list={['section', `section--${tone}`]}>
+<section id={id} class:list={['section', `section--${tone}`]}>
   <div class:list={['container', 'sf', { 'sf--rev': reverse }]}>
     <div class="sf__img reveal"><Img src={image} alt={imageAlt} width={1100} sizes="(max-width: 860px) 100vw, 50vw" /></div>
     <div class="sf__txt reveal">
