@@ -3,6 +3,7 @@ import http from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { join, extname, normalize } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { gzipSync } from 'node:zlib';
 
 const PORT = Number(process.argv[2] || 4410);
 const ROOT = join(process.cwd(), 'dist');
@@ -26,8 +27,16 @@ export function startServer(port = PORT) {
       try { res.end(await readFile(join(ROOT, '404.html'))); } catch { res.end('404'); }
       return;
     }
-    res.writeHead(200, { 'content-type': TYPES[extname(file)] || 'application/octet-stream' });
-    res.end(await readFile(file));
+    const type = TYPES[extname(file)] || 'application/octet-stream';
+    const body = await readFile(file);
+    // Comprime texto como o Cloudflare faz em produção (sem isso o Lighthouse mede um HTML 5x maior que o real).
+    if (/^(text\/|application\/(json|xml)|image\/svg)/.test(type) && /\bgzip\b/.test(req.headers['accept-encoding'] || '')) {
+      res.writeHead(200, { 'content-type': type, 'content-encoding': 'gzip', vary: 'accept-encoding' });
+      res.end(gzipSync(body));
+      return;
+    }
+    res.writeHead(200, { 'content-type': type });
+    res.end(body);
   });
   return new Promise((ok) => server.listen(port, '127.0.0.1', () => ok(server)));
 }
