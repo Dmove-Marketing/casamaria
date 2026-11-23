@@ -1,0 +1,30 @@
+---
+// Layout das páginas do site novo: Base (SEO/GTM/WhatsApp) + sistema de design + menu + rodapé.
+import Base from '../../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import '../../styles/site/base.css';
+
+interface Props {
+  title: string; description: string; canonical?: string; ogImage?: string;
+  jsonLd?: Record<string, any> | Record<string, any>[]; noIndex?: boolean; current?: string;
+}
+const { title, description, canonical, ogImage = '/images/og-casa-maria.jpg', jsonLd, noIndex = false, current = Astro.url.pathname } = Astro.props;
+---
+<Base title={title} description={description} canonical={canonical} ogImage={ogImage} jsonLd={jsonLd as any} noIndex={noIndex} theme="light">
+  <script is:inline>document.body.dataset.site = 'casa-maria'; document.documentElement.classList.add('js');</script>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <SiteHeader current={current} />
+  <main id="conteudo"><slot /></main>
+  <SiteFooter />
+</Base>
+
+<script>
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visivel'); io.unobserve(e.target); } }), { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+<style is:global>
+  .pular { position: absolute; left: -9999px; top: 0; z-index: 100; background: var(--creme-light); color: var(--verde); padding: .8rem 1.2rem; }
+  .pular:focus { left: 1rem; top: 1rem; }
+</style>

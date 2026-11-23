@@ -59,6 +59,7 @@ for (const vp of [{ nome: 'desktop', width: 1440, height: 900 }, { nome: 'celula
       check(r.fontes.every((f) => FONTES_OK.test(f)), `fontes do sistema (${r.fontes.join(', ')})`);
       check(!r.travessao, 'sem travessão no texto');
       // menu
+      try {
       if (vp.nome === 'desktop') {
         const gatilho = page.locator('[data-menu-gatilho]').first();
         await gatilho.focus(); await page.keyboard.press('Enter');
@@ -72,6 +73,7 @@ for (const vp of [{ nome: 'desktop', width: 1440, height: 900 }, { nome: 'celula
         await page.keyboard.press('Escape');
         check(!(await page.locator('[data-menu-gaveta]').isVisible()), 'gaveta fecha com Esc');
       }
+      } catch (e) { check(false, `menu: ${String(e.message).split('\n')[0]}`); }
     }
     r.links.forEach((l) => linksVistos.add(l));
     await ctx.close();

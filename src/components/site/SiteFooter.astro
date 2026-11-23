@@ -1,0 +1,56 @@
+---
+import Img from '../ui/Img.astro';
+import config from '../../../config.json';
+import { casa } from '../../data/casa';
+const instagram = (config as any).social?.instagram as string | undefined;
+const ano = new Date().getFullYear();
+---
+<footer class="ftr">
+  <div class="container ftr__grid">
+    <div class="ftr__marca">
+      <Img src="marca/logo-branca.png" alt="Casa Maria Jardins" width={240} sizes="150px" />
+      <p>{casa.endereco.linha}</p>
+      <a href={casa.mapa.link} target="_blank" rel="noopener">Como chegar</a>
+      {instagram && <a href={instagram} target="_blank" rel="noopener">Instagram</a>}
+    </div>
+    <nav aria-label="Rodapé" class="ftr__nav">
+      <div><span class="overline">Corporativo</span><ul>
+        <li><a href="/eventos-corporativos/">Eventos corporativos</a></li>
+        <li><a href="/confraternizacao-de-empresa/">Confraternização de empresa</a></li>
+        <li><a href="/offsite-e-happy-hour/">Offsite e happy hour</a></li>
+      </ul></div>
+      <div><span class="overline">Celebrações</span><ul>
+        <li><a href="/casamentos/">Casamentos</a></li>
+        <li><a href="/aniversarios-e-celebracoes/">Aniversários e celebrações</a></li>
+      </ul></div>
+      <div><span class="overline">Casa Maria</span><ul>
+        <li><a href="/#espaco">O espaço</a></li>
+        <li><a href="#contato">Solicitar orçamento</a></li>
+        <li><a href="/politica-de-privacidade/">Política de privacidade</a></li>
+      </ul></div>
+    </nav>
+  </div>
+  <div class="container ftr__base">
+    <p>© {ano} {casa.nome}. Todos os direitos reservados.</p>
+    <Img src="marca/logos-rodape-think-tvenues.avif" alt="Think Design Eventos e T.Venues" width={260} sizes="200px" class="ftr__grupo" />
+  </div>
+</footer>
+
+<style>
+  .ftr { background: #082a20; color: var(--creme); padding: 4.5rem 0 2rem; }
+  .ftr__grid { display: grid; grid-template-columns: 1.1fr 2fr; gap: 3rem; }
+  .ftr__marca { display: flex; flex-direction: column; gap: .8rem; align-items: flex-start; }
+  .ftr__marca :global(img) { width: 150px; height: auto; margin-bottom: .6rem; }
+  .ftr__marca a, .ftr a { color: var(--creme-light); }
+  .ftr__nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .ftr__nav ul { list-style: none; margin: .9rem 0 0; padding: 0; display: grid; gap: .5rem; }
+  .ftr__nav a { text-decoration: none; }
+  .ftr__nav a:hover { text-decoration: underline; }
+  .ftr .overline { color: var(--creme-dark); }
+  .ftr__base { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; margin-top: 3.5rem; padding-top: 1.6rem; border-top: 1px solid rgba(232,220,200,.15); font-size: var(--fs-small); }
+  .ftr__base :global(.ftr__grupo) { width: 180px; height: auto; }
+  @media (max-width: 860px) {
+    .ftr__grid, .ftr__nav { grid-template-columns: 1fr; }
+    .ftr__base { flex-direction: column; align-items: flex-start; }
+  }
+</style>

@@ -1,0 +1,135 @@
+---
+import Img from '../ui/Img.astro';
+interface Props { current: string }
+const { current } = Astro.props;
+const MENU = [
+  { rotulo: 'Corporativo', itens: [
+    { href: '/eventos-corporativos/', nome: 'Eventos corporativos' },
+    { href: '/confraternizacao-de-empresa/', nome: 'Confraternização de empresa' },
+    { href: '/offsite-e-happy-hour/', nome: 'Offsite e happy hour' },
+  ] },
+  { rotulo: 'Celebrações', itens: [
+    { href: '/casamentos/', nome: 'Casamentos' },
+    { href: '/aniversarios-e-celebracoes/', nome: 'Aniversários e celebrações' },
+  ] },
+];
+const ativo = (href: string) => current === href || current === href.slice(0, -1);
+---
+<header class="hdr" data-hdr>
+  <div class="hdr__in">
+    <a href="/" class="hdr__logo" aria-label="Casa Maria Jardins, página inicial">
+      <Img src="marca/logo-branca.png" alt="" width={240} sizes="140px" priority />
+    </a>
+    <nav class="hdr__nav" aria-label="Principal">
+      <ul>
+        {MENU.map((g, i) => (
+          <li class="hdr__grupo">
+            <button type="button" class="hdr__gatilho" data-menu-gatilho aria-expanded="false" aria-controls={`sub-${i}`}>
+              {g.rotulo}<svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            </button>
+            <ul class="hdr__sub" id={`sub-${i}`} hidden>
+              {g.itens.map((it) => <li><a href={it.href} aria-current={ativo(it.href) ? 'page' : undefined}>{it.nome}</a></li>)}
+            </ul>
+          </li>
+        ))}
+        <li><a class="hdr__link" href="/#espaco">O espaço</a></li>
+      </ul>
+    </nav>
+    <a href="#contato" class="btn btn--claro hdr__cta">Solicitar orçamento</a>
+    <button type="button" class="hdr__burger" data-menu-abrir aria-expanded="false" aria-controls="gaveta" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="gaveta" id="gaveta" data-menu-gaveta hidden role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="gaveta__topo">
+      <Img src="marca/logo-branca.png" alt="Casa Maria Jardins" width={240} sizes="120px" />
+      <button type="button" class="gaveta__fechar" data-menu-fechar aria-label="Fechar menu">×</button>
+    </div>
+    {MENU.map((g) => (
+      <div class="gaveta__grupo">
+        <span class="overline">{g.rotulo}</span>
+        <ul>{g.itens.map((it) => <li><a href={it.href} aria-current={ativo(it.href) ? 'page' : undefined}>{it.nome}</a></li>)}</ul>
+      </div>
+    ))}
+    <a class="gaveta__link" href="/#espaco">O espaço</a>
+    <a href="#contato" class="btn btn--claro gaveta__cta" data-menu-fechar>Solicitar orçamento</a>
+  </div>
+</header>
+
+<script>
+  const hdr = document.querySelector<HTMLElement>('[data-hdr]')!;
+  const onScroll = () => hdr.classList.toggle('hdr--solido', window.scrollY > 60);
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Submenus (desktop): hover + clique + teclado; Esc fecha
+  const gatilhos = [...document.querySelectorAll<HTMLButtonElement>('[data-menu-gatilho]')];
+  const setSub = (b: HTMLButtonElement, aberto: boolean) => {
+    b.setAttribute('aria-expanded', String(aberto));
+    (document.getElementById(b.getAttribute('aria-controls')!) as HTMLElement).hidden = !aberto;
+  };
+  const fecharTodos = (exceto?: HTMLButtonElement) => gatilhos.forEach((b) => b !== exceto && setSub(b, false));
+  gatilhos.forEach((b) => {
+    const li = b.parentElement!;
+    b.addEventListener('click', () => { const v = b.getAttribute('aria-expanded') !== 'true'; fecharTodos(b); setSub(b, v); });
+    li.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) { fecharTodos(b); setSub(b, true); } });
+    li.addEventListener('mouseleave', () => { if (matchMedia('(hover: hover)').matches) setSub(b, false); });
+    li.addEventListener('focusout', (e) => { if (!li.contains(e.relatedTarget as Node)) setSub(b, false); });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const aberto = gatilhos.find((b) => b.getAttribute('aria-expanded') === 'true');
+    if (aberto) { setSub(aberto, false); aberto.focus(); }
+    if (!gaveta.hidden) fecharGaveta();
+  });
+  document.addEventListener('click', (e) => { if (!(e.target as Element).closest('.hdr__grupo')) fecharTodos(); });
+
+  // Gaveta (celular): foco preso, rolagem travada
+  const gaveta = document.querySelector<HTMLElement>('[data-menu-gaveta]')!;
+  const abrir = document.querySelector<HTMLButtonElement>('[data-menu-abrir]')!;
+  const focaveis = () => [...gaveta.querySelectorAll<HTMLElement>('a, button')];
+  function abrirGaveta() { gaveta.hidden = false; abrir.setAttribute('aria-expanded', 'true'); document.documentElement.style.overflow = 'hidden'; focaveis()[0]?.focus(); }
+  function fecharGaveta() { gaveta.hidden = true; abrir.setAttribute('aria-expanded', 'false'); document.documentElement.style.overflow = ''; abrir.focus(); }
+  abrir.addEventListener('click', abrirGaveta);
+  gaveta.querySelectorAll('[data-menu-fechar], a').forEach((el) => el.addEventListener('click', () => fecharGaveta()));
+  gaveta.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const f = focaveis(); const primeiro = f[0], ultimo = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === primeiro) { e.preventDefault(); ultimo.focus(); }
+    else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primeiro.focus(); }
+  });
+</script>
+
+<style>
+  .hdr { position: fixed; inset: 0 0 auto; z-index: 50; color: var(--creme-light); transition: background .35s var(--ease), box-shadow .35s var(--ease); }
+  .hdr--solido { background: var(--verde); box-shadow: 0 1px 0 rgba(255,255,255,.06); }
+  .hdr__in { height: var(--header-h); display: flex; align-items: center; gap: 2rem; padding: 0 var(--gutter); max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; }
+  .hdr__logo :global(img) { width: 132px; height: auto; }
+  .hdr__nav { margin-left: auto; }
+  .hdr__nav > ul { display: flex; gap: 2.2rem; list-style: none; margin: 0; padding: 0; align-items: center; }
+  .hdr__grupo { position: relative; }
+  .hdr__gatilho, .hdr__link { background: none; border: 0; color: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; font: 500 .8rem var(--sans); letter-spacing: .16em; text-transform: uppercase; text-decoration: none; padding: 0; }
+  .hdr__gatilho svg { width: 10px; transition: transform .25s; }
+  .hdr__gatilho[aria-expanded='true'] svg { transform: rotate(180deg); }
+  .hdr__sub { position: absolute; top: 100%; left: -1.2rem; min-width: 270px; list-style: none; margin: 0; padding: .8rem 0; background: var(--branco); color: var(--verde); box-shadow: 0 18px 40px rgba(13,59,46,.18); }
+  .hdr__sub a { display: block; padding: .7rem 1.4rem; font: 400 1.15rem var(--serif); text-decoration: none; }
+  .hdr__sub a:hover, .hdr__sub a[aria-current='page'] { background: var(--creme-light); }
+  .hdr__cta { min-height: 44px; padding: .75rem 1.3rem; }
+  .hdr__burger { display: none; margin-left: auto; width: 44px; height: 44px; background: none; border: 0; cursor: pointer; flex-direction: column; justify-content: center; gap: 6px; padding: 10px; }
+  .hdr__burger span { display: block; height: 1.5px; background: currentColor; }
+  .gaveta { position: fixed; inset: 0; background: var(--verde); color: var(--creme-light); padding: 1.2rem var(--gutter) 2rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1.8rem; }
+  .gaveta[hidden] { display: none; }
+  .gaveta__topo { display: flex; justify-content: space-between; align-items: center; }
+  .gaveta__topo :global(img) { width: 110px; height: auto; }
+  .gaveta__fechar { background: none; border: 0; color: inherit; font-size: 2.4rem; line-height: 1; width: 48px; height: 48px; cursor: pointer; }
+  .gaveta__grupo ul { list-style: none; margin: .6rem 0 0; padding: 0; }
+  .gaveta__grupo a, .gaveta__link { display: block; padding: .5rem 0; font: 400 1.7rem var(--serif); text-decoration: none; }
+  .gaveta__cta { margin-top: auto; }
+  .hdr .btn--claro { color: var(--verde); }
+  .gaveta .overline { color: var(--creme-dark); }
+  @media (max-width: 1023px) {
+    .hdr__nav, .hdr__cta { display: none; }
+    .hdr__burger { display: flex; }
+    .hdr__in { height: 64px; }
+  }
+</style>
