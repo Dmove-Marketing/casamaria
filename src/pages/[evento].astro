@@ -1,0 +1,9 @@
+---
+import PaginaEvento from '../components/site/PaginaEvento.astro';
+import { eventos, type EventoTipo } from '../data/eventos';
+export function getStaticPaths() {
+  return eventos.map((evento) => ({ params: { evento: evento.slug }, props: { evento } }));
+}
+const { evento } = Astro.props as { evento: EventoTipo };
+---
+<PaginaEvento evento={evento} />

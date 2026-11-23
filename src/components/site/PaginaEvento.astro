@@ -1,0 +1,74 @@
+---
+import SiteLayout from './SiteLayout.astro';
+import Hero from './Hero.astro';
+import ProofBar from './ProofBar.astro';
+import SplitFeature from './SplitFeature.astro';
+import SectionHeading from './SectionHeading.astro';
+import FeatureList from './FeatureList.astro';
+import AmbientesMarquee from './AmbientesMarquee.astro';
+import ServicesGrid from './ServicesGrid.astro';
+import ClientLogos from './ClientLogos.astro';
+import Testimonials from './Testimonials.astro';
+import Gallery from './Gallery.astro';
+import Faq from './Faq.astro';
+import LocationMap from './LocationMap.astro';
+import ContactSection from './ContactSection.astro';
+import EventTypeGrid from './EventTypeGrid.astro';
+import { casa } from '../../data/casa';
+import { eventos, type EventoTipo } from '../../data/eventos';
+
+interface Props { evento: EventoTipo }
+const { evento: e } = Astro.props;
+const url = `${casa.url}/${e.slug}/`;
+const semTags = (s: string) => s.replace(/<[^>]+>/g, '');
+const irmaos = eventos.filter((x) => x.slug !== e.slug).sort((a, b) => Number(b.grupo === e.grupo) - Number(a.grupo === e.grupo)).slice(0, 3);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebPage', name: e.seo.title, description: e.seo.description, url },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Casa Maria Jardins', item: `${casa.url}/` },
+      { '@type': 'ListItem', position: 2, name: e.nomeMenu, item: url },
+    ] },
+    { '@type': 'FAQPage', mainEntity: e.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+  ],
+};
+const ctas = [{ label: 'Solicitar orçamento', href: '#contato', variant: 'claro' as const }, { label: 'Conhecer o espaço', href: '#espaco', variant: 'linha' as const }];
+---
+<SiteLayout title={e.seo.title} description={e.seo.description} canonical={url} jsonLd={jsonLd} current={`/${e.slug}/`}>
+  <Hero image={e.hero.image} imageAlt={semTags(e.hero.title)} overline={e.hero.overline} title={e.hero.title} text={e.hero.text}
+    ctas={e.hero.formNoHero ? [] : ctas} form={e.hero.formNoHero ? { preset: e.preset } : undefined} />
+  <ProofBar items={[...casa.numeros]} />
+  <SplitFeature image={e.intro.image} imageAlt={e.intro.imageAlt} overline={e.nomeMenu} title={e.intro.title} text={e.intro.text} />
+  <section class="section section--creme">
+    <div class="container">
+      <SectionHeading overline="Formatos" title={`O que a casa <em>recebe</em>`} />
+      <FeatureList items={e.formatos} />
+    </div>
+  </section>
+  {e.destaques.map((d, i) => <SplitFeature image={d.image} imageAlt={d.imageAlt} title={d.title} text={d.text} reverse={i % 2 === 0} tone={i % 2 === 0 ? 'verde' : 'branco'} />)}
+  <AmbientesMarquee id="espaco" overline="O espaço" title="Ambientes que se moldam <em>ao seu evento</em>" />
+  <ServicesGrid />
+  {e.mostrarClientes && <ClientLogos />}
+  <Testimonials />
+  <Gallery title={`Momentos na <em>Casa Maria</em>`} fotos={e.galeria} />
+  <section class="section section--branco">
+    <div class="container pe__faq">
+      <SectionHeading overline="Perguntas frequentes" title="Tire suas <em>dúvidas</em>" />
+      <Faq items={e.faq} />
+    </div>
+  </section>
+  <LocationMap />
+  <ContactSection title={e.contato.title} text={e.contato.text} preset={e.preset} />
+  <section class="section section--branco">
+    <div class="container">
+      <SectionHeading overline="Outros eventos" title="A casa também <em>recebe</em>" />
+      <EventTypeGrid items={irmaos.map((x) => ({ href: `/${x.slug}/`, nome: x.nomeMenu, frase: x.card.frase, image: x.card.image, grupo: x.grupo }))} />
+    </div>
+  </section>
+</SiteLayout>
+<style>
+  .pe__faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 5vw, 5rem); }
+  @media (max-width: 900px) { .pe__faq { grid-template-columns: 1fr; } }
+</style>
