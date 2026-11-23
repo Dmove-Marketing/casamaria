@@ -1,0 +1,16 @@
+---
+interface Props { items: { valor: string; rotulo: string }[] }
+const { items } = Astro.props;
+---
+<div class="proof"><ul class="container proof__in">
+  {items.map((i) => <li class="reveal"><strong>{i.valor}</strong><span>{i.rotulo}</span></li>)}
+</ul></div>
+<style>
+  .proof { background: var(--creme); color: var(--verde); }
+  .proof__in { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); margin: 0 auto; padding-top: 2.2rem; padding-bottom: 2.2rem; }
+  .proof li { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .3rem; padding: 0 1rem; border-left: 1px solid rgba(13,59,46,.15); }
+  .proof li:first-child { border-left: 0; }
+  .proof strong { font: 400 clamp(1.7rem, 2.6vw, 2.3rem)/1 var(--display); }
+  .proof span { font: 500 var(--fs-overline) var(--sans); letter-spacing: .18em; text-transform: uppercase; }
+  @media (max-width: 720px) { .proof__in { grid-template-columns: 1fr 1fr; row-gap: 1.6rem; } .proof li:nth-child(3) { border-left: 0; } }
+</style>

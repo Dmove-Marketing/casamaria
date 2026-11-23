@@ -1,0 +1,39 @@
+---
+import Img from '../ui/Img.astro';
+interface Item { href: string; nome: string; frase: string; image: string; grupo: 'corporativo' | 'celebracoes' }
+interface Props { items: Item[] }
+const { items } = Astro.props;
+const rotulo = { corporativo: 'Corporativo', celebracoes: 'Celebrações' };
+---
+<ul class="etg">
+  {items.map((i) => (
+    <li class="reveal">
+      <a href={i.href} class="etg__card">
+        <Img src={i.image} alt="" width={800} sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw" class="etg__img" />
+        <span class="etg__veu"></span>
+        <span class="etg__txt">
+          <span class="overline">{rotulo[i.grupo]}</span>
+          <strong>{i.nome}</strong>
+          <span class="etg__frase">{i.frase}</span>
+          <span class="etg__mais">Conhecer <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+    </li>
+  ))}
+</ul>
+<style>
+  .etg { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+  .etg li { grid-column: span 2; }
+  .etg li:nth-child(4), .etg li:nth-child(5) { grid-column: span 3; }
+  .etg__card { position: relative; display: block; height: 100%; min-height: 380px; overflow: hidden; color: var(--creme-light); text-decoration: none; }
+  .etg__card :global(.etg__img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+  .etg__card:hover :global(.etg__img), .etg__card:focus-visible :global(.etg__img) { transform: scale(1.05); }
+  .etg__veu { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,42,32,0) 30%, rgba(8,42,32,.88) 100%); }
+  .etg__txt { position: absolute; inset: auto 0 0 0; padding: 1.8rem; display: flex; flex-direction: column; gap: .5rem; }
+  .etg__txt .overline { color: var(--creme-dark); }
+  .etg__txt strong { font: 400 clamp(1.6rem, 2.2vw, 2rem)/1.1 var(--serif); }
+  .etg__frase { font-size: .95rem; color: var(--creme); }
+  .etg__mais { font: 500 var(--fs-overline) var(--sans); letter-spacing: .18em; text-transform: uppercase; margin-top: .4rem; }
+  @media (max-width: 1100px) { .etg { grid-template-columns: 1fr 1fr; } .etg li, .etg li:nth-child(4), .etg li:nth-child(5) { grid-column: span 1; } .etg li:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+  @media (max-width: 640px) { .etg { grid-template-columns: 1fr; } .etg__card { min-height: 300px; } }
+</style>

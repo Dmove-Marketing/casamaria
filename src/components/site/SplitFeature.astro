@@ -1,0 +1,24 @@
+---
+import Img from '../ui/Img.astro';
+interface Props { image: string; imageAlt: string; title: string; text: string; overline?: string; reverse?: boolean; tone?: 'branco' | 'creme' | 'verde' }
+const { image, imageAlt, title, text, overline, reverse = false, tone = 'branco' } = Astro.props;
+---
+<section class:list={['section', `section--${tone}`]}>
+  <div class:list={['container', 'sf', { 'sf--rev': reverse }]}>
+    <div class="sf__img reveal"><Img src={image} alt={imageAlt} width={1100} sizes="(max-width: 860px) 100vw, 50vw" /></div>
+    <div class="sf__txt reveal">
+      {overline && <span class="overline">{overline}</span>}
+      <h2 class="h2" set:html={title} />
+      <p class="lead">{text}</p>
+      <slot />
+    </div>
+  </div>
+</section>
+<style>
+  .sf { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
+  .sf--rev .sf__img { order: 2; }
+  .sf__img :global(img) { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .sf__txt { display: flex; flex-direction: column; gap: 1.2rem; }
+  .sf__txt :global(em) { font-style: italic; }
+  @media (max-width: 860px) { .sf { grid-template-columns: 1fr; } .sf--rev .sf__img { order: 0; } .sf__img :global(img) { aspect-ratio: 4 / 3; } }
+</style>

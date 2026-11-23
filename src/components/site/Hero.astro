@@ -1,0 +1,42 @@
+---
+import Img from '../ui/Img.astro';
+import LeadForm from '../LeadForm.astro';
+interface Cta { label: string; href: string; variant: 'claro' | 'linha' }
+interface Props { image: string; imageAlt: string; overline: string; title: string; text: string; ctas?: Cta[]; form?: { preset: 'social' | 'corporativo' } }
+const { image, imageAlt, overline, title, text, ctas = [], form } = Astro.props;
+---
+<section class:list={['hero', { 'hero--split': !!form }]}>
+  <Img src={image} alt={imageAlt} width={1920} priority sizes="100vw" class="hero__img" />
+  <div class="hero__veu"></div>
+  <div class="container hero__in">
+    <div class="hero__texto">
+      <span class="overline hero__over">{overline}</span>
+      <h1 class="hero__h1" set:html={title} />
+      <p class="hero__p">{text}</p>
+      {ctas.length > 0 && <div class="hero__ctas">{ctas.map((c) => <a href={c.href} class:list={['btn', `btn--${c.variant}`]}>{c.label}</a>)}</div>}
+    </div>
+    {form && (
+      <div class="hero__form">
+        <p class="hero__form-titulo">Solicite seu orçamento</p>
+        <LeadForm idPrefix="hero" formId="hero-form" preset={form.preset} submitLabel="Solicitar orçamento" />
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero { position: relative; min-height: min(100svh, 920px); display: flex; align-items: flex-end; color: var(--creme-light); overflow: hidden; padding: calc(var(--header-h) + 4rem) 0 clamp(3.5rem, 7vw, 6rem); }
+  .hero :global(.hero__img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero__veu { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,42,32,.55) 0%, rgba(8,42,32,.35) 40%, rgba(8,42,32,.85) 100%); }
+  .hero__in { position: relative; }
+  .hero__over { color: var(--creme-dark); margin-bottom: 1.4rem; }
+  .hero__h1 { font-family: var(--display) !important; font-size: var(--fs-h1); line-height: 1.04; max-width: 17ch; }
+  .hero__h1 :global(em) { font-family: var(--serif); font-style: italic; }
+  .hero__p { font-size: var(--fs-lead); max-width: 52ch; margin-top: 1.4rem; color: var(--creme); }
+  .hero__ctas { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2.2rem; }
+  .hero--split .hero__in { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 5vw, 5rem); align-items: end; }
+  .hero--split .hero__h1 { font-size: clamp(2.2rem, 3.6vw, 3.6rem); }
+  .hero__form { background: var(--branco); color: var(--tinta); padding: clamp(1.6rem, 3vw, 2.4rem); box-shadow: 0 30px 60px rgba(0,0,0,.25); }
+  .hero__form-titulo { font: 400 1.6rem var(--serif); color: var(--verde); margin-bottom: 1.2rem !important; }
+  @media (max-width: 960px) { .hero--split .hero__in { grid-template-columns: 1fr; } .hero--split { align-items: flex-start; } }
+</style>

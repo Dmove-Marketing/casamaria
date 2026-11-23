@@ -1,0 +1,21 @@
+---
+import SiteLayout from '../../components/site/SiteLayout.astro';
+import Hero from '../../components/site/Hero.astro';
+import ProofBar from '../../components/site/ProofBar.astro';
+import SectionHeading from '../../components/site/SectionHeading.astro';
+import SplitFeature from '../../components/site/SplitFeature.astro';
+import FeatureList from '../../components/site/FeatureList.astro';
+import EventTypeGrid from '../../components/site/EventTypeGrid.astro';
+import CtaBand from '../../components/site/CtaBand.astro';
+import { casa } from '../../data/casa';
+---
+<SiteLayout title="Lab seções 1 | Casa Maria" description="Página de teste dos componentes de estrutura (removida antes da entrega)." noIndex>
+  <Hero image="corporativo/jardim-evento-hero.avif" imageAlt="Evento no jardim" overline="Jardim Paulista · São Paulo" title="Uma casa nos Jardins para <em>eventos memoráveis</em>" text="Texto de teste do hero." ctas={[{ label: 'Escolha seu evento', href: '#eventos', variant: 'claro' }, { label: 'Solicitar orçamento', href: '#contato', variant: 'linha' }]} form={{ preset: 'corporativo' }} />
+  <ProofBar items={[...casa.numeros]} />
+  <section class="section"><div class="container"><SectionHeading overline="Teste" title="Um título <em>de teste</em>" text="Texto de apoio." /></div></section>
+  <SplitFeature image="espaco/jardim-detalhe-noite.jpg" imageAlt="Jardim à noite" overline="O espaço" title="Split de teste" text="Texto do split." />
+  <section class="section section--creme"><div class="container"><FeatureList items={[{ icon: 'taca', nome: 'Confraternização', texto: 'Uma linha.' }, { icon: 'quadro', nome: 'Treinamento', texto: 'Uma linha.' }, { icon: 'microfone', nome: 'Palestra', texto: 'Uma linha.' }]} /></div></section>
+  <section class="section" id="eventos"><div class="container"><EventTypeGrid items={[{ href: '/casamentos/', nome: 'Casamentos', frase: 'Frase.', image: 'casamentos/cerimonia-jardim.jpg', grupo: 'celebracoes' }, { href: '/eventos-corporativos/', nome: 'Eventos corporativos', frase: 'Frase.', image: 'corporativo/show-cantora.avif', grupo: 'corporativo' }]} /></div></section>
+  <CtaBand title="Vamos planejar o seu evento?" text="Texto." ctaLabel="Solicitar orçamento" />
+  <section id="contato" class="section"><div class="container"><p>Contato</p></div></section>
+</SiteLayout>

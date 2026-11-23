@@ -1,0 +1,15 @@
+---
+interface Props { title: string; text?: string; ctaLabel: string; ctaHref?: string }
+const { title, text, ctaLabel, ctaHref = '#contato' } = Astro.props;
+---
+<section class="section section--verde cta">
+  <div class="container cta__in reveal">
+    <h2 class="h2" set:html={title} />
+    {text && <p class="lead">{text}</p>}
+    <a href={ctaHref} class="btn btn--claro">{ctaLabel}</a>
+  </div>
+</section>
+<style>
+  .cta__in { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.4rem; }
+  .cta__in :global(em) { font-style: italic; }
+</style>

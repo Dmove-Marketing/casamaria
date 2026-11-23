@@ -1,0 +1,28 @@
+---
+import { icones } from './icones';
+interface Props { items: { icon: string; nome: string; texto: string }[]; colunas?: 2 | 3 | 4 }
+const { items, colunas = 3 } = Astro.props;
+---
+<ul class="fl" style={`--cols:${colunas}`}>
+  {items.map((i) => (
+    <li class="reveal">
+      <span class="fl__icon" set:html={icones[i.icon] ?? icones.estrela} />
+      <h3>{i.nome}</h3>
+      <p>{i.texto}</p>
+    </li>
+  ))}
+</ul>
+<style>
+  .fl { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--cols), 1fr); border-top: 1px solid rgba(13,59,46,.15); }
+  .fl li { padding: 2rem 1.6rem 2rem 0; border-bottom: 1px solid rgba(13,59,46,.15); display: flex; flex-direction: column; gap: .7rem; }
+  .fl__icon { width: 34px; height: 34px; color: var(--verde-mid); }
+  .fl__icon :global(svg) { width: 100%; height: 100%; }
+  .fl h3 { font-size: var(--fs-h3); color: var(--verde); }
+  .fl p { color: var(--tinta-suave); font-size: .95rem; }
+  :global(.section--verde) .fl, :global(.section--verde) .fl li { border-color: rgba(232,220,200,.18); }
+  :global(.section--verde) .fl h3 { color: var(--creme-light); }
+  :global(.section--verde) .fl p { color: var(--creme); }
+  :global(.section--verde) .fl__icon { color: var(--creme-dark); }
+  @media (max-width: 860px) { .fl { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .fl { grid-template-columns: 1fr; } }
+</style>

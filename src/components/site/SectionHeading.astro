@@ -1,0 +1,17 @@
+---
+interface Props { overline: string; title: string; text?: string; align?: 'left' | 'center'; tone?: 'claro' | 'escuro' }
+const { overline, title, text, align = 'left', tone = 'claro' } = Astro.props;
+---
+<header class:list={['sh', `sh--${align}`, `sh--${tone}`, 'reveal']}>
+  <span class="overline">{overline}</span>
+  <h2 class="h2" set:html={title} />
+  {text && <p class="lead">{text}</p>}
+</header>
+<style>
+  .sh { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: clamp(2.4rem, 5vw, 3.6rem); max-width: 760px; }
+  .sh--center { align-items: center; text-align: center; margin-left: auto; margin-right: auto; }
+  .sh :global(em) { font-style: italic; }
+  .sh--escuro .h2 { color: var(--creme-light); }
+  .sh--escuro .overline { color: var(--creme-dark); }
+  .sh--escuro .lead { color: var(--creme); }
+</style>
