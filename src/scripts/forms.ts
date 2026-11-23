@@ -88,7 +88,7 @@ export function initForms() {
       if (hp && hp.value) return;
 
       // Validação de campos obrigatórios
-      let firstInvalid: HTMLElement | null = null;
+      let firstInvalid = null as HTMLElement | null;
       let isValid = true;
 
       form.querySelectorAll<HTMLElement>('[required]').forEach((field) => {

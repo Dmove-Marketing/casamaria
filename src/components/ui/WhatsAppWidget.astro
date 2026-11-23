@@ -656,6 +656,8 @@ const introMessages = [
   import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
   import 'flatpickr/dist/flatpickr.min.css';
 
+  type WaWindow = Window & { __waCalendarOpen?: boolean };
+
   function initWaDatepicker() {
     const el = document.querySelector<HTMLInputElement>('[data-wa-flatpickr]');
     if (!el || el.dataset.flatpickrReady) return;
@@ -676,8 +678,8 @@ const introMessages = [
       // Sinaliza ao popup que o calendário está engajado. O pequeno atraso no
       // onClose garante que o clique que fechou o calendário (seleção da data
       // ou clique fora) não seja interpretado como "fechar o popup".
-      onOpen: () => { window.__waCalendarOpen = true; },
-      onClose: () => { setTimeout(() => { window.__waCalendarOpen = false; }, 250); },
+      onOpen: () => { (window as WaWindow).__waCalendarOpen = true; },
+      onClose: () => { setTimeout(() => { (window as WaWindow).__waCalendarOpen = false; }, 250); },
     });
 
     icon?.addEventListener('click', () => fp.open());
