@@ -1,0 +1,29 @@
+---
+import LeadForm from '../LeadForm.astro';
+import { casa } from '../../data/casa';
+interface Props { title: string; text: string; preset: 'social' | 'corporativo' }
+const { title, text, preset } = Astro.props;
+---
+<section class="section section--creme ct" id="contato">
+  <div class="container ct__in">
+    <div class="ct__txt reveal">
+      <span class="overline">Contato</span>
+      <h2 class="h2" set:html={title} />
+      <p class="lead">{text}</p>
+      <p class="ct__end"><strong>Endereço</strong><br />{casa.endereco.linha}</p>
+    </div>
+    <div class="ct__form reveal">
+      <p class="ct__titulo">Solicite seu orçamento</p>
+      <LeadForm preset={preset} submitLabel="Solicitar orçamento" />
+    </div>
+  </div>
+</section>
+<style>
+  .ct__in { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+  .ct__txt { display: flex; flex-direction: column; gap: 1.2rem; }
+  .ct__txt :global(em) { font-style: italic; }
+  .ct__end { font-size: .95rem; color: var(--tinta-suave); margin-top: 1rem !important; }
+  .ct__form { background: var(--branco); padding: clamp(1.6rem, 3.5vw, 3rem); }
+  .ct__titulo { font: 400 1.6rem var(--serif); color: var(--verde); margin-bottom: 1.4rem !important; }
+  @media (max-width: 900px) { .ct__in { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,41 @@
+---
+// Faixa de fotos que rola sozinha + lista dos ambientes
+import Img from '../ui/Img.astro';
+import { casa } from '../../data/casa';
+interface Props { overline: string; title: string; fotos?: { src: string; alt: string }[]; id?: string }
+const { overline, title, fotos = [...casa.fotosAmbientes], id } = Astro.props;
+---
+<section class="section section--branco am" id={id}>
+  <div class="container">
+    <header class="reveal am__hdr"><span class="overline">{overline}</span><h2 class="h2" set:html={title} /></header>
+  </div>
+  <div class="am__faixa" aria-label="Fotos dos ambientes">
+    <div class="am__trilho">
+      {[...fotos, ...fotos].map((f, i) => (
+        <div class="am__item" aria-hidden={i >= fotos.length ? 'true' : undefined}>
+          <Img src={f.src} alt={i >= fotos.length ? '' : f.alt} width={800} sizes="(max-width: 640px) 80vw, 30vw" />
+        </div>
+      ))}
+    </div>
+  </div>
+  <div class="container">
+    <ul class="am__lista">
+      {casa.ambientes.map((a) => <li class="reveal"><h3>{a.nome}</h3><p>{a.texto}</p></li>)}
+    </ul>
+  </div>
+</section>
+<style>
+  .am__hdr { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 2.6rem; }
+  .am__hdr :global(em) { font-style: italic; }
+  .am__faixa { overflow: hidden; }
+  .am__trilho { display: flex; gap: 8px; width: max-content; animation: am-rola 70s linear infinite; }
+  .am__faixa:hover .am__trilho { animation-play-state: paused; }
+  .am__item :global(img) { height: clamp(240px, 30vw, 380px); width: auto; aspect-ratio: auto; object-fit: cover; }
+  @keyframes am-rola { to { transform: translateX(calc(-50% - 4px)); } }
+  @media (prefers-reduced-motion: reduce) { .am__trilho { animation: none; } .am__faixa { overflow-x: auto; } }
+  .am__lista { list-style: none; margin: 3rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.6rem; }
+  .am__lista h3 { font-size: var(--fs-h3); color: var(--verde); margin-bottom: .5rem; }
+  .am__lista p { font-size: .9rem; color: var(--tinta-suave); }
+  @media (max-width: 1000px) { .am__lista { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .am__lista { grid-template-columns: 1fr; } }
+</style>

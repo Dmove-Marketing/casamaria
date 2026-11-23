@@ -1,0 +1,31 @@
+---
+// Mosaico no desktop, rolagem horizontal com snap no celular
+import Img from '../ui/Img.astro';
+interface Props { title: string; fotos: { src: string; alt: string }[] }
+const { title, fotos } = Astro.props;
+---
+<section class="section section--creme">
+  <div class="container">
+    <header class="reveal ga__hdr"><span class="overline">Galeria</span><h2 class="h2" set:html={title} /></header>
+    <ul class="ga">
+      {fotos.map((f) => <li><Img src={f.src} alt={f.alt} width={900} sizes="(max-width: 700px) 85vw, 33vw" /></li>)}
+    </ul>
+  </div>
+</section>
+<style>
+  .ga__hdr { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 2.6rem; }
+  .ga__hdr :global(em) { font-style: italic; }
+  .ga { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 260px; grid-auto-flow: dense; gap: 8px; }
+  .ga li { overflow: hidden; }
+  /* ciclo de 5: 1 alta + 4 normais fecham 2 linhas; o último item ocupa o vazio que sobrar */
+  .ga li:nth-child(5n + 1) { grid-row: span 2; }
+  .ga li:last-child:nth-child(5n + 1) { grid-row: auto; grid-column: 1 / -1; }
+  .ga li:last-child:nth-child(5n + 2) { grid-column: span 2; }
+  .ga li:last-child:nth-child(5n + 3) { grid-row: span 2; }
+  .ga :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+  .ga li:hover :global(img) { transform: scale(1.04); }
+  @media (max-width: 700px) {
+    .ga { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 8px; margin-right: calc(-1 * var(--gutter)); padding-right: var(--gutter); }
+    .ga li { flex: 0 0 82%; height: 340px; scroll-snap-align: start; }
+  }
+</style>

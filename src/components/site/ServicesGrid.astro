@@ -1,0 +1,33 @@
+---
+import Img from '../ui/Img.astro';
+import { casa } from '../../data/casa';
+---
+<section class="section section--creme">
+  <div class="container">
+    <header class="reveal sg__hdr">
+      <span class="overline">Além da locação</span>
+      <h2 class="h2">Uma experiência <em>completa</em></h2>
+      <p class="lead">Serviços próprios para que cada detalhe do evento fique no mesmo padrão da casa.</p>
+    </header>
+    <ul class="sg">
+      {casa.servicos.map((s) => (
+        <li class="reveal">
+          <Img src={s.image} alt={s.nome} width={600} sizes="(max-width: 640px) 50vw, 20vw" />
+          <h3>{s.nome}</h3>
+          <p>{s.texto}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+<style>
+  .sg__hdr { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 3rem; max-width: 720px; }
+  .sg__hdr :global(em) { font-style: italic; }
+  .sg { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; }
+  .sg li { min-width: 0; display: flex; flex-direction: column; gap: .7rem; }
+  .sg :global(img) { width: 100%; max-width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+  .sg h3 { font-size: var(--fs-h3); color: var(--verde); }
+  .sg p { font-size: .92rem; color: var(--tinta-suave); }
+  @media (max-width: 1000px) { .sg { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 640px) { .sg { grid-template-columns: 1fr 1fr; } .sg li:last-child:nth-child(odd) { grid-column: 1 / -1; } .sg li:last-child:nth-child(odd) :global(img) { aspect-ratio: 16 / 9; } }
+</style>
