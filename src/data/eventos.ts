@@ -10,7 +10,7 @@ export interface EventoTipo {
   preset: Preset;
   seo: { title: string; description: string };
   card: { image: string; frase: string };
-  hero: { image: string; overline: string; title: string; text: string; formNoHero: boolean };
+  hero: { image: string; imageAlt: string; overline: string; title: string; text: string; formNoHero: boolean };
   intro: { title: string; text: string; image: string; imageAlt: string };
   formatos: { icon: string; nome: string; texto: string }[];
   destaques: { title: string; text: string; image: string; imageAlt: string }[];
@@ -28,11 +28,12 @@ export const eventos: EventoTipo[] = [
     preset: 'corporativo',
     seo: {
       title: 'Espaço para eventos corporativos | Casa Maria Jardins',
-      description: 'Workshops, treinamentos, palestras e lançamentos numa casa exclusiva nos Jardins, perto da Paulista e da Faria Lima, com buffet, bar e equipe própria.',
+      description: 'Workshops, treinamentos, palestras e lançamentos numa casa exclusiva nos Jardins, perto da Paulista e da Faria Lima, com serviços adicionais personalizados.',
     },
     card: { image: 'corporativo/show-cantora.avif', frase: 'Workshops, treinamentos, palestras e lançamentos.' },
     hero: {
       image: 'corporativo/jardim-evento-hero.avif',
+      imageAlt: 'Convidados no deck do jardim à noite com música ao vivo sob o teto de vidro',
       overline: 'Eventos corporativos · Jardim Paulista',
       title: 'Exclusividade e versatilidade com o <em>conforto de estar em casa</em>',
       text: 'Uma casa de 500 m² nos Jardins, reservada só para o seu evento, a poucos minutos da Paulista e da Faria Lima.',
@@ -86,6 +87,7 @@ export const eventos: EventoTipo[] = [
     card: { image: 'corporativo/bar-networking.avif', frase: 'Fim de ano, festa de equipe e celebração de metas.' },
     hero: {
       image: 'espaco/jardim-publico-noite.jpg',
+      imageAlt: 'Convidados no jardim sob as árvores iluminadas',
       overline: 'Confraternização de empresa · Jardim Paulista',
       title: 'A festa da empresa com <em>cara de casa</em>',
       text: 'Jardim, bar e pista numa casa nos Jardins reservada só para a sua equipe. Uma noite que ninguém confunde com mais um salão de festas.',
@@ -142,6 +144,7 @@ export const eventos: EventoTipo[] = [
     card: { image: 'corporativo/networking.avif', frase: 'Planejamento fora do escritório e happy hour de equipe.' },
     hero: {
       image: 'espaco/lounge-poltronas-noite.jpg',
+      imageAlt: 'Lounge com poltronas sob árvore iluminada',
       overline: 'Offsite e happy hour · Jardim Paulista',
       title: 'Sair do escritório <em>sem sair da cidade</em>',
       text: 'Uma casa nos Jardins para o time pensar com calma durante o dia e relaxar no fim da tarde, a 12 minutos da Paulista.',
@@ -196,6 +199,7 @@ export const eventos: EventoTipo[] = [
     card: { image: 'casamentos/cerimonia-noivos-1.avif', frase: 'Cerimônia e festa no mesmo lugar, nos Jardins.' },
     hero: {
       image: 'casamentos/cerimonia-jardim.jpg',
+      imageAlt: 'Cerimônia no jardim com cortinas brancas',
       overline: 'Casamentos · Jardim Paulista',
       title: 'O sim no jardim, <em>a festa em casa</em>',
       text: 'Uma casa nos Jardins reservada só para o casal e os convidados, com cerimônia e festa no mesmo endereço.',
@@ -254,6 +258,7 @@ export const eventos: EventoTipo[] = [
     card: { image: 'social/convidadas-lounge.jpg', frase: 'Aniversários, bodas, chás e jantares especiais.' },
     hero: {
       image: 'espaco/salao-lustre-jantar.jpg',
+      imageAlt: 'Convidados reunidos sob o lustre de cristais',
       overline: 'Aniversários e celebrações · Jardim Paulista',
       title: 'Celebrar como quem <em>recebe em casa</em>',
       text: 'Uma casa nos Jardins reservada só para você e os seus convidados, com jardim, bar e ambientes acolhedores.',

@@ -17,7 +17,7 @@ export const casa = {
   },
   numeros: [
     { valor: '500 m²', rotulo: 'de espaço exclusivo' },
-    { valor: '250', rotulo: 'convidados' },
+    { valor: 'Até 250', rotulo: 'convidados' },
     { valor: 'Jardins', rotulo: 'localização nobre' },
     { valor: '12 min', rotulo: 'da Avenida Paulista' },
   ],
@@ -48,11 +48,11 @@ export const casa = {
     { src: 'espaco/jardim-publico-noite.jpg', alt: 'Convidados no jardim sob as árvores iluminadas' },
   ],
   servicos: [
-    { nome: 'Buffet', texto: 'Menus personalizados e experiências gastronômicas alinhadas ao estilo do evento.', image: 'servicos/buffet-canapes.avif' },
-    { nome: 'Bar de drinks', texto: 'Carta de drinks e bar montado para receber os convidados.', image: 'servicos/drinks.avif' },
-    { nome: 'Som e luz', texto: 'Estrutura de som e iluminação para cada formato de evento.', image: 'servicos/dj-detalhe.avif' },
-    { nome: 'Decoração', texto: 'Uma ambientação construída para traduzir o estilo e a proposta de cada evento.', image: 'servicos/decoracao-flores.avif' },
-    { nome: 'Equipe', texto: 'Uma equipe preparada para acompanhar cada etapa com atenção e cuidado.', image: 'servicos/equipe.jpg' },
+    { nome: 'Buffet', texto: 'Menus personalizados e experiências gastronômicas alinhadas ao estilo do evento.', image: 'servicos/buffet-canapes.avif', alt: 'Mesa de canapés do buffet em bandejas' },
+    { nome: 'Bar de drinks', texto: 'Carta de drinks e bar montado para receber os convidados.', image: 'servicos/drinks.avif', alt: 'Drinks com limão servidos sobre bandeja de madeira' },
+    { nome: 'Som e luz', texto: 'Estrutura de som e iluminação para cada formato de evento.', image: 'servicos/dj-detalhe.avif', alt: 'Mão do DJ ajustando a mesa de som' },
+    { nome: 'Decoração', texto: 'Uma ambientação construída para traduzir o estilo e a proposta de cada evento.', image: 'servicos/decoracao-flores.avif', alt: 'Arranjos de orquídeas na decoração do salão' },
+    { nome: 'Equipe', texto: 'Uma equipe preparada para acompanhar cada etapa com atenção e cuidado.', image: 'servicos/equipe.jpg', alt: 'Equipe uniformizada recebendo os convidados no hall' },
   ],
   depoimentos: [
     { texto: 'Lugar incrível, luxo e exclusividade e localização perfeita no Jardins.', autor: 'Bernardo Vettorazzi' },

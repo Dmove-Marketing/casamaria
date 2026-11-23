@@ -7,12 +7,12 @@ import { casa } from '../../data/casa';
     <header class="reveal sg__hdr">
       <span class="overline">Além da locação</span>
       <h2 class="h2">Uma experiência <em>completa</em></h2>
-      <p class="lead">Serviços próprios para que cada detalhe do evento fique no mesmo padrão da casa.</p>
+      <p class="lead">Além da locação, serviços adicionais personalizados para elevar a experiência do seu evento.</p>
     </header>
     <ul class="sg">
       {casa.servicos.map((s) => (
         <li class="reveal">
-          <Img src={s.image} alt={s.nome} width={600} sizes="(max-width: 640px) 50vw, 20vw" />
+          <Img src={s.image} alt={s.alt} width={600} sizes="(max-width: 640px) 50vw, 20vw" />
           <h3>{s.nome}</h3>
           <p>{s.texto}</p>
         </li>

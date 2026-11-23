@@ -20,7 +20,6 @@ import { eventos, type EventoTipo } from '../../data/eventos';
 interface Props { evento: EventoTipo }
 const { evento: e } = Astro.props;
 const url = `${casa.url}/${e.slug}/`;
-const semTags = (s: string) => s.replace(/<[^>]+>/g, '');
 const irmaos = eventos.filter((x) => x.slug !== e.slug).sort((a, b) => Number(b.grupo === e.grupo) - Number(a.grupo === e.grupo)).slice(0, 3);
 
 const jsonLd = {
@@ -37,7 +36,7 @@ const jsonLd = {
 const ctas = [{ label: 'Solicitar orçamento', href: '#contato', variant: 'claro' as const }, { label: 'Conhecer o espaço', href: '#espaco', variant: 'linha' as const }];
 ---
 <SiteLayout title={e.seo.title} description={e.seo.description} canonical={url} jsonLd={jsonLd} current={`/${e.slug}/`}>
-  <Hero image={e.hero.image} imageAlt={semTags(e.hero.title)} overline={e.hero.overline} title={e.hero.title} text={e.hero.text}
+  <Hero image={e.hero.image} imageAlt={e.hero.imageAlt} overline={e.hero.overline} title={e.hero.title} text={e.hero.text}
     ctas={e.hero.formNoHero ? [] : ctas} form={e.hero.formNoHero ? { preset: e.preset } : undefined} />
   <ProofBar items={[...casa.numeros]} />
   <SplitFeature image={e.intro.image} imageAlt={e.intro.imageAlt} overline={e.nomeMenu} title={e.intro.title} text={e.intro.text} />

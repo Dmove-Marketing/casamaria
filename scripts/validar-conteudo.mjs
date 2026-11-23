@@ -28,5 +28,6 @@ for (const e of eventos) {
   const imgs = [e.card.image, e.hero.image, e.intro.image, ...e.destaques.map((d) => d.image), ...e.galeria.map((g) => g.src)];
   for (const i of imgs) ok(await existe(i), `imagem ${i}`);
   ok(e.galeria.every((g) => g.alt.length > 10), 'alt descritivo na galeria');
+  ok(typeof e.hero.imageAlt === 'string' && e.hero.imageAlt.length > 10, 'alt descritivo no hero');
 }
 console.log(f ? `\n${f} falha(s)` : '\nTudo certo'); process.exit(f ? 1 : 0);
