@@ -56,8 +56,8 @@ export const eventos: EventoTipo[] = [
       { title: 'Perto de quem <em>vai chegar</em>', text: 'A 12 minutos da Avenida Paulista e a 16 da Faria Lima, num dos endereços mais nobres de São Paulo.', image: 'espaco/fachada-jardim-noite.jpg', imageAlt: 'Caminho iluminado ao lado da casa' },
     ],
     galeria: [
-      { src: 'corporativo/ativacao-2.avif', alt: 'Atividade em grupo durante evento corporativo no jardim' },
-      { src: 'corporativo/bar-networking.avif', alt: 'Convidados conversando no bar durante evento de empresa' },
+      { src: 'corporativo/ativacao-2.avif', alt: 'Grupo em atividade de alongamento no deck de madeira' },
+      { src: 'corporativo/bar-networking.avif', alt: 'Convidados conversando no bar da casa' },
       { src: 'corporativo/ativacao-1.avif', alt: 'Ativação de marca em evento corporativo na Casa Maria' },
       { src: 'corporativo/networking.avif', alt: 'Executivos em conversa durante evento corporativo' },
       { src: 'espaco/salao-luz-azul.jpg', alt: 'Hall com teto de vidro durante evento corporativo' },
@@ -81,7 +81,7 @@ export const eventos: EventoTipo[] = [
     preset: 'corporativo',
     seo: {
       title: 'Confraternização de empresa nos Jardins | Casa Maria Jardins',
-      description: 'Confraternização de fim de ano, festa de equipe e jantar de diretoria numa casa exclusiva nos Jardins, com jardim, bar, buffet, drinks, som, luz e DJ.',
+      description: 'Confraternização de fim de ano, festa de equipe e jantar de diretoria numa casa exclusiva nos Jardins, com jardim, bar, buffet, drinks, som e luz.',
     },
     card: { image: 'corporativo/bar-networking.avif', frase: 'Fim de ano, festa de equipe e celebração de metas.' },
     hero: {
@@ -93,7 +93,7 @@ export const eventos: EventoTipo[] = [
     },
     intro: {
       title: 'O ano merece <em>uma boa noite</em>',
-      text: 'Depois de um ano de entregas, a equipe quer celebrar num lugar à altura. Na Casa Maria a noite começa no jardim, passa pelo bar e termina na pista. Buffet, drinks, som e luz ficam por conta da casa, para receber até 250 convidados.',
+      text: 'Depois de um ano de entregas, a equipe quer celebrar num lugar à altura. Na Casa Maria a noite começa no jardim, passa pelo bar e termina na pista. A casa oferece buffet, drinks, som e luz e recebe até 250 convidados.',
       image: 'espaco/bar-evento-noite.jpg',
       imageAlt: 'Convidados brindando no bar com lustre de cristais',
     },
@@ -102,21 +102,21 @@ export const eventos: EventoTipo[] = [
       { icon: 'pessoas', nome: 'Festa de equipe', texto: 'Um encontro para o time comemorar junto.' },
       { icon: 'estrela', nome: 'Celebração de metas', texto: 'O resultado do ano ganha uma noite à altura.' },
       { icon: 'talheres', nome: 'Jantar de diretoria', texto: 'Mesa posta e serviço atento para um grupo seleto.' },
-      { icon: 'musica', nome: 'Festa com DJ', texto: 'Som, luz e pista para a noite render.' },
+      { icon: 'musica', nome: 'Noite com música', texto: 'Som, luz e pista para a noite render.' },
     ],
     destaques: [
       { title: 'Uma festa, <em>não um salão</em>', text: 'Jardim iluminado, bar sob o lustre de cristais e ambientes com personalidade. A equipe sente que foi recebida numa casa.', image: 'espaco/jardim-evento-noite.jpg', imageAlt: 'Convidados no jardim em frente à casa à noite' },
-      { title: 'Buffet, drinks e <em>pista</em>', text: 'Buffet, bar de drinks, som, luz e DJ ficam com a casa. A empresa só precisa convidar.', image: 'servicos/dj.jpg', imageAlt: 'DJ comandando a pista entre as plantas do jardim' },
+      { title: 'Buffet, drinks e <em>pista</em>', text: 'A casa oferece buffet, bar de drinks, som e luz, montados conforme a proposta da festa.', image: 'servicos/buffet-canapes.avif', imageAlt: 'Canapés do buffet servidos em bandejas' },
       { title: 'Garanta a <em>sua data</em>', text: 'O fim do ano é a época mais disputada para confraternizações. Quanto antes a empresa falar com a equipe, mais opções de data.', image: 'servicos/drinks.avif', imageAlt: 'Drinks com limão servidos sobre bandeja de madeira' },
     ],
     galeria: [
-      { src: 'corporativo/bar-networking.avif', alt: 'Convidados brindando no bar durante confraternização' },
+      { src: 'corporativo/bar-networking.avif', alt: 'Convidados brindando no bar da casa' },
       { src: 'espaco/jardim-musica-ao-vivo.jpg', alt: 'Banda tocando ao vivo sob o teto de vidro' },
       { src: 'espaco/lounge-poltronas-noite.jpg', alt: 'Lounge com poltronas sob árvore iluminada' },
       { src: 'espaco/salao-luz-azul.jpg', alt: 'Hall com teto de vidro e convidados durante a festa' },
       { src: 'corporativo/show-cantora.avif', alt: 'Cantora se apresentando ao vivo no jardim à noite' },
       { src: 'servicos/bartender.avif', alt: 'Bartender finalizando um drink na taça' },
-      { src: 'servicos/buffet-canapes.avif', alt: 'Canapés do buffet servidos em bandejas' },
+      { src: 'servicos/gastronomia-buffet.jpg', alt: 'Mesa de petiscos, frios e doces montada no evento' },
       { src: 'espaco/fachada-evento-noite.jpg', alt: 'Fachada da Casa Maria iluminada em noite de evento' },
     ],
     faq: [
@@ -161,13 +161,13 @@ export const eventos: EventoTipo[] = [
       { icon: 'taca', nome: 'Encontro de clientes', texto: 'Uma recepção nos Jardins para quem faz o negócio crescer.' },
     ],
     destaques: [
-      { title: 'De dia, <em>foco</em>', text: 'A sala interna é climatizada e tem iluminação aconchegante. O grupo trabalha com conforto e sem interrupções de outros eventos.', image: 'servicos/assessoria.avif', imageAlt: 'Equipe revisando o planejamento num notebook' },
-      { title: 'No fim do dia, <em>o bar abre</em>', text: 'Quando a pauta acaba, o jardim e o bar recebem o time para um happy hour sem precisar mudar de endereço.', image: 'espaco/lounge-poltronas-vertical.avif', imageAlt: 'Poltronas no jardim sob a árvore iluminada' },
+      { title: 'De dia, <em>foco</em>', text: 'A sala interna é climatizada e tem iluminação aconchegante. O grupo trabalha com conforto e sem interrupções de outros eventos.', image: 'servicos/assessoria.avif', imageAlt: 'Equipe de assessoria da casa revisando o planejamento com clientes num notebook' },
+      { title: 'No fim do dia, <em>o bar abre</em>', text: 'Quando a pauta acaba, o jardim e o bar recebem o time para um happy hour sem precisar mudar de endereço.', image: 'espaco/bar-evento-noite.jpg', imageAlt: 'Convidados brindando no bar com lustre de cristais' },
     ],
     galeria: [
       { src: 'corporativo/networking.avif', alt: 'Colegas conversando e rindo durante encontro de empresa' },
-      { src: 'corporativo/bar-networking.avif', alt: 'Convidados brindando no bar durante happy hour' },
-      { src: 'corporativo/ativacao-2.avif', alt: 'Atividade em grupo no deck de madeira durante offsite' },
+      { src: 'corporativo/bar-networking.avif', alt: 'Convidados conversando e brindando no bar da casa' },
+      { src: 'corporativo/ativacao-2.avif', alt: 'Grupo em atividade de alongamento no deck de madeira' },
       { src: 'espaco/bar-dia.jpg', alt: 'Bar com lustre de cristais e arranjos de flores' },
       { src: 'espaco/salao-azul-vertical.avif', alt: 'Sala interna com iluminação azul e sofás' },
       { src: 'espaco/jardim-caminho-noite.jpg', alt: 'Caminho do jardim iluminado à noite' },
@@ -203,7 +203,7 @@ export const eventos: EventoTipo[] = [
     },
     intro: {
       title: 'Um casamento com <em>alma de casa</em>',
-      text: 'Na Casa Maria o casamento acontece num só lugar. A cerimônia no jardim, o jantar sob o teto de vidro e a pista à noite, sem deslocamento para os convidados. A casa recebe até 250 pessoas.',
+      text: 'Na Casa Maria o casamento acontece num só lugar. A cerimônia no jardim, o jantar nos ambientes da casa e a pista à noite, sem deslocamento para os convidados. A casa recebe até 250 pessoas.',
       image: 'casamentos/cerimonia-corredor-1.jpg',
       imageAlt: 'Corredor da cerimônia com flores e cadeiras brancas',
     },
@@ -211,11 +211,11 @@ export const eventos: EventoTipo[] = [
       { icon: 'alianca', nome: 'Casamento', texto: 'Cerimônia e festa completas, do sim à pista.' },
       { icon: 'coracao', nome: 'Mini wedding', texto: 'Uma celebração íntima para os mais próximos.' },
       { icon: 'civil', nome: 'Cerimônia civil', texto: 'O casamento no civil com a casa como cenário.' },
-      { icon: 'brinde', nome: 'Recepção pós-cartório', texto: 'Um almoço ou jantar para celebrar depois do cartório.' },
+      { icon: 'brinde', nome: 'Recepção pós-cartório', texto: 'Uma recepção para celebrar depois do cartório.' },
       { icon: 'casal', nome: 'Renovação de votos', texto: 'Uma nova cerimônia para reafirmar a história.' },
     ],
     destaques: [
-      { title: 'Cerimônia e festa <em>no mesmo lugar</em>', text: 'Os convidados assistem ao sim no jardim e seguem para o jantar a poucos passos. Ninguém precisa pegar o carro.', image: 'casamentos/mesas-jantar-1.jpg', imageAlt: 'Mesas redondas postas para o jantar sob o teto de vidro' },
+      { title: 'Cerimônia e festa <em>no mesmo lugar</em>', text: 'Os convidados assistem ao sim no jardim e seguem para a festa a poucos passos, sem deslocamento.', image: 'casamentos/mesas-jantar-1.jpg', imageAlt: 'Mesas redondas postas para o jantar sob o teto de vidro' },
       { title: 'Perto da <em>igreja</em>', text: 'Para quem casa na igreja, a Casa Maria fica a 8 minutos da Igreja Nossa Senhora do Brasil.', image: 'casamentos/corredor-flores-vertical.avif', imageAlt: 'Corredor de entrada decorado com flores' },
       { title: 'A casa é <em>só de vocês</em>', text: 'Durante o casamento a Casa Maria recebe apenas os seus convidados, com buffet, bar, decoração e equipe da casa.', image: 'casamentos/mesa-bolo.jpg', imageAlt: 'Mesa do bolo com arranjos de flores' },
     ],
@@ -273,7 +273,7 @@ export const eventos: EventoTipo[] = [
       { icon: 'estrela', nome: 'Outras celebrações', texto: 'Conquistas e encontros que pedem uma comemoração.' },
     ],
     destaques: [
-      { title: 'A casa é <em>só sua</em>', text: 'Durante a festa a Casa Maria recebe apenas os seus convidados. O jardim, o bar e os salões ficam reservados para a sua data.', image: 'espaco/jardim-evento-noite.jpg', imageAlt: 'Convidados no jardim em frente à casa à noite' },
+      { title: 'A casa é <em>só sua</em>', text: 'Durante a festa a Casa Maria recebe apenas os seus convidados. O jardim, o bar e a sala interna ficam reservados para a sua data.', image: 'espaco/jardim-evento-noite.jpg', imageAlt: 'Convidados no jardim em frente à casa à noite' },
       { title: 'Tudo pensado <em>para receber</em>', text: 'Buffet, bar de drinks, som e luz, decoração e equipe montados conforme o estilo da celebração.', image: 'servicos/gastronomia-buffet.jpg', imageAlt: 'Mesa de petiscos, frios e doces montada para a festa' },
     ],
     galeria: [

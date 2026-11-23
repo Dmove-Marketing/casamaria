@@ -1,12 +1,12 @@
 // Valida src/data/eventos.ts (via build do Astro não é necessário: importa com tsx-like eval simples).
 import { readFile, access } from 'node:fs/promises';
-import { pathToFileURL } from 'node:url';
 import { build } from 'esbuild';
 
 const out = await build({ entryPoints: ['src/data/eventos.ts'], bundle: true, write: false, format: 'esm', platform: 'node' });
 const mod = await import('data:text/javascript;base64,' + Buffer.from(out.outputFiles[0].text).toString('base64'));
 const { eventos } = mod;
 const icones = (await readFile('src/components/site/icones.ts', 'utf8').catch(() => '')).match(/^\s+(\w+):/gm)?.map((s) => s.trim().slice(0, -1)) ?? [];
+if (!icones.length) console.log('  ⚠ AVISO: src/components/site/icones.ts não encontrado; checagem de ícones pulada');
 let f = 0; const ok = (c, m) => { console.log(`${c ? '  ✓' : '  ✗'} ${m}`); if (!c) f++; };
 const slugs = ['eventos-corporativos', 'confraternizacao-de-empresa', 'offsite-e-happy-hour', 'casamentos', 'aniversarios-e-celebracoes'];
 ok(JSON.stringify(eventos.map((e) => e.slug)) === JSON.stringify(slugs), 'slugs e ordem');
