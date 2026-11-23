@@ -15,17 +15,15 @@ const { title, fotos } = Astro.props;
 <style>
   .ga__hdr { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 2.6rem; }
   .ga__hdr :global(em) { font-style: italic; }
-  .ga { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 260px; grid-auto-flow: dense; gap: 8px; }
-  .ga li { overflow: hidden; }
-  /* ciclo de 5: 1 alta + 4 normais fecham 2 linhas; o último item ocupa o vazio que sobrar */
-  .ga li:nth-child(5n + 1) { grid-row: span 2; }
-  .ga li:last-child:nth-child(5n + 1) { grid-row: auto; grid-column: 1 / -1; }
-  .ga li:last-child:nth-child(5n + 2) { grid-column: span 2; }
-  .ga li:last-child:nth-child(5n + 3) { grid-row: span 2; }
-  .ga :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+  .ga { list-style: none; margin: 0; padding: 0; columns: 3; column-gap: 8px; }
+  .ga li { break-inside: avoid; margin-bottom: 8px; overflow: hidden; }
+  .ga :global(img) { display: block; width: 100%; height: auto; transition: transform 1s var(--ease); }
   .ga li:hover :global(img) { transform: scale(1.04); }
+  @media (max-width: 1000px) { .ga { columns: 2; } }
   @media (max-width: 700px) {
     .ga { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 8px; margin-right: calc(-1 * var(--gutter)); padding-right: var(--gutter); }
-    .ga li { flex: 0 0 82%; height: 340px; scroll-snap-align: start; }
+    .ga li { flex: 0 0 82%; height: 340px; margin-bottom: 0; scroll-snap-align: start; }
+    .ga { columns: auto; }
+    .ga :global(img) { height: 100%; object-fit: cover; }
   }
 </style>

@@ -9,7 +9,7 @@ const { overline, title, fotos = [...casa.fotosAmbientes], id } = Astro.props;
   <div class="container">
     <header class="reveal am__hdr"><span class="overline">{overline}</span><h2 class="h2" set:html={title} /></header>
   </div>
-  <div class="am__faixa" aria-label="Fotos dos ambientes">
+  <div class="am__faixa" role="region" aria-label="Fotos dos ambientes">
     <div class="am__trilho">
       {[...fotos, ...fotos].map((f, i) => (
         <div class="am__item" aria-hidden={i >= fotos.length ? 'true' : undefined}>

@@ -7,7 +7,7 @@ import { casa } from '../../data/casa';
     <ul class="tm">
       {casa.depoimentos.map((d) => (
         <li class="reveal">
-          <span class="tm__estrelas" aria-label="5 de 5 estrelas">★★★★★</span>
+          <span class="tm__estrelas" role="img" aria-label="5 de 5 estrelas">★★★★★</span>
           <blockquote>{d.texto}</blockquote>
           <cite>{d.autor}</cite>
         </li>
