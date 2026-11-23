@@ -30,13 +30,13 @@ const { image, imageAlt, overline, title, text, ctas = [], form } = Astro.props;
   .hero__veu { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,42,32,.55) 0%, rgba(8,42,32,.35) 40%, rgba(8,42,32,.85) 100%); }
   .hero__in { position: relative; }
   .hero__over { color: var(--creme-dark); margin-bottom: 1.4rem; }
-  .hero__h1 { font-family: var(--display) !important; font-size: var(--fs-h1); line-height: 1.04; max-width: 17ch; }
+  .hero__h1 { font-family: var(--display); font-size: var(--fs-h1); line-height: 1.04; max-width: 17ch; }
   .hero__h1 :global(em) { font-family: var(--serif); font-style: italic; }
   .hero__p { font-size: var(--fs-lead); max-width: 52ch; margin-top: 1.4rem; color: var(--creme); }
   .hero__ctas { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2.2rem; }
   .hero--split .hero__in { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 5vw, 5rem); align-items: end; }
   .hero--split .hero__h1 { font-size: clamp(2.2rem, 3.6vw, 3.6rem); }
   .hero__form { background: var(--branco); color: var(--tinta); padding: clamp(1.6rem, 3vw, 2.4rem); box-shadow: 0 30px 60px rgba(0,0,0,.25); }
-  .hero__form-titulo { font: 400 1.6rem var(--serif); color: var(--verde); margin-bottom: 1.2rem !important; }
+  .hero__form-titulo { font: 400 1.6rem var(--serif); color: var(--verde); margin-bottom: 1.2rem; }
   @media (max-width: 960px) { .hero--split .hero__in { grid-template-columns: 1fr; } .hero--split { align-items: flex-start; } }
 </style>
