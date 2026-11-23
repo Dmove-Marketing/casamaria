@@ -161,7 +161,7 @@ export const eventos: EventoTipo[] = [
       { icon: 'taca', nome: 'Encontro de clientes', texto: 'Uma recepção nos Jardins para quem faz o negócio crescer.' },
     ],
     destaques: [
-      { title: 'De dia, <em>foco</em>', text: 'A sala interna é climatizada e tem iluminação aconchegante. O grupo trabalha com conforto e sem interrupções de outros eventos.', image: 'servicos/assessoria.avif', imageAlt: 'Equipe de assessoria da casa revisando o planejamento com clientes num notebook' },
+      { title: 'De dia, <em>foco</em>', text: 'A sala interna é climatizada e tem iluminação aconchegante. O grupo trabalha com conforto e sem interrupções de outros eventos.', image: 'servicos/assessoria.avif', imageAlt: 'Três pessoas revisando o planejamento num notebook' },
       { title: 'No fim do dia, <em>o bar abre</em>', text: 'Quando a pauta acaba, o jardim e o bar recebem o time para um happy hour sem precisar mudar de endereço.', image: 'espaco/bar-evento-noite.jpg', imageAlt: 'Convidados brindando no bar com lustre de cristais' },
     ],
     galeria: [
