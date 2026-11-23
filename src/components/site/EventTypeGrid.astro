@@ -9,7 +9,7 @@ const rotulo = { corporativo: 'Corporativo', celebracoes: 'Celebrações' };
   {items.map((i) => (
     <li class="reveal">
       <a href={i.href} class="etg__card">
-        <Img src={i.image} alt="" width={800} sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw" class="etg__img" />
+        <Img src={i.image} alt="" width={640} quality={70} sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw" class="etg__img" />
         <span class="etg__veu"></span>
         <span class="etg__txt">
           <span class="overline">{rotulo[i.grupo]}</span>

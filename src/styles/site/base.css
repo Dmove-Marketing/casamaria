@@ -48,7 +48,7 @@ body[data-site='casa-maria'] .form-group.full,
 body[data-site='casa-maria'] .form-group:has(textarea),
 body[data-site='casa-maria'] .form-group:has([name='empresa']) { grid-column: 1 / -1; }
 body[data-site='casa-maria'] .form-group label { font: 500 var(--fs-overline)/1.4 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--verde-mid); }
-body[data-site='casa-maria'] .form-hint { text-transform: none; letter-spacing: 0; opacity: .75; }
+body[data-site='casa-maria'] .form-hint { text-transform: none; letter-spacing: 0; opacity: .85; }
 body[data-site='casa-maria'] .form-group :is(input, select, textarea) { width: 100%; border: 0; border-bottom: 1px solid var(--creme-dark); background: transparent; padding: .7rem 0; font: 400 .95rem var(--sans); color: var(--tinta); border-radius: 0; appearance: none; -webkit-appearance: none; }
 body[data-site='casa-maria'] .form-group :is(input, select, textarea):focus { outline: none; border-color: var(--verde); }
 body[data-site='casa-maria'] .form-group .field-error { border-color: var(--erro); }
