@@ -71,9 +71,12 @@ const ativo = (href: string) => current === href || current === href.slice(0, -1
   const fecharTodos = (exceto?: HTMLButtonElement) => gatilhos.forEach((b) => b !== exceto && setSub(b, false));
   gatilhos.forEach((b) => {
     const li = b.parentElement!;
-    let abertoPorHover = 0;
-    b.addEventListener('click', () => { if (Date.now() - abertoPorHover < 400) return; const v = b.getAttribute('aria-expanded') !== 'true'; fecharTodos(b); setSub(b, v); });
-    li.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) { abertoPorHover = Date.now(); fecharTodos(b); setSub(b, true); } });
+    b.addEventListener('click', (e) => {
+      // clique real de mouse em dispositivo com hover: só abre (o hover já abriu); teclado (detail 0) e toque alternam
+      const v = matchMedia('(hover: hover)').matches && e.detail > 0 ? true : b.getAttribute('aria-expanded') !== 'true';
+      fecharTodos(b); setSub(b, v);
+    });
+    li.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) { fecharTodos(b); setSub(b, true); } });
     li.addEventListener('mouseleave', () => { if (matchMedia('(hover: hover)').matches) setSub(b, false); });
     li.addEventListener('focusout', (e) => { if (!li.contains(e.relatedTarget as Node)) setSub(b, false); });
   });
