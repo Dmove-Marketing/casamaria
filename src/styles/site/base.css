@@ -10,11 +10,11 @@
 
 body[data-site='casa-maria'] { margin: 0; background: var(--branco); color: var(--tinta); font: 400 var(--fs-body)/1.7 var(--sans); -webkit-font-smoothing: antialiased; }
 body[data-site='casa-maria'] *, body[data-site='casa-maria'] *::before, body[data-site='casa-maria'] *::after { box-sizing: border-box; }
-body[data-site='casa-maria'] h1, body[data-site='casa-maria'] h2, body[data-site='casa-maria'] h3 { font-family: var(--serif); font-weight: 400; line-height: 1.1; margin: 0; color: inherit; letter-spacing: 0; }
-body[data-site='casa-maria'] p { margin: 0; color: inherit; }
-body[data-site='casa-maria'] img { max-width: 100%; display: block; }
-body[data-site='casa-maria'] a { color: inherit; }
-body[data-site='casa-maria'] em { font-style: italic; }
+:where(body[data-site='casa-maria']) h1, :where(body[data-site='casa-maria']) h2, :where(body[data-site='casa-maria']) h3 { font-family: var(--serif); font-weight: 400; line-height: 1.1; margin: 0; color: inherit; letter-spacing: 0; }
+:where(body[data-site='casa-maria']) p { margin: 0; color: inherit; }
+:where(body[data-site='casa-maria']) img { max-width: 100%; display: block; }
+:where(body[data-site='casa-maria']) a { color: inherit; }
+:where(body[data-site='casa-maria']) em { font-style: italic; }
 
 .container { width: 100%; max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
 .section { padding: var(--sec-y) 0; position: relative; }

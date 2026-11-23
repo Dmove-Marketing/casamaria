@@ -7,14 +7,14 @@ import '../../styles/site/base.css';
 
 interface Props {
   title: string; description: string; canonical?: string; ogImage?: string;
-  jsonLd?: Record<string, any> | Record<string, any>[]; noIndex?: boolean; current?: string;
+  jsonLd?: Record<string, any> | Record<string, any>[]; noIndex?: boolean; current?: string; solidHeader?: boolean;
 }
-const { title, description, canonical, ogImage = '/images/og-casa-maria.jpg', jsonLd, noIndex = false, current = Astro.url.pathname } = Astro.props;
+const { title, description, canonical, ogImage = '/images/og-casa-maria.jpg', jsonLd, noIndex = false, current = Astro.url.pathname, solidHeader = false } = Astro.props;
 ---
 <Base title={title} description={description} canonical={canonical} ogImage={ogImage} jsonLd={jsonLd as any} noIndex={noIndex} theme="light">
   <script is:inline>document.body.dataset.site = 'casa-maria'; document.documentElement.classList.add('js');</script>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
-  <SiteHeader current={current} />
+  <SiteHeader current={current} solid={solidHeader} />
   <main id="conteudo"><slot /></main>
   <SiteFooter />
 </Base>

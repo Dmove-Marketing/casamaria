@@ -1,7 +1,7 @@
 ---
 import Img from '../ui/Img.astro';
-interface Props { current: string }
-const { current } = Astro.props;
+interface Props { current: string; solid?: boolean }
+const { current, solid = false } = Astro.props;
 const MENU = [
   { rotulo: 'Corporativo', itens: [
     { href: '/eventos-corporativos/', nome: 'Eventos corporativos' },
@@ -15,7 +15,7 @@ const MENU = [
 ];
 const ativo = (href: string) => current === href || current === href.slice(0, -1);
 ---
-<header class="hdr" data-hdr>
+<header class={`hdr${solid ? ' hdr--solido' : ''}`} data-hdr data-solid={solid ? '' : undefined}>
   <div class="hdr__in">
     <a href="/" class="hdr__logo" aria-label="Casa Maria Jardins, página inicial">
       <Img src="marca/logo-branca.png" alt="" width={240} sizes="140px" priority />
@@ -59,7 +59,7 @@ const ativo = (href: string) => current === href || current === href.slice(0, -1
 
 <script>
   const hdr = document.querySelector<HTMLElement>('[data-hdr]')!;
-  const onScroll = () => hdr.classList.toggle('hdr--solido', window.scrollY > 60);
+  const onScroll = () => hdr.classList.toggle('hdr--solido', hdr.hasAttribute('data-solid') || window.scrollY > 60);
   onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
 
   // Submenus (desktop): hover + clique + teclado; Esc fecha
@@ -71,8 +71,9 @@ const ativo = (href: string) => current === href || current === href.slice(0, -1
   const fecharTodos = (exceto?: HTMLButtonElement) => gatilhos.forEach((b) => b !== exceto && setSub(b, false));
   gatilhos.forEach((b) => {
     const li = b.parentElement!;
-    b.addEventListener('click', () => { const v = b.getAttribute('aria-expanded') !== 'true'; fecharTodos(b); setSub(b, v); });
-    li.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) { fecharTodos(b); setSub(b, true); } });
+    let abertoPorHover = 0;
+    b.addEventListener('click', () => { if (Date.now() - abertoPorHover < 400) return; const v = b.getAttribute('aria-expanded') !== 'true'; fecharTodos(b); setSub(b, v); });
+    li.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) { abertoPorHover = Date.now(); fecharTodos(b); setSub(b, true); } });
     li.addEventListener('mouseleave', () => { if (matchMedia('(hover: hover)').matches) setSub(b, false); });
     li.addEventListener('focusout', (e) => { if (!li.contains(e.relatedTarget as Node)) setSub(b, false); });
   });
@@ -115,7 +116,7 @@ const ativo = (href: string) => current === href || current === href.slice(0, -1
   .hdr__sub a { display: block; padding: .7rem 1.4rem; font: 400 1.15rem var(--serif); text-decoration: none; }
   .hdr__sub a:hover, .hdr__sub a[aria-current='page'] { background: var(--creme-light); }
   .hdr__cta { min-height: 44px; padding: .75rem 1.3rem; }
-  .hdr__burger { display: none; margin-left: auto; width: 44px; height: 44px; background: none; border: 0; cursor: pointer; flex-direction: column; justify-content: center; gap: 6px; padding: 10px; }
+  .hdr__burger { display: none; margin-left: auto; width: 44px; height: 44px; background: none; border: 0; cursor: pointer; color: inherit; flex-direction: column; justify-content: center; gap: 6px; padding: 10px; }
   .hdr__burger span { display: block; height: 1.5px; background: currentColor; }
   .gaveta { position: fixed; inset: 0; background: var(--verde); color: var(--creme-light); padding: 1.2rem var(--gutter) 2rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1.8rem; }
   .gaveta[hidden] { display: none; }
@@ -125,7 +126,6 @@ const ativo = (href: string) => current === href || current === href.slice(0, -1
   .gaveta__grupo ul { list-style: none; margin: .6rem 0 0; padding: 0; }
   .gaveta__grupo a, .gaveta__link { display: block; padding: .5rem 0; font: 400 1.7rem var(--serif); text-decoration: none; }
   .gaveta__cta { margin-top: auto; }
-  .hdr .btn--claro { color: var(--verde); }
   .gaveta .overline { color: var(--creme-dark); }
   @media (max-width: 1023px) {
     .hdr__nav, .hdr__cta { display: none; }
